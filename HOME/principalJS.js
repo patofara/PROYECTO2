@@ -46,7 +46,9 @@ modoNocturno.addEventListener("click", function(){
     hamburguesa.src = "/assets/Button-close-modo-noc.svg"
     leftslider.src = "/assets/button-slider-left-md-noct.svg"
     rightslider.src = "/assets/button-slider-right-md-noct.svg"
-
+    rightslider.addEventListener("mouseleave", () => rightslider.src = "/assets/button-slider-right-md-noct.svg")
+    leftslider.addEventListener("mouseleave", () => leftslider.src = "/assets/button-slider-left-md-noct.svg")
+    
     }
    
     // else if(listaHamb.classList.contains('dark') && hamburguesa.classList.contains("hamburguesa")){
