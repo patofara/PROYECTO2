@@ -30,14 +30,15 @@ let modoNocturno = document.getElementById("modoNocturno");
 let letras = document.querySelectorAll('a,p,h1,h3');
 let fondoSlider = document.getElementById("slider")
 let logo = document.getElementById("logo")
+
 modoNocturno.addEventListener("click", function(){
     document.body.classList.toggle('dark');
     fondoSlider.classList.toggle('dark')
     listaHamb.classList.toggle('dark')
-    
     for (let i = 0; i < letras.length; i++) {
          letras[i].classList.toggle('white')
     }
+    
     if(document.body.classList.contains('dark')){
     sessionStorage.setItem('dark-mode', 'true')
     modoNocturno.innerHTML = "Modo Diurno"; 
