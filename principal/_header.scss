@@ -1,0 +1,31 @@
+header{
+    text-align:center;
+}
+header h1{
+    font-size: 1.56rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #572EE5;
+    line-height: 33px;
+    padding: 0 10% 0 10%;
+    margin-block-start: 0.2em;
+}
+header h1 span{
+    color: #b38c93c4;
+}
+header div{
+    padding: 6% 10% 0 10%;
+}
+header div img{
+    width: 100%;
+}
+header input{
+    width: 90%;
+    height: 6vh;
+    border-radius: 27px;
+    background: #FFFFFF;
+    border: 1px solid #572EE5;
+    margin-top: -4px;
+}
+input[placeholder]{
+    padding-left: 5vw;
+}

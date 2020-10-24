@@ -1,0 +1,73 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+nav div:nth-child(1){
+    flex: 1 1 50%;
+}
+nav div:nth-child(1) img{
+    width: 11vw;
+    height: 12vh;
+    padding-left: 5vw;
+}
+nav div:nth-child(2){
+    flex: 1 1 50%;
+}
+.burgerOn{
+    transition: 0.7s ease-in-out;
+    float: right;
+    padding-right: 5%;
+    width: 17vw;
+    height: 11vh;
+}
+.hamburguesa{
+    transition: 0.7s ease-in-out;
+    float: right;
+    padding-right: 15%;
+    width: 8vw;
+    height: 12vh;
+}
+.noListHamb, .listHamb{
+    position: absolute;
+    list-style: none;
+    text-align: center;
+    margin-top: 20%;
+    padding: 9% 0 0px 0%;
+    height: 80vh;
+    background-color: rgba(87,46,229,0.90);
+    width: 100%;
+    opacity: 1;
+    margin-left: -8px;
+    &.dark{
+        background-color: rgba(0,0,0,1);
+        transition: .3 ease all;
+    }
+}
+.noListHamb{
+    transform: translateY(-150%);
+    transition: transform 0.5s ease;
+}
+.listHamb{
+    transform: translateY(0);
+    transition: transform 0.7s ease;
+}
+#menuNav li{
+    height: 11vh;
+}
+#menuNav li a{
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 60px;
+}
+.masNav{
+    display: none;
+}
+#menuNav p{
+    width: 100%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}

@@ -1,0 +1,148 @@
+@media screen and (min-width: 769px){
+    // NAV !!!!
+    nav div:nth-child(1) img{
+        width: 14vw;
+        height: 10vh;
+        padding: 3vh 0 0 3vw;
+    }
+    nav div:nth-child(2){
+        display: none;
+    }
+    .noListHamb{
+        transition: .3s ease all;
+        flex: 1 1 50%;
+        transform: translateY(0);
+        position: relative;
+        list-style: none;
+        text-align: center;
+        margin-top: 0%;
+        padding: 2% 5% 0px 0px;
+        height: 10vh;
+        background-color: white;
+        width: 100%;
+        opacity: 1;
+        margin-left: 0px;
+        display: flex;
+        justify-content: space-around;
+        &.dark{
+            background-color: rgba(55,56,60,1);
+            transition: .3s ease all;
+        }
+    
+    }
+    .noListHamb li{
+        display: inline-block;
+        width: 11vw;
+
+    }
+    .masNav{
+        display: block;
+        width: 4vw;
+    }
+    .masNav:hover{
+        opacity: 0.5;
+        width: 4.1vw;
+    }
+    #menuNav li a{
+        color: rgba(87,46,229,1);
+    }
+    #menuNav p{
+        color: rgba(87,46,229,1);
+        padding-top: 0.5vh;
+    }
+    #menuNav p:hover{
+        font-size: 1.1rem;
+        opacity: 0.5;
+    }
+    #menuNav li a:hover{
+        opacity: 0.5;
+        font-size: 1.2rem;
+    }
+    // HEADER!!!
+    header h1{
+        line-height: 50px;
+        font-size: 2.18rem;
+        padding: 5% 27% 0 27%;
+    }
+    header div img{
+        width: 38%;
+    }
+    header input{
+        width: 42%;
+        height: 6.5vh;
+    }
+    input[placeholder]{
+        padding-left: 1.5vw;
+    }
+
+    // CENTRO!!!
+    .centro h3{
+        padding-top: 6%;
+        font-size: 1.1rem;
+    }
+    .centro p{
+        font-size: 1rem;
+    }
+
+    // SLIDER!!!
+    .slider {
+        margin-top: 25vh;
+        padding-top: 3%;
+        height: 80vh;
+    }
+    .slider h3{
+        font-size: 1.56rem;
+    }
+    .slider p{
+        font-size: 1.1rem;
+        display: contents;
+    }
+    #carrusel{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding-left: 5%;
+    padding-top: 8%;
+    }
+    #carrusel > img{
+        display: block;
+        height: 8vh;
+        margin-top: 12vh;
+    }
+    #carrusel div{
+        width: 20vw;
+        height: 35vh;
+        flex-basis: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #carrusel div img{
+        width: 32%;
+        height: 100%;
+        
+    }
+    #imagenesSlider img:nth-child(2){
+        display: block;
+    }
+    #imagenesSlider img:nth-child(3){
+        display: block;
+    }
+
+    // FOOTER!!!
+    footer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2%;
+        height: 12vh;
+    }
+    .compartir{
+        width: 50%;
+    }
+    .compartir h3{
+        display: inline-block;
+    }
+    footer p{
+        padding-top: 0;
+        width: 50%;
+    }
+}

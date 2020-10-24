@@ -1,0 +1,37 @@
+#slider{
+    transition: .3s ease all;
+    text-align: center;
+    padding-top: 10%;
+    background: #F3F5F8;
+    height: 75vh;
+    margin-top: 8vh;
+    &.dark{
+        background-color: rgba(34,35,38,1);
+        transition: .3s ease all;
+    }
+}
+#slider h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    color: #572EE5;
+    line-height: 30px;
+}
+#slider p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #000000;
+    line-height: 8px;
+}
+#carrusel{
+    display: flex;
+    padding-top: 8%;
+}
+#carrusel > img{
+    display: none;
+}
+#imagenesSlider img:nth-child(2){
+    display: none;
+}
+#imagenesSlider img:nth-child(3){
+    display: none;
+}
