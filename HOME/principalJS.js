@@ -1,4 +1,4 @@
-// // HAMBURGUESA
+// // HAMBURGUESA 
 let hamburguesa = document.getElementById("hamburguesa");
 let listaHamb = document.getElementById("menuNav");
 let masNav = document.getElementById("masNav")
@@ -27,19 +27,25 @@ hamburguesa.addEventListener("click", function() {
 // !! letras blancas
 // fondo negro
 let modoNocturno = document.getElementById("modoNocturno");
-let letras = document.querySelectorAll('a');
+let letras = document.querySelectorAll('a,p,h1,h3');
 let fondoSlider = document.getElementById("slider")
 let logo = document.getElementById("logo")
 modoNocturno.addEventListener("click", function(){
     document.body.classList.toggle('dark');
     fondoSlider.classList.toggle('dark')
     listaHamb.classList.toggle('dark')
-   
-    if(listaHamb.classList.contains('dark')){
+    
+    for (let i = 0; i < letras.length; i++) {
+         letras[i].classList.toggle('white')
+    }
+    if(document.body.classList.contains('dark')){
+    sessionStorage.setItem('dark-mode', 'true')
+    modoNocturno.innerHTML = "Modo Diurno"; 
     logo.src = "/assets/logo-mobile-modo-noct.svg"
     hamburguesa.src = "/assets/Button-close-modo-noc.svg"
     leftslider.src = "/assets/button-slider-left-md-noct.svg"
     rightslider.src = "/assets/button-slider-right-md-noct.svg"
+
     }
    
     // else if(listaHamb.classList.contains('dark') && hamburguesa.classList.contains("hamburguesa")){
@@ -49,6 +55,8 @@ modoNocturno.addEventListener("click", function(){
     // }
     
     else{
+    sessionStorage.setItem('dark-mode','false')
+    modoNocturno.innerHTML = "Modo Nocturno"
     logo.src = "/assets/logo-mobile.svg"
     hamburguesa.src = "/assets/Button-close-hover-modo-noc.svg";
     leftslider.src = "/assets/button-slider-left.svg"
@@ -56,6 +64,28 @@ modoNocturno.addEventListener("click", function(){
     }
 });
 
+
+
+// Local storage
+
+// // NO ANDAN LOS SLIDER CUANDO ESTO ESTA ACTIVADO
+// if(sessionStorage.getItem('dark-mode') === 'true'){
+//     modoNocturno.innerHTML = "Modo Diurno";
+//     document.body.classList.toggle('dark');
+//     fondoSlider.classList.toggle('dark')
+//     listaHamb.classList.toggle('dark')
+//     hamburguesa.src = "/assets/Button-close-modo-noc.svg"
+//     leftslider.src = "/assets/button-slider-left-md-noct.svg"
+//     rightslider.src = "/assets/button-slider-right-md-noct.svg"
+//     logo.src = "/assets/logo-mobile-modo-noct.svg"
+// }
+// else{
+//     logo.src = "/assets/logo-mobile.svg"
+//     modoNocturno.innerHTML = "Modo Nocturno";
+//     hamburguesa.src = "/assets/Button-close-hover-modo-noc.svg";
+//     leftslider.src = "/assets/button-slider-left.svg"
+//     rightslider.src = "/assets/Button-Slider-right.svg"
+// };
 
 
 // SLIDER PAGINA PRINCIPAL

@@ -45,10 +45,17 @@
     }
     #menuNav li a{
         color: rgba(87,46,229,1);
+        &.white{
+            color: white;
+        }
     }
     #menuNav p{
         color: rgba(87,46,229,1);
         padding-top: 0.5vh;
+        cursor: pointer;
+        &.white{
+            color: white;
+        }
     }
     #menuNav p:hover{
         font-size: 1.1rem;
@@ -85,15 +92,15 @@
     }
 
     // SLIDER!!!
-    .slider {
+    #slider {
         margin-top: 25vh;
         padding-top: 3%;
         height: 80vh;
     }
-    .slider h3{
+    #slider h3{
         font-size: 1.56rem;
     }
-    .slider p{
+    #slider p{
         font-size: 1.1rem;
         display: contents;
     }
@@ -102,7 +109,7 @@
     justify-content: space-between;
     width: 90%;
     padding-left: 5%;
-    padding-top: 8%;
+    padding-top: 5%;
     }
     #carrusel > img{
         display: block;

@@ -15,12 +15,18 @@
     font-size: 1.25rem;
     color: #572EE5;
     line-height: 30px;
+    &.white{
+        color: white;
+    }
 }
 #slider p{
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     color: #000000;
     line-height: 8px;
+    &.white{
+        color: white;
+    }
 }
 #carrusel{
     display: flex;
