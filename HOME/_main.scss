@@ -1,27 +1,24 @@
-header{
+main{
     text-align:center;
 }
-header h1{
+main h1{
     font-size: 1.56rem;
     font-family: 'Montserrat', sans-serif;
     color: #572EE5;
     line-height: 33px;
     padding: 0 10% 0 10%;
     margin-block-start: 0.2em;
-    &.white{
-        color: white;
-    }
 }
-header h1 span{
+main h1 span{
     color: #b38c93c4;
 }
-header div{
+main div{
     padding: 6% 10% 0 10%;
 }
-header div img{
+main div img{
     width: 100%;
 }
-header input{
+main input{
     width: 90%;
     height: 6vh;
     border-radius: 27px;

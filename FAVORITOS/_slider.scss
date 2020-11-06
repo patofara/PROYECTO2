@@ -22,13 +22,16 @@
     color: #000000;
     line-height: 8px;
 }
-.container-carrusel{
+#carrusel{
     display: flex;
     padding-top: 8%;
 }
-.container-carrusel > img{
+#carrusel > img{
     display: none;
 }
-.container-imgSlider img{
+#imagenesSlider img:nth-child(2){
+    display: none;
+}
+#imagenesSlider img:nth-child(3){
     display: none;
 }

@@ -42,60 +42,50 @@
         opacity: 0.5;
         width: 4.1vw;
     }
-    .noListHamb li a{
+   .noListHamb li a{
         color: rgba(87,46,229,1);
         &.white{
             color: white;
         }
     }
-    
-    .noListHamb li:nth-child(1){
+   .noListHamb li:nth-child(1){
         text-align: left;
     }
-    .noListHamb span{
+   .noListHamb span{
         display: none;
     }
-    .noListHamb p{
+   .noListHamb p{
         color: rgba(87,46,229,1);
         padding-top: 0.5vh;
         cursor: pointer;
     }
-    .noListHamb p:hover{
+   .noListHamb p:hover{
         font-size: 1.1rem;
         opacity: 0.5;
     }
-    .noListHamb li a:hover{
+   .noListHamb li a:hover{
         opacity: 0.5;
         font-size: 1.2rem;
     }
-    // MAIN!!!
-    main h1{
-        line-height: 50px;
-        font-size: 2.18rem;
-        padding: 5% 27% 0 27%;
+    
+    
+    // MAIN!!
+    #cuadrilla{
+        padding: 4% 10% 0 10%;
     }
-    main div img{
-        width: 38%;
-    }
-    main input{
-        width: 42%;
-        height: 6.5vh;
-    }
-    input[placeholder]{
-        padding-left: 1.5vw;
+    #cuadrilla div{
+        width: calc((100% - 70px) / 4);
     }
 
-    // CENTRO!!!
-    .centro h3{
-        padding-top: 6%;
-        font-size: 1.1rem;
+
+    // BOTON!!
+
+    .boton{
+        width: 16vw;
     }
-    .centro p{
-        font-size: 1rem;
-    }
+
 
     // SLIDER!!!
-
     .trending {
         margin-top: 25vh;
         padding-top: 3%;
@@ -108,59 +98,38 @@
         font-size: 1.1rem;
         display: contents;
     }
-    .container-carrusel{
+    #carrusel{
     display: flex;
     justify-content: space-between;
     width: 90%;
     padding-left: 5%;
     padding-top: 5%;
     }
-    .container-carrusel > img{
+    #carrusel > img{
         display: block;
         height: 8vh;
         margin-top: 12vh;
     }
-    .container-carrusel > div{
+    #carrusel div{
         width: 20vw;
         height: 35vh;
         flex-basis: 80%;
         display: flex;
         justify-content: space-between;
     }
-    .container-imgSlider > div{
-        display: block;
-        max-width: 100%;
+    #carrusel div img{
         width: 32%;
         height: 100%;
+        
     }
-    .container-imgSlider img{
-        width: 100%;
+    #imagenesSlider img:hover{
+        opacity: 0.2;
+    }
+    #imagenesSlider img:nth-child(2){
         display: block;
-        height: 100%;
     }
-    // .container-imgSlider div:hover{
-    //     opacity: 0.2;
-    // }
-    
-    .opciones{
-        z-index: 1;
-        margin-top: -35vh;
-        position: absolute;
-        width: 22vw;
-        height: 35vh;
-        display: none;
-        &.block{
-            display: block;
-        }
-
-    }
-    .opciones img{
-        width: 13%;
-        float: right;
-        height: 14%;
-        padding: 1vh 1vh 0 0;
-
-
+    #imagenesSlider img:nth-child(3){
+        display: block;
     }
 
     // FOOTER!!!
@@ -175,7 +144,6 @@
     }
     .compartir h3{
         display: inline-block;
-
     }
     footer p{
         padding-top: 0;
