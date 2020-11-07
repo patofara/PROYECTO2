@@ -54,21 +54,30 @@ function burger() {
         }
 };
 
-// SLIDER PAGINA PRINCIPAL
+// SLIDER TRENDING
+
+
+arrayTrending = [];
+let trending = "http://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&limit=10"
+fetch(trending)
+.then(resp => resp.json())
+.then(resp => {
+    console.log(resp);
+    for (let i = 0; i < 10; i++) {
+        let element = resp.data[i].images.downsized.url;
+        arrayTrending.push(element)
+     }
+     imagenslider.src = arrayTrending[0];
+     imagenslider2.src = arrayTrending[1];
+     imagenslider3.src = arrayTrending[2];
+
+    });
 
 
 var imagenslider = document.getElementById("imagenslider")
 var imagenslider2 = document.getElementById("imagenslider2")
 var imagenslider3 = document.getElementById("imagenslider3")
 
-arrayImagenes = ["/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg", "/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg"];
-
-function renderizarSlider () {
-    imagenslider.src = arrayImagenes[0];
-    imagenslider2.src = arrayImagenes[1];
-    imagenslider3.src = arrayImagenes[2];
-}
-renderizarSlider();
 
 var contImagenes = 0;
 let leftslider = document.getElementById("leftslider")
@@ -79,9 +88,9 @@ leftslider.addEventListener("click", function(){
 
     if(contImagenes > 0){
         contImagenes --;
-        imagenslider.src = arrayImagenes[contImagenes]
-        imagenslider2.src = arrayImagenes[contImagenes + 1]
-        imagenslider3.src = arrayImagenes[contImagenes + 2]    
+        imagenslider.src = arrayTrending[contImagenes]
+        imagenslider2.src = arrayTrending[contImagenes + 1]
+        imagenslider3.src = arrayTrending[contImagenes + 2]    
     }
     else{
 
@@ -93,10 +102,10 @@ rightslider.addEventListener("mouseover", () => rightslider.src = "/assets/Butto
 rightslider.addEventListener("mouseleave", () => rightslider.src = "/assets/Button-Slider-right.svg")
 
 rightslider.addEventListener("click", function(){
-    if(contImagenes < (arrayImagenes.length - 3)){
-        imagenslider.src = arrayImagenes[contImagenes + 1]
-        imagenslider2.src = arrayImagenes[contImagenes + 2]
-        imagenslider3.src = arrayImagenes[contImagenes + 3]
+    if(contImagenes < (arrayTrending.length - 3)){
+        imagenslider.src = arrayTrending[contImagenes + 1]
+        imagenslider2.src = arrayTrending[contImagenes + 2]
+        imagenslider3.src = arrayTrending[contImagenes + 3]
         contImagenes ++;
     }
     else{
@@ -104,11 +113,6 @@ rightslider.addEventListener("click", function(){
     }
 });
 
-// imagenslider.addEventListener("mouseover", function(){
-//     var miniDiv1 = document.createElement("div")
-//     imagenslider.appendChild(miniDiv1)
-// });
-// // imagenslider.addEventListener("mouseleave", function(){
-// //     let borrar = imagenslider.lastChild;
-// //     imagenslider.removeChild(borrar)
-// // });
+    
+
+

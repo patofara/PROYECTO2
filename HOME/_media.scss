@@ -146,23 +146,26 @@
         z-index: 1;
         margin-top: -35vh;
         position: absolute;
-        width: 22vw;
+        width: 22.5vw;
         height: 35vh;
-        display: none;
-        &.block{
-            display: block;
-        }
-
+        opacity: 0;
     }
+    .opciones:hover{
+        transition: .3s ease all;
+        opacity: 0.7;
+        background: #572EE5;
+    }
+
     .opciones img{
         width: 13%;
         float: right;
         height: 14%;
-        padding: 1vh 1vh 0 0;
-
-
+        padding: 1vh 0 0 0;
+        z-index: 2;
     }
-
+    .opciones img:hover{
+        opacity: 0.2;
+    }
     // FOOTER!!!
     footer {
         display: flex;
