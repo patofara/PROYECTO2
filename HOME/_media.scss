@@ -1,5 +1,18 @@
 @media screen and (min-width: 767px){
     // NAV !!!!
+    nav{
+        position: fixed;
+        width: 100%;
+        border-top: 5px solid #572EE5;
+        top: 0;
+        transition: .3s ease all;
+        background-color: white;
+        .dark &{
+            border-color: black;
+            background-color: #37383c;
+            transition: .3s ease all;
+        }
+    }
     nav div:nth-child(1) img{
         width: 14vw;
         height: 10vh;
@@ -24,14 +37,14 @@
         margin-left: 0px;
         display: flex;
         justify-content: space-around;
-        &.dark{
+        .dark &{
             background-color: rgba(55,56,60,1);
         }
     
     }
     .noListHamb li{
         display: inline-block;
-        width: 11vw;
+        width: 13vw;
 
     }
     .masNav{
@@ -44,7 +57,7 @@
     }
     .noListHamb li a{
         color: rgba(87,46,229,1);
-        &.white{
+        .dark &{
             color: white;
         }
     }
@@ -57,8 +70,10 @@
     }
     .noListHamb p{
         color: rgba(87,46,229,1);
-        padding-top: 0.5vh;
         cursor: pointer;
+        padding-top: 3vh;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
     }
     .noListHamb p:hover{
         font-size: 1.1rem;
@@ -80,10 +95,66 @@
     main input{
         width: 42%;
         height: 6.5vh;
+        margin-top: -3.5px;
     }
     input[placeholder]{
-        padding-left: 1.5vw;
+        width: 40%;
+        padding-left: 4%;
+        .appear &{
+            width: 39%;
+        }
     }
+    .cajaSearch{
+        width: 43%;
+        margin-top: -44px;
+        &.appear{
+            width: 42%;
+        }
+    }
+    .cajaSearch::before{
+        left: 29vw;
+        width: 39vw;
+        margin-top: -15%;
+    }
+    .cajaSearch li{
+        cursor: pointer;
+        margin-left: -7px;
+        width: 96%;
+        margin: 1.2% 0 1.2% 0 ;
+    }
+    .cajaSearch li:hover{
+        opacity: 0.8;
+        background-color: whitesmoke;
+        border-radius: 10px;
+    }
+    // .cajaSearch > img{
+    //     margin-top: 13px;
+    //     position: absolute;
+    // }
+    .lupa{
+        padding-top: 9px;
+        cursor: pointer;
+    }
+    .lupa:hover{
+        opacity: 0.6;
+    }
+    .lupa2{
+        left: 29.8%;
+        width: 1.3%;
+        margin-top: 9px;
+    }
+    // BUSCADOS
+    .divBuscados{
+        height: 34.5vh;
+    }
+    .sectionBusqueda img{
+        height: 34vh;
+    }
+    .sectionBusqueda button{
+        width: 16%;
+        height: 7vh;
+    }
+
 
     // CENTRO!!!
     .centro h3{
@@ -119,6 +190,7 @@
         display: block;
         height: 8vh;
         margin-top: 12vh;
+        cursor: pointer;
     }
     .container-carrusel > div{
         width: 20vw;
@@ -138,9 +210,7 @@
         display: block;
         height: 100%;
     }
-    // .container-imgSlider div:hover{
-    //     opacity: 0.2;
-    // }
+
     
     .opciones{
         z-index: 1;
@@ -151,9 +221,10 @@
         opacity: 0;
     }
     .opciones:hover{
-        transition: .3s ease all;
+        transition: .2s ease all;
         opacity: 0.7;
         background: #572EE5;
+        cursor: pointer;
     }
 
     .opciones img{
@@ -164,7 +235,7 @@
         z-index: 2;
     }
     .opciones img:hover{
-        opacity: 0.2;
+        cursor:pointer
     }
     // FOOTER!!!
     footer {

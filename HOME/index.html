@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <nav id="nav">
         <div>
             <a href="/HOME/index.html"><img src="/assets/logo-mobile.svg" alt="icon" id="logo"></a>
         </div>
@@ -26,13 +26,24 @@
             <li><a href=""><img src="/assets/button-crear-gifo.svg" alt="iconicon" class="masNav"></a></li>
         </ul>
     </nav>
-    <main>
+    <main id="main">
         <h1>Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
         <div>
             <img src="/assets/ilustra_header.svg" alt="icon">
         </div>
-        <input type="text" name="search" id="search" placeholder="Buscar GIFOS y más">
+        <img src="/assets/icon-search.svg" alt="" class="lupa2">
+        <input type="text" name="search" placeholder="Buscar GIFOS y más" id="search">
+        <img src="/assets/icon-search.svg" alt="" class="lupa">
+        <ul class="cajaSearch" id="cajaSugerencias">
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"><li id="sug1"></li>
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"><li id="sug2"></li>
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"> <li id="sug3"></li>
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"><li id="sug4"></li>
+        </ul>
     </main>
+    <section id="buscados" class="sectionBusqueda">
+
+    </section>
     <section class="centro">
         <h3>Trending:</h3>
         <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
@@ -46,25 +57,25 @@
                 <div>
                     <img src="" alt="icon" id="imagenslider">
                     <div class="opciones">  
-                        <img src="/assets/icon-max-normal.svg" alt="" class="expandir">
-                        <img src="/assets/icon-download.svg" alt="" class="descargar">
-                        <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                        <img src="/assets/icon-max-normal.svg" alt="" id= "expandir1">
+                        <img src="/assets/icon-download.svg" alt="" id="descargar1">
+                        <img src="/assets/icon-fav.svg" alt="" id="meGusta1">
                     </div>
                 </div>
                 <div>
                     <img src="" alt="icon" id="imagenslider2">
                     <div class="opciones">
-                        <img src="/assets/icon-max-normal.svg" alt="" class="meGusta">
-                        <img src="/assets/icon-download.svg" alt="" class="descargar">
-                        <img src="/assets/icon-fav.svg" alt="" class="expandir">
+                        <img src="/assets/icon-max-normal.svg" alt="" id= "expandir2">
+                        <img src="/assets/icon-download.svg" alt="" id="descargar2">
+                        <img src="/assets/icon-fav.svg" alt="" id="meGusta2">
                     </div>
                 </div>
                 <div>
                     <img src="" alt="icon" id="imagenslider3">
                     <div class="opciones">
-                        <img src="/assets/icon-max-normal.svg" alt="" class="expandir">
-                        <img src="/assets/icon-download.svg" alt="" class="descargar">
-                        <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                        <img src="/assets/icon-max-normal.svg" alt="" id= "expandir3">
+                        <img src="/assets/icon-download.svg" alt=""  id="descargar3">
+                        <img src="/assets/icon-fav.svg" alt="" id="meGusta3">
                     </div>
                 </div>
             </div>
@@ -74,9 +85,9 @@
     <footer>
         <div class="compartir">
             <h3>Compartir en:</h3>
-            <div><a href="http/www.facebook.com"><img src="/assets/icon_facebook.svg" alt="icon"></a></div>
-            <div><a href="http/www.twitter.com"><img src="/assets/icon-tw-normal.svg" alt="icon"></a></div>
-            <div><a href="http/www.instagram.com"><img src="/assets/icon_instagram.svg" alt="icon"></a></div>
+            <div><a href="http/www.facebook.com"><img src="/assets/icon_facebook.svg" alt="icon" id="facebook"></a></div>
+            <div><a href="http/www.twitter.com"><img src="/assets/icon-tw-normal.svg" alt="icon" id="twitter"></a></div>
+            <div><a href="http/www.instagram.com"><img src="/assets/icon_instagram.svg" alt="icon" id="instagram"></a></div>
         </div>
         <p>© GIFOS 2020 All Rights Reserved.</p>
     </footer>

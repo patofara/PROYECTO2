@@ -5,7 +5,7 @@
     background: #F3F5F8;
     height: 75vh;
     margin-top: 8vh;
-    &.dark{
+    .dark &{
         background-color: rgba(34,35,38,1);
         transition: .3s ease all;
     }

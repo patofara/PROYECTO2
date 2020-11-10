@@ -122,6 +122,12 @@ main h1 {
   line-height: 30px;
 }
 
+.lupa {
+  position: absolute;
+  margin-left: -37px;
+  padding-top: 4px;
+}
+
 body {
   border-top: 5px solid #572EE5;
   border-bottom: 5px solid #572EE5;

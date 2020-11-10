@@ -1,0 +1,98 @@
+.sectionBusqueda{
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+    
+}
+.sectionBusqueda h3{
+    font-size: 1.56rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #572EE5;
+    line-height: 30px;
+    width: 100%;
+    .dark &{
+        color: white;
+    }
+}
+.sectionBusqueda button{
+    width: 30%;
+    height: 8vh;
+    border: 1px solid #572EE5;
+    border-radius: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; 
+    font-size: 0.7rem;
+    color: #572EE5;
+    letter-spacing: 0;
+    cursor: pointer;
+    background-color: white;
+    margin: 10% auto;
+}
+.divBuscados{
+    width: 22.5vw;
+    height: 23vh;
+    margin-top: 12%;
+}
+.imgBuscadas{
+    height: 100%;
+    width: 100%;
+}
+.cajaSearch{
+    margin: auto;
+    border-radius: 27px;
+    background: #FFFFFF;
+    border: 1px solid #572EE5;
+    width: 94%;
+    text-align: left;
+    padding-inline-start: 3%;
+    margin-top: -36px;
+    padding-top: 10%;
+    display: none;
+    &.appear{
+        display: block;
+    }
+    .dark &{
+        background-color:  rgba(55,56,60,1);
+        border-color: white;
+    }
+    
+}
+.cajaSearch li{
+    padding: 0 0 3% 0px;
+    list-style: none;
+    font-size: 0.7rem;
+    .dark &{
+        color: white;
+    }
+}
+.cajaSearch li img{
+    padding: 2% 5% 0 0;
+}
+.cajaSearch::before{
+    content: "";
+    left: 7vw;
+    display: block;
+    width: 97%;
+    height: 2px;
+    opacity: 0.5;
+    background-color: #9CAFC3;
+}
+.lupa{
+    position: absolute;
+    margin-left: -37px;
+    padding-top: 5.2px;
+}
+.lupa2{
+    position: absolute;
+    width: 3%;
+    left: 7%;
+    margin-top: 2%;
+    display: none;
+    &.aparece{
+        display: block;
+    }
+}

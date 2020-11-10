@@ -5,6 +5,7 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 9;
 }
 
 nav div:nth-child(1) {
@@ -63,7 +64,7 @@ nav div:nth-child(2) {
   margin-left: -8px;
 }
 
-.noListHamb.dark {
+.dark .noListHamb {
   background-color: black;
   -webkit-transition: .3 ease all;
   transition: .3 ease all;
@@ -75,7 +76,7 @@ nav div:nth-child(2) {
 }
 
 .noListHamb li {
-  height: 11vh;
+  height: 9vh;
 }
 
 .noListHamb li a {
@@ -111,6 +112,11 @@ nav div:nth-child(2) {
 
 main {
   text-align: center;
+  padding-top: 12vh;
+}
+
+.appear main {
+  height: 130vh;
 }
 
 main h1 {
@@ -124,7 +130,7 @@ main h1 {
 }
 
 main h1 span {
-  color: #b38c93c4;
+  color: #50E3C2;
 }
 
 main div {
@@ -136,7 +142,7 @@ main div img {
 }
 
 main input {
-  width: 90%;
+  width: 84%;
   height: 6vh;
   border-radius: 27px;
   background: #FFFFFF;
@@ -144,8 +150,22 @@ main input {
   margin-top: -4px;
 }
 
+.dark main input {
+  background-color: #37383c;
+  color: white;
+  border-color: white;
+}
+
 input[placeholder] {
-  padding-left: 5vw;
+  padding-left: 9%;
+}
+
+.dark input[placeholder] {
+  color: white;
+}
+
+input[placeholder]:focus {
+  outline: none;
 }
 
 .centro {
@@ -181,7 +201,7 @@ input[placeholder] {
   margin-top: 8vh;
 }
 
-.trending.dark {
+.dark .trending {
   background-color: #222326;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
@@ -242,7 +262,155 @@ footer p {
   padding-top: 15%;
 }
 
+body {
+  border-bottom: 5px solid #572EE5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+body.dark {
+  background-color: #37383c;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  border-color: black;
+}
+
+.sectionBusqueda {
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+}
+
+.sectionBusqueda h3 {
+  font-size: 1.56rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #572EE5;
+  line-height: 30px;
+  width: 100%;
+}
+
+.dark .sectionBusqueda h3 {
+  color: white;
+}
+
+.sectionBusqueda button {
+  width: 30%;
+  height: 8vh;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  color: #572EE5;
+  letter-spacing: 0;
+  cursor: pointer;
+  background-color: white;
+  margin: 10% auto;
+}
+
+.divBuscados {
+  width: 22.5vw;
+  height: 23vh;
+  margin-top: 12%;
+}
+
+.imgBuscadas {
+  height: 100%;
+  width: 100%;
+}
+
+.cajaSearch {
+  margin: auto;
+  border-radius: 27px;
+  background: #FFFFFF;
+  border: 1px solid #572EE5;
+  width: 94%;
+  text-align: left;
+  -webkit-padding-start: 3%;
+          padding-inline-start: 3%;
+  margin-top: -36px;
+  padding-top: 10%;
+  display: none;
+}
+
+.cajaSearch.appear {
+  display: block;
+}
+
+.dark .cajaSearch {
+  background-color: #37383c;
+  border-color: white;
+}
+
+.cajaSearch li {
+  padding: 0 0 3% 0px;
+  list-style: none;
+  font-size: 0.7rem;
+}
+
+.dark .cajaSearch li {
+  color: white;
+}
+
+.cajaSearch li img {
+  padding: 2% 5% 0 0;
+}
+
+.cajaSearch::before {
+  content: "";
+  left: 7vw;
+  display: block;
+  width: 97%;
+  height: 2px;
+  opacity: 0.5;
+  background-color: #9CAFC3;
+}
+
+.lupa {
+  position: absolute;
+  margin-left: -37px;
+  padding-top: 5.2px;
+}
+
+.lupa2 {
+  position: absolute;
+  width: 3%;
+  left: 7%;
+  margin-top: 2%;
+  display: none;
+}
+
+.lupa2.aparece {
+  display: block;
+}
+
 @media screen and (min-width: 767px) {
+  nav {
+    position: fixed;
+    width: 100%;
+    border-top: 5px solid #572EE5;
+    top: 0;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+    background-color: white;
+  }
+  .dark nav {
+    border-color: black;
+    background-color: #37383c;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+  }
   nav div:nth-child(1) img {
     width: 14vw;
     height: 10vh;
@@ -275,12 +443,12 @@ footer p {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
-  .noListHamb.dark {
+  .dark .noListHamb {
     background-color: #37383c;
   }
   .noListHamb li {
     display: inline-block;
-    width: 11vw;
+    width: 13vw;
   }
   .masNav {
     display: block;
@@ -293,7 +461,7 @@ footer p {
   .noListHamb li a {
     color: #572ee5;
   }
-  .noListHamb li a.white {
+  .dark .noListHamb li a {
     color: white;
   }
   .noListHamb li:nth-child(1) {
@@ -304,8 +472,12 @@ footer p {
   }
   .noListHamb p {
     color: #572ee5;
-    padding-top: 0.5vh;
     cursor: pointer;
+    padding-top: 3vh;
+    -webkit-margin-before: 0px;
+            margin-block-start: 0px;
+    -webkit-margin-after: 0px;
+            margin-block-end: 0px;
   }
   .noListHamb p:hover {
     font-size: 1.1rem;
@@ -326,9 +498,59 @@ footer p {
   main input {
     width: 42%;
     height: 6.5vh;
+    margin-top: -3.5px;
   }
   input[placeholder] {
-    padding-left: 1.5vw;
+    width: 40%;
+    padding-left: 4%;
+  }
+  .appear input[placeholder] {
+    width: 39%;
+  }
+  .cajaSearch {
+    width: 43%;
+    margin-top: -44px;
+  }
+  .cajaSearch.appear {
+    width: 42%;
+  }
+  .cajaSearch::before {
+    left: 29vw;
+    width: 39vw;
+    margin-top: -15%;
+  }
+  .cajaSearch li {
+    cursor: pointer;
+    margin-left: -7px;
+    width: 96%;
+    margin: 1.2% 0 1.2% 0;
+  }
+  .cajaSearch li:hover {
+    opacity: 0.8;
+    background-color: whitesmoke;
+    border-radius: 10px;
+  }
+  .lupa {
+    padding-top: 9px;
+    cursor: pointer;
+  }
+  .lupa:hover {
+    opacity: 0.6;
+  }
+  .lupa2 {
+    left: 29.8%;
+    width: 1.3%;
+    margin-top: 9px;
+  }
+  .divBuscados {
+    height: 34.5vh;
+  }
+  .sectionBusqueda img {
+    height: 34vh;
+  }
+  .sectionBusqueda button {
+    width: 16%;
+    height: 7vh;
   }
   .centro h3 {
     padding-top: 6%;
@@ -364,6 +586,7 @@ footer p {
     display: block;
     height: 8vh;
     margin-top: 12vh;
+    cursor: pointer;
   }
   .container-carrusel > div {
     width: 20vw;
@@ -397,10 +620,11 @@ footer p {
     opacity: 0;
   }
   .opciones:hover {
-    -webkit-transition: .3s ease all;
-    transition: .3s ease all;
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
     opacity: 0.7;
     background: #572EE5;
+    cursor: pointer;
   }
   .opciones img {
     width: 13%;
@@ -410,7 +634,7 @@ footer p {
     z-index: 2;
   }
   .opciones img:hover {
-    opacity: 0.2;
+    cursor: pointer;
   }
   footer {
     display: -webkit-box;
@@ -434,22 +658,6 @@ footer p {
   }
 }
 
-body {
-  border-top: 5px solid #572EE5;
-  border-bottom: 5px solid #572EE5;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
-}
-
-body.dark {
-  background-color: #37383c;
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
-  border-color: black;
-}
-
 :root {
   font-size: 16px;
 }
@@ -462,7 +670,11 @@ body.dark {
   display: none;
 }
 
-h1.white, h2.white, h3.white, p.white, a.white {
+.dark h1, .dark h2, .dark h3, .dark p, .dark a {
   color: white;
+}
+
+button:focus {
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

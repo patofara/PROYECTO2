@@ -1,6 +1,7 @@
 nav{
     display: flex;
     justify-content: space-between;
+    z-index: 9;
 }
 nav div:nth-child(1){
     flex: 1 1 50%;
@@ -42,7 +43,7 @@ nav div:nth-child(2){
     width: 100%;
     opacity: 1;
     margin-left: -8px;
-    &.dark{
+    .dark &{
         background-color: rgba(0,0,0,1);
         transition: .3 ease all;
     }
@@ -52,7 +53,7 @@ nav div:nth-child(2){
     
 }
 .noListHamb li{
-    height: 11vh;
+    height: 9vh;
 }
 
 .noListHamb li a{
