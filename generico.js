@@ -58,15 +58,8 @@ function cambiarSrc(elemento,src1,src2) {
     elemento.addEventListener("mouseleave", () => {elemento.src = src2})
 }
 
-        // SLIDER TRENDING
 
-        // let urlTrendings = fetch ("http://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&limit=12 ")
-        // .then (param =>
-        //     param.json()        
-        // )
-        // .then (param =>
-        //     console.log(param)
-        // )
+arrayTrending = [];
 let trending = fetch("http://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&limit=12")
 .then(resp => resp.json())
 .then(resp => { 
@@ -81,7 +74,6 @@ let trending = fetch("http://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8D
     });
 
     
-arrayTrending = [];
 var imagenslider = document.getElementById("imagenslider")
 var imagenslider2 = document.getElementById("imagenslider2")
 var imagenslider3 = document.getElementById("imagenslider3")
@@ -102,7 +94,7 @@ leftslider.addEventListener("click", function(){
         imagenslider.src = arrayTrending[contImagenes]
         imagenslider2.src = arrayTrending[contImagenes + 1]
         imagenslider3.src = arrayTrending[contImagenes + 2]  
-        meGusta1.src = "/assets/icon-fav.svg";  
+        meGusta.forEach(element => {element.src = "/assets/icon-fav.svg"});
         h++;
     }
     else{
@@ -119,7 +111,7 @@ rightslider.addEventListener("click", function(){
         imagenslider2.src = arrayTrending[contImagenes + 2]
         imagenslider3.src = arrayTrending[contImagenes + 3]
         contImagenes ++;
-        meGusta1.src = "/assets/icon-fav.svg";
+        meGusta.forEach(element => {element.src = "/assets/icon-fav.svg"});
         h++;
     }
     else{
@@ -130,52 +122,51 @@ rightslider.addEventListener("click", function(){
 
         // Hover de los accesos de los Gifs
 
+
+let meGusta = document.getElementsByClassName("meGusta")
+let expandir = document.getElementsByClassName("expandir")
+let descargar = document.getElementsByClassName("descargar")
+function accionOpciones(){
+for (let i = 0; i < meGusta.length; i++) {
+    let element1 = meGusta[i]
+    let element2 = expandir[i]
+    let element3 = descargar[i]
+    opciones(element1, "/assets/icon-fav-hover.svg", "/assets/icon-fav.svg", "/assets/icon-fav-active.svg", "/assets/icon-fav-hover.svg")
+    cambiarSrc(element2, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
+    cambiarSrc(element3, "/assets/icon-download-hover.svg", "/assets/icon-download.svg")
+}
+}
+accionOpciones()
 var h=1;
-let meGusta1 = document.getElementById("meGusta1")
-meGusta1.addEventListener("mouseover", () => {
+function opciones (param, hover, normal, click, offClick){
+param.addEventListener("mouseover", () => {
      if (h % 2 != 0) {
-         meGusta1.src = "/assets/icon-fav-hover.svg";
+         param.src = hover;
     }
     else{
 
     }
 })
          
-meGusta1.addEventListener("mouseleave", () => {
+param.addEventListener("mouseleave", () => {
      if (h % 2 != 0) {
-         meGusta1.src = "/assets/icon-fav.svg";
+         param.src = normal;
     }
     else{
-        
     }
 })
-meGusta1.addEventListener("click", () => {
+param.addEventListener("click", () => {
     
     h++;
     if (h % 2 == 0) {
-    meGusta1.src = "/assets/icon-fav-active.svg";
+    param.src = click;
     }
     else{
-        meGusta1.src = "/assets/icon-fav-hover.svg";
+    param.src = offClick;
     }
 })
+}
 
- let megusta2 = document.getElementById("meGusta2")
- cambiarSrc(megusta2, "/assets/icon-fav-hover.svg", "/assets/icon-fav.svg")
- let megusta3 = document.getElementById("meGusta3")
- cambiarSrc(megusta3, "/assets/icon-fav-hover.svg", "/assets/icon-fav.svg")
- let expandir1 = document.getElementById("expandir1")
- cambiarSrc(expandir1, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
- let expandir2 = document.getElementById("expandir2")
- cambiarSrc(expandir2, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
- let expandir3 = document.getElementById("expandir3")
- cambiarSrc(expandir3, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
- let descargar1 = document.getElementById("descargar1")
- cambiarSrc(descargar1, "/assets/icon-download-hover.svg", "/assets/icon-download.svg")
- let descargar2 = document.getElementById("descargar2")
- cambiarSrc(descargar2, "/assets/icon-download-hover.svg", "/assets/icon-download.svg")
- let descargar3 = document.getElementById("descargar3")
- cambiarSrc(descargar3, "/assets/icon-download-hover.svg", "/assets/icon-download.svg")
         
  
         // Hover de las redes sociales

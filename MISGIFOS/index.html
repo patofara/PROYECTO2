@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <nav id="nav">
         <div>
             <a href="/HOME/index.html"><img src="/assets/logo-mobile.svg" alt="icon" id="logo"></a>
         </div>
         <div>
-            <img src="/assets/burger.svg" alt="" id="hamburguesa" class="hamburguesa">
+            <img src="/assets/burger.svg" alt="icon" id="hamburguesa" class="hamburguesa">
         </div>
         <ul id="menuNav" class="noListHamb">
             <li><p id="modoNocturno">Modo Nocturno</p></li>
@@ -23,7 +23,7 @@
             <span></span>
             <li><a href="/MISGIFOS/index.html">Mis GIFOS</a></li>
             <span></span>
-            <li><a href=""><img src="/assets/button-crear-gifo.svg" alt="" class="masNav"></a></li>
+            <li><a href="/newGifos/index.html"><img src="/assets/button-crear-gifo.svg" alt="iconicon" class="masNav"></a></li>
         </ul>
     </nav>
     <main>
@@ -43,15 +43,40 @@
     <div class="boton">
         <button>VER MÁS</button>
         </div>
+        <section class="titulo">
+            <h3>Trending:</h3>
+            <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+        </section>
         <section id="slider" class="trending">
             <h3>Trending GIFOS</h3>
             <p>Mira los últimos</p> <p>GIFOS de nuestra comunidad.</p>
-            <div id="carrusel">
+            <div id="carrusel" class="container-carrusel">
                 <img src="/assets/button-slider-left.svg" alt="icon" id="leftslider">
-                <div id = "imagenesSlider">
-                    <img src="/assets/image1.jpg" alt="icon" id="imagenslider">
-                    <img src="/assets/image1.jpg" alt="icon" id="imagenslider2">
-                    <img src="/assets/image1.jpg" alt="icon" id="imagenslider3">
+                <div id = "imagenesSlider" class="container-imgSlider">
+                    <div>
+                        <img src="" alt="icon" id="imagenslider">
+                        <div class="opciones">  
+                            <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
+                            <img src="/assets/icon-download.svg" alt="" class="descargar">
+                            <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                        </div>
+                    </div>
+                    <div>
+                        <img src="" alt="icon" id="imagenslider2">
+                        <div class="opciones">
+                            <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
+                            <img src="/assets/icon-download.svg" alt="" class="descargar">
+                            <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                        </div>
+                    </div>
+                    <div>
+                        <img src="" alt="icon" id="imagenslider3">
+                        <div class="opciones">
+                            <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
+                            <img src="/assets/icon-download.svg" alt=""  class="descargar">
+                            <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                        </div>
+                    </div>
                 </div>
                 <img src="/assets/Button-Slider-right.svg" alt="icon" id="rightslider">
             </div>
@@ -59,9 +84,9 @@
         <footer>
             <div class="compartir">
                 <h3>Compartir en:</h3>
-                <div><a href="http/www.facebook.com"><img src="/assets/icon_facebook.svg" alt="icon"></a></div>
-                <div><a href="http/www.twitter.com"><img src="/assets/icon-tw-normal.svg" alt="icon"></a></div>
-                <div><a href="http/www.instagram.com"><img src="/assets/icon_instagram.svg" alt="icon"></a></div>
+                <div><a href="http/www.facebook.com"><img src="/assets/icon_facebook.svg" alt="icon" id="facebook"></a></div>
+                <div><a href="http/www.twitter.com"><img src="/assets/icon-tw-normal.svg" alt="icon" id="twitter"></a></div>
+                <div><a href="http/www.instagram.com"><img src="/assets/icon_instagram.svg" alt="icon" id="instagram"></a></div>
             </div>
             <p>© GIFOS 2020 All Rights Reserved.</p>
         </footer>

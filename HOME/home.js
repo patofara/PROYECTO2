@@ -6,16 +6,12 @@ function oscurecerHome() {
     if (document.body.classList.contains('dark')) {
       lupa[0].src = "/assets/icon-search-mod-noc.svg"
       lupa2[0].src = "/assets/icon-search-mod-noc.svg"
-      for (let i = 0; i < lupaExtra.length; i++) {
-        lupaExtra[i].src = "/assets/icon-search-mod-noc.svg"
-      }
+      lupaExtra.forEach(element => {element.src = "/assets/icon-search-mod-noc.svg"});
     }
     else{
       lupa[0].src = "/assets/icon-search.svg"
       lupa2[0].src = "/assets/icon-search.svg"
-      for (let i = 0; i < lupaExtra.length; i++) {
-        lupaExtra[i].src = "/assets/icon-search.svg"
-      }
+      lupaExtra.forEach(element => {element.src = "/assets/icon-search.svg"});
     }
 }
 
@@ -31,13 +27,10 @@ hamburguesa.addEventListener("click", burger)
 
 
 let search = document.getElementById("search")
+let noResult = document.getElementById("noResult")
+// search.addEventListener("keyup", (e)=>{
 
-search.addEventListener("keyup", (e)=>{
-  if(e.keyCode === 13){
-    
-    busqueda(search.value)
-  }
-});
+// });
 
 
 
@@ -45,8 +38,8 @@ search.addEventListener("keyup", (e)=>{
 
     // PUSHEAR ARRAY DE IMAGENES BUSCADAS
     
-arrayBuscados = []
-function busqueda (valor){
+function busqueda (valor, param1){
+  arrayBuscados = []
   fetch(`http://api.giphy.com/v1/gifs/search?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&q=${valor}&limit=12`)
   .then(resp => resp.json())
   .then(resp => {
@@ -54,43 +47,59 @@ function busqueda (valor){
       let element = resp.data[i].images.downsized.url;
       arrayBuscados.push(element)
     }
-    crearDiv();
-  });
+    crearDiv(param1);
+  })
+  .catch(() => {
+    cajaSug.classList.remove("appear")
+    noResult.removeAttribute("hidden")});
+
 }
 
-    // FUNCION DEL ENTER
+
+    // FUNCION DEL
 
 search.addEventListener("keyup", buscador)
-let listaSug = document.getElementById("cajaSugerencias")
+let cajaSug = document.getElementById("cajaSugerencias")
 let lupa2 = document.getElementsByClassName("lupa2")
 
 function buscador (e){
-  if (search.value != "") {
+  if (search.value != "" && e.keyCode!== 13) {
     search.style.border = "none"
-    listaSug.classList.add("appear")
+    cajaSug.classList.add("appear")
     lupa2[0].classList.add("aparece")
     lupa[0].src = "/assets/close.svg"
     cajaSugerencias(search.value)
   }
-  if (search.value != "" && document.body.classList.contains('dark')) {
+  if (search.value != "" && e.keyCode !== 13 && document.body.classList.contains('dark')) {
     search.style.border = "none"
-    listaSug.classList.add("appear")
+    cajaSug.classList.add("appear")
     lupa2[0].classList.add("aparece")
     lupa[0].src = "/assets/close-modo-noct.svg"
     cajaSugerencias(search.value)
+  }
+  if (e.keyCode === 13 ) {
+    
+    busqueda(search.value, search.value)
+    search.style.border = "1px solid #572EE5"
+    cajaSug.classList.remove("appear")
+  }
+  if (e.keyCode === 13 && document.body.classList.contains('dark')) {
+    busqueda(search.value, search.value)
+    search.style.border = "1px solid white"
+    cajaSug.classList.remove("appear")
   }
   if(e.keyCode === 27 || search.value == ""){
     search.style.border = "1px solid #572EE5"
     lupa[0].src = "/assets/icon-search.svg"
     search.value = ""
-    listaSug.classList.remove("appear")
+    cajaSug.classList.remove("appear")
     lupa2[0].classList.remove("aparece")
   }
   if(e.keyCode === 27 || search.value == "" && document.body.classList.contains('dark')){
     search.style.border = "1px solid white"
     lupa[0].src = "/assets/icon-search-mod-noc.svg"
     search.value = ""
-    listaSug.classList.remove("appear")
+    cajaSug.classList.remove("appear")
     lupa2[0].classList.remove("aparece")
 
   }
@@ -100,32 +109,34 @@ function buscador (e){
 
 let lupa = document.getElementsByClassName("lupa")
 lupa[0].addEventListener("click", () => {
-     listaSug.classList.remove("appear")
+     cajaSug.classList.remove("appear")
     lupa2[0].classList.remove("aparece")
     search.style.border = "1px solid #572EE5"
     lupa[0].src = "/assets/icon-search.svg"
     search.value = ""
   })
       
-    // SUGERENCIAS
+    //  EVENTO LI DE SUGERENCIAS
 
-let sug1 = document.getElementById("sug1")
-let sug2 = document.getElementById("sug2")
-let sug3 = document.getElementById("sug3")
-let sug4 = document.getElementById("sug4")
-arraySugerencias = [];
+let textLiSug = document.getElementsByClassName("listaSug")
+for (let i = 0; i < textLiSug.length; i++) {
+    textLiSug[i].addEventListener("click", () => {
+    busqueda(search.value, textLiSug[i].innerHTML )
+    cajaSug.classList.remove("appear")
+    search.value = textLiSug[i].innerHTML
+    search.style.border = "1px solid #572EE5"
+    })
+}
 function cajaSugerencias(valor){
   fetch(`http://api.giphy.com/v1/gifs/search?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&q=${valor}&limit=4`)
   .then(resp => resp.json())
   .then(resp => {
     arraySugerencias = [];
     for (let i = 0; i < 4; i++) {
-      let element = resp.data[i].user.description;
+      let element = resp.data[i].title;
       arraySugerencias.push(element)
-      sug1.textContent = arraySugerencias[0]
-      sug2.textContent = arraySugerencias[1]
-      sug3.textContent = arraySugerencias[2]
-      sug4.textContent = arraySugerencias[3]
+      textLiSug[i].textContent = arraySugerencias[i]
+
       
     }
   })
@@ -134,11 +145,14 @@ function cajaSugerencias(valor){
     // CREAR DIV IMAGENES BUSCADAS 
     
 
+    
 let sectionBuscados = document.getElementById("buscados")
+// arrayFav = [1,2,3,4]
+// localStorage.setItem("favoritos", JSON.stringify(arrayFav))
 
-function crearDiv(){
+function crearDiv(param1){
   let headBuscados = document.createElement("h3")
-  headBuscados.innerHTML = search.value.toUpperCase();
+  headBuscados.innerHTML = param1.toUpperCase();
   sectionBuscados.appendChild(headBuscados)
   for (let i = 0; i < 12; i++) {
     let divBuscados = document.createElement("div")
@@ -151,8 +165,11 @@ function crearDiv(){
     expandir.src= "/assets/icon-max-normal.svg"
     descargar.src= "/assets/icon-download.svg"
     meGusta.src = "/assets/icon-fav.svg"
+    expandir.classList.add("expandir")
     divOpciones.appendChild(expandir)
+    descargar.classList.add("descargar")
     divOpciones.appendChild(descargar)
+    meGusta.classList.add("meGusta")
     divOpciones.appendChild(meGusta)
     divOpciones.classList.add("opciones")
     divBuscados.classList.add("divBuscados")
@@ -162,9 +179,15 @@ function crearDiv(){
     divBuscados.appendChild(divOpciones)
     sectionBuscados.appendChild(divBuscados)
   }
+  accionOpciones()
   let verMas = document.createElement("button")
   verMas.innerHTML = "Ver Mas"
   sectionBuscados.appendChild(verMas)
+  verMas.addEventListener("click", () =>{
+    sectionBuscados.removeChild(verMas)
+    busqueda(search.value, "")
+
+  })
 
   
 }

@@ -2,7 +2,17 @@
     font-size: 16px;
 }
 h1,h2,h3,p,a{
-    &.white{
+    .dark &{
         color: white;
+    }
+}
+button:focus{
+    outline: none;
+}
+button{
+    .dark &{
+        background-color: rgba(55,56,60,1);
+        color: white;
+        border-color: white;
     }
 }

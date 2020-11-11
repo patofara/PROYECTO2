@@ -1,0 +1,12 @@
+body{
+    border-top: 5px solid #572EE5;
+    border-bottom: 5px solid #572EE5;
+    box-sizing: border-box;
+    transition: .3s ease all;
+    &.dark{
+        background-color: rgba(55,56,60,1);
+        transition: .3s ease all;
+        border-color: black;
+    }
+
+}

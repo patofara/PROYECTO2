@@ -1,5 +1,18 @@
 @media screen and (min-width: 767px){
     // NAV !!!!
+    nav{
+        position: fixed;
+        width: 100%;
+        border-top: 5px solid #572EE5;
+        top: 0;
+        transition: .3s ease all;
+        background-color: white;
+        .dark &{
+            border-color: black;
+            background-color: #37383c;
+            transition: .3s ease all;
+        }
+    }
     nav div:nth-child(1) img{
         width: 14vw;
         height: 10vh;
@@ -24,14 +37,14 @@
         margin-left: 0px;
         display: flex;
         justify-content: space-around;
-        &.dark{
+        .dark &{
             background-color: rgba(55,56,60,1);
         }
     
     }
     .noListHamb li{
         display: inline-block;
-        width: 11vw;
+        width: 13vw;
 
     }
     .masNav{
@@ -42,32 +55,34 @@
         opacity: 0.5;
         width: 4.1vw;
     }
-   .noListHamb li a{
+    .noListHamb li a{
         color: rgba(87,46,229,1);
-        &.white{
+        .dark &{
             color: white;
         }
     }
-   .noListHamb li:nth-child(1){
+    
+    .noListHamb li:nth-child(1){
         text-align: left;
     }
-   .noListHamb span{
+    .noListHamb span{
         display: none;
     }
-   .noListHamb p{
+    .noListHamb p{
         color: rgba(87,46,229,1);
-        padding-top: 0.5vh;
         cursor: pointer;
+        padding-top: 3vh;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
     }
-   .noListHamb p:hover{
+    .noListHamb p:hover{
         font-size: 1.1rem;
         opacity: 0.5;
     }
-   .noListHamb li a:hover{
+    .noListHamb li a:hover{
         opacity: 0.5;
         font-size: 1.2rem;
     }
-    
     
     // MAIN!!
     #cuadrilla{
@@ -98,40 +113,65 @@
         font-size: 1.1rem;
         display: contents;
     }
-    #carrusel{
+    .container-carrusel{
     display: flex;
     justify-content: space-between;
     width: 90%;
     padding-left: 5%;
     padding-top: 5%;
     }
-    #carrusel > img{
+    .container-carrusel > img{
         display: block;
         height: 8vh;
         margin-top: 12vh;
+        cursor: pointer;
     }
-    #carrusel div{
+    .container-carrusel > div{
         width: 20vw;
         height: 35vh;
         flex-basis: 80%;
         display: flex;
         justify-content: space-between;
     }
-    #carrusel div img{
+    .container-imgSlider > div{
+        display: block;
+        max-width: 100%;
         width: 32%;
         height: 100%;
-        
     }
-    #imagenesSlider img:hover{
-        opacity: 0.2;
-    }
-    #imagenesSlider img:nth-child(2){
+    .container-imgSlider img{
+        width: 100%;
         display: block;
-    }
-    #imagenesSlider img:nth-child(3){
-        display: block;
+        height: 100%;
     }
 
+    
+    .opciones{
+        z-index: 1;
+        margin-top: -35vh;
+        position: absolute;
+        width: 22.5vw;
+        height: 35vh;
+        opacity: 0;
+        display: block;
+    }
+    .opciones:hover{
+        transition: .2s ease all;
+        opacity: 0.7;
+        background: #572EE5;
+        cursor: pointer;
+    }
+
+    .opciones img{
+        width: 13%;
+        float: right;
+        height: 14%;
+        padding: 1vh 0 0 0;
+        z-index: 2;
+    }
+    .opciones img:hover{
+        cursor:pointer
+    }
     // FOOTER!!!
     footer {
         display: flex;
@@ -144,6 +184,7 @@
     }
     .compartir h3{
         display: inline-block;
+
     }
     footer p{
         padding-top: 0;

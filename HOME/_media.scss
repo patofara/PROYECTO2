@@ -108,29 +108,22 @@
         width: 43%;
         margin-top: -44px;
         &.appear{
-            width: 42%;
+            width: 45%;
+            padding: 1% 0;
         }
+
     }
     .cajaSearch::before{
-        left: 29vw;
+        margin-left: 6%;
         width: 39vw;
-        margin-top: -15%;
-    }
-    .cajaSearch li{
-        cursor: pointer;
-        margin-left: -7px;
-        width: 96%;
-        margin: 1.2% 0 1.2% 0 ;
+        margin-top: 6%;
+    
     }
     .cajaSearch li:hover{
-        opacity: 0.8;
-        background-color: whitesmoke;
+        color: rgb(136, 118, 118);
         border-radius: 10px;
+        cursor: pointer;
     }
-    // .cajaSearch > img{
-    //     margin-top: 13px;
-    //     position: absolute;
-    // }
     .lupa{
         padding-top: 9px;
         cursor: pointer;
@@ -157,12 +150,26 @@
 
 
     // CENTRO!!!
-    .centro h3{
+    .titulo{
         padding-top: 6%;
         font-size: 1.1rem;
     }
     .centro p{
         font-size: 1rem;
+    }
+
+    // SIN RESULTADOS
+
+    #noResult img{
+        width: 25%;
+        height: 25%;
+        padding: 8% 0 2% 0;
+    }
+    #noResult p{
+        font-size: 1.5rem;
+        line-height: 25px;
+        padding-bottom: 10%;
+        margin-block-start: 1%;
     }
 
     // SLIDER!!!
@@ -219,6 +226,7 @@
         width: 22.5vw;
         height: 35vh;
         opacity: 0;
+        display: block;
     }
     .opciones:hover{
         transition: .2s ease all;

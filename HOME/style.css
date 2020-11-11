@@ -158,6 +158,7 @@ main input {
 
 input[placeholder] {
   padding-left: 9%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .dark input[placeholder] {
@@ -172,7 +173,7 @@ input[placeholder]:focus {
   text-align: center;
 }
 
-.centro h3 {
+.titulo {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   color: #572EE5;
@@ -180,6 +181,7 @@ input[placeholder]:focus {
   font-weight: bold;
   -webkit-margin-after: 0;
           margin-block-end: 0;
+  text-align: center;
 }
 
 .centro p {
@@ -298,6 +300,7 @@ body.dark {
   color: #572EE5;
   line-height: 30px;
   width: 100%;
+  padding-top: 7%;
 }
 
 .dark .sectionBusqueda h3 {
@@ -319,10 +322,20 @@ body.dark {
   margin: 10% auto;
 }
 
+.dark .sectionBusqueda button {
+  background-color: #37383c;
+  border-color: white;
+  color: white;
+}
+
+.sectionBusqueda button:hover {
+  opacity: 0.7;
+}
+
 .divBuscados {
   width: 22.5vw;
   height: 23vh;
-  margin-top: 12%;
+  margin-top: 7%;
 }
 
 .imgBuscadas {
@@ -335,17 +348,21 @@ body.dark {
   border-radius: 27px;
   background: #FFFFFF;
   border: 1px solid #572EE5;
-  width: 94%;
+  width: 97%;
   text-align: left;
   -webkit-padding-start: 3%;
           padding-inline-start: 3%;
   margin-top: -36px;
-  padding-top: 10%;
+  padding: 10% 0 3% 0;
   display: none;
 }
 
 .cajaSearch.appear {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .dark .cajaSearch {
@@ -354,17 +371,21 @@ body.dark {
 }
 
 .cajaSearch li {
-  padding: 0 0 3% 0px;
+  -ms-flex-preferred-size: 91%;
+      flex-basis: 91%;
   list-style: none;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+  margin-top: 4%;
 }
 
 .dark .cajaSearch li {
   color: white;
 }
 
-.cajaSearch li img {
-  padding: 2% 5% 0 0;
+.lupaExtra {
+  -ms-flex-preferred-size: 9%;
+      flex-basis: 9%;
+  margin-top: 4%;
 }
 
 .cajaSearch::before {
@@ -393,6 +414,28 @@ body.dark {
 
 .lupa2.aparece {
   display: block;
+}
+
+.opciones {
+  display: none;
+}
+
+#noResult img {
+  width: 50%;
+  height: 50%;
+  padding-top: 20%;
+}
+
+#noResult p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 25px;
+  padding-bottom: 10%;
+  -webkit-margin-before: 5%;
+          margin-block-start: 5%;
 }
 
 @media screen and (min-width: 767px) {
@@ -512,23 +555,18 @@ body.dark {
     margin-top: -44px;
   }
   .cajaSearch.appear {
-    width: 42%;
+    width: 45%;
+    padding: 1% 0;
   }
   .cajaSearch::before {
-    left: 29vw;
+    margin-left: 6%;
     width: 39vw;
-    margin-top: -15%;
-  }
-  .cajaSearch li {
-    cursor: pointer;
-    margin-left: -7px;
-    width: 96%;
-    margin: 1.2% 0 1.2% 0;
+    margin-top: 6%;
   }
   .cajaSearch li:hover {
-    opacity: 0.8;
-    background-color: whitesmoke;
+    color: #887676;
     border-radius: 10px;
+    cursor: pointer;
   }
   .lupa {
     padding-top: 9px;
@@ -552,12 +590,24 @@ body.dark {
     width: 16%;
     height: 7vh;
   }
-  .centro h3 {
+  .titulo {
     padding-top: 6%;
     font-size: 1.1rem;
   }
   .centro p {
     font-size: 1rem;
+  }
+  #noResult img {
+    width: 25%;
+    height: 25%;
+    padding: 8% 0 2% 0;
+  }
+  #noResult p {
+    font-size: 1.5rem;
+    line-height: 25px;
+    padding-bottom: 10%;
+    -webkit-margin-before: 1%;
+            margin-block-start: 1%;
   }
   .trending {
     margin-top: 25vh;
@@ -618,6 +668,7 @@ body.dark {
     width: 22.5vw;
     height: 35vh;
     opacity: 0;
+    display: block;
   }
   .opciones:hover {
     -webkit-transition: .2s ease all;
