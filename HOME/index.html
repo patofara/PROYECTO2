@@ -35,10 +35,14 @@
         <input type="text" name="search" placeholder="Buscar GIFOS y más" id="search">
         <img src="/assets/icon-search.svg" alt="" class="lupa">
         <ul class="cajaSearch" id="cajaSugerencias">
-            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"><li class="listaSug"></li>
-            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"><li class="listaSug"></li>
-            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"><li class="listaSug"></li>
-            <img src="/assets/icon-search.svg" alt="" class="lupaExtra"><li class="listaSug"></li>
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra">
+            <li class="listaSug"></li>
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra">
+            <li class="listaSug"></li>
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra">
+            <li class="listaSug"></li>
+            <img src="/assets/icon-search.svg" alt="" class="lupaExtra">
+            <li class="listaSug"></li>
         </ul>
         <div id="noResult" hidden>
             <h3  class="titulo">Lo sentimos, no encontramos lo que buscaba</h3>
@@ -49,7 +53,10 @@
     <section id="buscados" class="sectionBusqueda">
 
     </section>
-    <section class="titulo">
+    <section id="expansion" class="container-expansion" hidden>
+        <img src="" alt="" id="imagenExpandida">
+    </section>
+    <section class="titulo" id= "tituloTrending">
         <h3>Trending:</h3>
         <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
     </section>
@@ -60,10 +67,12 @@
             <img src="/assets/button-slider-left.svg" alt="icon" id="leftslider">
             <div id = "imagenesSlider" class="container-imgSlider">
                 <div>
-                    <img src="" alt="icon" id="imagenslider">
+                    <img src="" alt="icon" id="imagenslider1">
                     <div class="opciones">  
                         <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
-                        <img src="/assets/icon-download.svg" alt="" class="descargar">
+                        <a  class="href">
+                            <img src="/assets/icon-download.svg" alt="" class="descargar">
+                        </a>
                         <img src="/assets/icon-fav.svg" alt="" class="meGusta">
                     </div>
                 </div>
@@ -71,7 +80,9 @@
                     <img src="" alt="icon" id="imagenslider2">
                     <div class="opciones">
                         <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
-                        <img src="/assets/icon-download.svg" alt="" class="descargar">
+                        <a class="href">
+                            <img src="/assets/icon-download.svg" alt="" class="descargar">
+                        </a>
                         <img src="/assets/icon-fav.svg" alt="" class="meGusta">
                     </div>
                 </div>
@@ -79,7 +90,9 @@
                     <img src="" alt="icon" id="imagenslider3">
                     <div class="opciones">
                         <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
-                        <img src="/assets/icon-download.svg" alt=""  class="descargar">
+                        <a class="href">
+                            <img src="/assets/icon-download.svg" alt="" class="descargar">
+                        </a>
                         <img src="/assets/icon-fav.svg" alt="" class="meGusta">
                     </div>
                 </div>

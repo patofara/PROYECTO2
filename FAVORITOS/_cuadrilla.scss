@@ -6,9 +6,10 @@
 #cuadrilla div{
     width: 44%;
     margin-bottom: 3vh;
-    height: 22vh;
+    height: 25vh;
 }
 #cuadrilla div img{
-    max-width: 100%;
+    object-fit: fill;
+    width: 100%;
     height: 100%;
 }

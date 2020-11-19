@@ -97,7 +97,11 @@
         padding: 4% 10% 0 10%;
     }
     #cuadrilla div{
-        width: calc((100% - 70px) / 4);
+        width: calc((100% - 13%) / 4);
+        height: 30vh;
+    }
+    #cuadrilla div img{
+        height: 30vh;
     }
 
 

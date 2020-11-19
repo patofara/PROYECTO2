@@ -126,6 +126,29 @@ nav div:nth-child(2) {
   font-weight: 700;
 }
 
+main {
+  padding-top: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10%;
+}
+
+.imgCamara {
+  width: 15%;
+  padding: 10% 0 0 8%;
+}
+
+.imgCamara img {
+  width: 85%;
+}
+
+.recuadroCamara {
+  width: 60%;
+  border: 2px solid rgba(87, 46, 229, 0.9);
+  height: 75vh;
+}
+
 @media screen and (min-width: 767px) {
   nav {
     position: fixed;

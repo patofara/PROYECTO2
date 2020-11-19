@@ -119,14 +119,10 @@
         margin-top: 6%;
     
     }
-    .cajaSearch li:hover{
-        color: rgb(136, 118, 118);
-        border-radius: 10px;
-        cursor: pointer;
-    }
     .lupa{
         padding-top: 9px;
         cursor: pointer;
+        z-index: 0;
     }
     .lupa:hover{
         opacity: 0.6;
@@ -138,9 +134,10 @@
     }
     // BUSCADOS
     .divBuscados{
-        height: 34.5vh;
+        height: 34vh;
+        width: 22.5vw;
     }
-    .sectionBusqueda img{
+    .sectionBusqueda > img{
         height: 34vh;
     }
     .sectionBusqueda button{
@@ -212,7 +209,7 @@
         width: 32%;
         height: 100%;
     }
-    .container-imgSlider img{
+    .container-imgSlider  img{
         width: 100%;
         display: block;
         height: 100%;
@@ -235,12 +232,24 @@
         cursor: pointer;
     }
 
-    .opciones img{
+    .opciones > img{
         width: 13%;
         float: right;
         height: 14%;
         padding: 1vh 0 0 0;
         z-index: 2;
+    }
+    .opciones a{
+        width: 13%;
+        float: right;
+        height: 14%;
+        padding: 1vh 0 0 0;
+        z-index: 2;
+    }
+    .descargar{
+        width: 100%;
+        height: 100%;
+        padding-top: 0px;
     }
     .opciones img:hover{
         cursor:pointer

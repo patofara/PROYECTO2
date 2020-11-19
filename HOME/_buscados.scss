@@ -42,7 +42,7 @@
     opacity: 0.7;
 }
 .divBuscados{
-    width: 22.5vw;
+    width: 36.5vw;
     height: 23vh;
     margin-top: 7%;
 }
@@ -76,9 +76,16 @@
     list-style: none;
     font-size: 0.9rem;
     margin-top: 4%;
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(55,56,60,1);
     .dark &{
         color: white;
     }
+}
+.cajaSearch li:hover{
+    opacity: 0.6;
+    border-radius: 10px;
+    cursor: pointer;
 }
 .lupaExtra{
     flex-basis: 9%;
