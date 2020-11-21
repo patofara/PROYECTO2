@@ -6,12 +6,16 @@ modoNocturno.addEventListener("click", oscurecer)
 
   // // HAMBURGUESA 
 hamburguesa.addEventListener("click", burger)
-var arrayFav = localStorage.getItem('favoritos')
 
-arrayFav = JSON.parse(arrayFav);
 console.log(arrayFav);
 let cuadrilla = document.getElementById("cuadrilla")
-
+let sincontenido = document.getElementById("sinContenido")
+function nocontent(){
+  if(arrayFav != ""){
+    sincontenido.setAttribute("hidden", "")
+  }
+}
+nocontent();
 
 function renderizarImg() {
   if(arrayFav.length <= 12){
@@ -21,7 +25,6 @@ function renderizarImg() {
       img.src = arrayFav[i]
       div.appendChild(img)
       cuadrilla.appendChild(div)
-      
     }
   }
 

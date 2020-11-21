@@ -228,14 +228,31 @@ input[placeholder]:focus {
   display: -ms-flexbox;
   display: flex;
   padding-top: 8%;
+  overflow: scroll;
 }
 
-.container-carrusel > img {
+#leftslider {
   display: none;
 }
 
-.container-imgSlider img {
-  display: none;
+#rightslider {
+  display: block;
+  padding-left: 10px;
+}
+
+.container-imgSlider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container-imgSlider > div {
+  height: 40vh;
+  padding-left: 10px;
+}
+
+.container-imgSlider > div > img {
+  height: 100%;
 }
 
 footer {
@@ -638,6 +655,12 @@ body.dark {
     font-size: 1.1rem;
     display: contents;
   }
+  #leftslider {
+    display: block;
+  }
+  #rightslider {
+    padding-left: 0px;
+  }
   .container-carrusel {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -648,6 +671,7 @@ body.dark {
     width: 90%;
     padding-left: 5%;
     padding-top: 5%;
+    overflow: unset;
   }
   .container-carrusel > img {
     display: block;

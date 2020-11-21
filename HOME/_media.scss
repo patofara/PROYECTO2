@@ -183,12 +183,19 @@
         font-size: 1.1rem;
         display: contents;
     }
+    #leftslider{
+        display: block;
+    }
+    #rightslider{
+        padding-left: 0px;
+    }
     .container-carrusel{
     display: flex;
     justify-content: space-between;
     width: 90%;
     padding-left: 5%;
     padding-top: 5%;
+    overflow: unset;
     }
     .container-carrusel > img{
         display: block;
@@ -209,7 +216,7 @@
         width: 32%;
         height: 100%;
     }
-    .container-imgSlider  img{
+    .container-imgSlider img{
         width: 100%;
         display: block;
         height: 100%;

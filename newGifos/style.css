@@ -131,22 +131,140 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 10%;
 }
 
 .imgCamara {
   width: 15%;
-  padding: 10% 0 0 8%;
+  padding: 10% 0 0 3%;
+  display: none;
 }
 
-.imgCamara img {
-  width: 85%;
+.camaraImg {
+  width: 65%;
+}
+
+.path {
+  position: absolute;
+  width: 6%;
+  padding-top: 19px;
 }
 
 .recuadroCamara {
-  width: 60%;
-  border: 2px solid rgba(87, 46, 229, 0.9);
+  width: 93%;
+  border: 2px solid #572EE5;
   height: 75vh;
+  margin-left: 2%;
+}
+
+.dark .recuadroCamara {
+  border: 2px solid white;
+}
+
+.recuadroCamara h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #572EE5;
+  text-align: center;
+  line-height: 35px;
+  padding-top: 17%;
+  margin: auto;
+  width: 60%;
+}
+
+.recuadroCamara h3 span {
+  color: #50E3C2;
+}
+
+.recuadroCamara p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  color: #000000;
+  text-align: center;
+  line-height: 29px;
+  margin: auto;
+  width: 70%;
+  padding-top: 4%;
+}
+
+.numeros {
+  text-align: center;
+  padding: 2% 0 0 0%;
+}
+
+.numeros img {
+  padding-left: 2%;
+  width: 6%;
+}
+
+.video {
+  width: 100%;
+  height: 75vh;
+  margin-top: -217px;
+  -o-object-fit: unset;
+     object-fit: unset;
+  z-index: 2;
+}
+
+.linea {
+  margin: 3% 0 4% 17%;
+  display: block;
+  background-color: #572EE5;
+  width: 64vw;
+  height: 0.5vh;
+}
+
+.dark .linea {
+  background-color: white;
+}
+
+.boton {
+  text-align: center;
+}
+
+.boton button {
+  width: 27%;
+  height: 5.5vh;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.6rem;
+  color: #572EE5;
+  letter-spacing: 0;
+  cursor: pointer;
+  background-color: white;
+  margin: 1% 0 0 2%;
+}
+
+.dark .boton button {
+  background-color: #37383c;
+  border-color: white;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding-top: 10%;
+}
+
+.compartir h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.compartir div {
+  display: inline-block;
+  padding: 0 3% 0 3%;
+}
+
+footer p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 20px;
 }
 
 @media screen and (min-width: 767px) {
@@ -240,6 +358,56 @@ main {
   .noListHamb li a:hover {
     opacity: 0.5;
     font-size: 1.2rem;
+  }
+  .imgCamara {
+    display: block;
+  }
+  .recuadroCamara {
+    width: 65%;
+  }
+  .recuadroCamara h3 {
+    font-size: 1.8rem;
+  }
+  .recuadroCamara p {
+    font-size: 1.2rem;
+  }
+  .numeros {
+    padding-left: 2%;
+  }
+  .numeros img {
+    width: 3%;
+  }
+  .video {
+    margin-top: -44vh;
+  }
+  .linea {
+    margin: 1% 0 0 20%;
+  }
+  .boton button {
+    width: 9%;
+    margin-left: 4%;
+    height: 7.5vh;
+    font-size: 0.8rem;
+  }
+  footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-top: 2%;
+    height: 12vh;
+  }
+  .compartir {
+    width: 50%;
+  }
+  .compartir h3 {
+    display: inline-block;
+  }
+  footer p {
+    width: 50%;
+    padding-left: 30%;
   }
 }
 

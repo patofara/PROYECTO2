@@ -112,7 +112,7 @@ nav div:nth-child(2) {
 
 main {
   text-align: center;
-  padding-top: 5%;
+  padding-top: 10%;
 }
 
 main h1 {
@@ -126,7 +126,20 @@ main h1 {
 .lupa {
   position: absolute;
   margin-left: -37px;
-  padding-top: 4px;
+  padding-top: 10px;
+}
+
+#sinContenido {
+  text-align: center;
+  padding-top: 10%;
+}
+
+#sinContenido h3 {
+  font-family: Montserrat-Bold;
+  font-size: 22px;
+  color: #50E3C2;
+  text-align: center;
+  line-height: 33px;
 }
 
 body {
@@ -282,6 +295,18 @@ footer p {
   letter-spacing: 0;
   line-height: 20px;
   padding-top: 15%;
+}
+
+.container-expansion {
+  height: 70vh;
+  width: 70%;
+  margin: auto;
+  margin-top: 16%;
+}
+
+.container-expansion img {
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (min-width: 767px) {

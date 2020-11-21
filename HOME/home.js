@@ -198,7 +198,7 @@ function crearDiv(param1) {
         expansion.removeAttribute("hidden")
         imagenExpandida.src = elementurl
     })
-    hrefneW.setAttribute("alt", elementtitle)
+    hrefneW.setAttribute("alt", elementDownload)
     hrefneW.addEventListener("click", () => {
         hrefneW.setAttribute("href","")
         hrefneW.setAttribute("download",elementDownload)

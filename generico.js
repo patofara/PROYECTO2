@@ -176,7 +176,6 @@ function accionMeGusta() {
         // EXPANDIR IMAGENES 
 
         let element2 = expandir[i]
-        // element2.setAttribute("download")
         cambiarSrc(element2, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
         element2.addEventListener("click", () => {
             let indexElement = window["imagenslider" + (i + 1)].src
@@ -185,15 +184,15 @@ function accionMeGusta() {
             element2.setAttribute("id", "expandir" + i)
             expansion.removeAttribute("hidden")
             imagenExpandida.src = indexElement
-            // let indice = arrayFav.indexOf(indexElement)
 
 
 
         })
         let element3 = descargar[i]
         let element3url = href[i]
-        element3url.setAttribute("title", "Descargar Gif")
+          element3url.setAttribute("title", "Descargar Gif")
             element3url.addEventListener("click", () => {
+            element3url.setAttribute("href", "")
             element3url.setAttribute("download", window["imagenslider" + (i + 1)].src)
         })
         cambiarSrc(element3, "/assets/icon-download-hover.svg", "/assets/icon-download.svg")

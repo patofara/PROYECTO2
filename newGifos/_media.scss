@@ -83,6 +83,55 @@
         opacity: 0.5;
         font-size: 1.2rem;
     }
-    
 
+// MAIN
+.imgCamara{
+    display: block;
+}
+.recuadroCamara{
+    width: 65%;
+}
+.recuadroCamara h3{
+    font-size: 1.8rem;
+}
+.recuadroCamara p{
+    font-size: 1.2rem;
+}
+.numeros{
+    padding-left: 2%;
+}
+.numeros img{
+    width: 3%;
+}
+.video{
+    margin-top: -44vh;
+}
+.linea{
+    margin:1% 0 0 20%;
+}
+.boton button{
+    width: 9%;
+    margin-left: 4%;
+    height: 7.5vh;
+    font-size: 0.8rem;
+}
+// FOOTER 
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2%;
+    height: 12vh;
+}
+.compartir{
+    width: 50%;
+}
+.compartir h3{
+    display: inline-block;
+
+}
+footer p{
+    width: 50%;
+    padding-left: 30%;
+}
 }

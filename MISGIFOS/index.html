@@ -26,61 +26,66 @@
             <li><a href="/newGifos/index.html"><img src="/assets/button-crear-gifo.svg" alt="iconicon" class="masNav"></a></li>
         </ul>
     </nav>
-    <main>
+    <main id="main">
         <img src="/assets/icon-mis-gifos.svg" alt="icon">
         <h1>Mis GIFOS</h1>
     </main>
     <section id="cuadrilla">
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
-        <div><img src="/assets/tafi1.jpg" alt=""></div>
+        
     </section>
     <div class="boton">
         <button>VER MÁS</button>
-        </div>
-        <section class="titulo">
+    </div>
+    <section id="expansion" class="container-expansion" hidden>
+        <img src="" alt="" id="imagenExpandida">
+    </section>
+        <section class="titulo" id= "tituloTrending">
             <h3>Trending:</h3>
             <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
         </section>
         <section id="slider" class="trending">
             <h3>Trending GIFOS</h3>
             <p>Mira los últimos</p> <p>GIFOS de nuestra comunidad.</p>
-            <div id="carrusel" class="container-carrusel">
-                <img src="/assets/button-slider-left.svg" alt="icon" id="leftslider">
-                <div id = "imagenesSlider" class="container-imgSlider">
-                    <div>
-                        <img src="" alt="icon" id="imagenslider1">
-                        <div class="opciones">  
-                            <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
-                            <img src="/assets/icon-download.svg" alt="" class="descargar">
-                            <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+            <section id="slider" class="trending">
+                <h3>Trending GIFOS</h3>
+                <p>Mira los últimos</p> <p>GIFOS de nuestra comunidad.</p>
+                <div id="carrusel" class="container-carrusel">
+                    <img src="/assets/button-slider-left.svg" alt="icon" id="leftslider">
+                    <div id = "imagenesSlider" class="container-imgSlider">
+                        <div>
+                            <img src="" alt="icon" id="imagenslider1">
+                            <div class="opciones">  
+                                <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
+                                <a  class="href">
+                                    <img src="/assets/icon-download.svg" alt="" class="descargar">
+                                </a>
+                                <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="" alt="icon" id="imagenslider2">
+                            <div class="opciones">
+                                <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
+                                <a class="href">
+                                    <img src="/assets/icon-download.svg" alt="" class="descargar">
+                                </a>
+                                <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="" alt="icon" id="imagenslider3">
+                            <div class="opciones">
+                                <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
+                                <a class="href">
+                                    <img src="/assets/icon-download.svg" alt="" class="descargar">
+                                </a>
+                                <img src="/assets/icon-fav.svg" alt="" class="meGusta">
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <img src="" alt="icon" id="imagenslider2">
-                        <div class="opciones">
-                            <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
-                            <img src="/assets/icon-download.svg" alt="" class="descargar">
-                            <img src="/assets/icon-fav.svg" alt="" class="meGusta">
-                        </div>
-                    </div>
-                    <div>
-                        <img src="" alt="icon" id="imagenslider3">
-                        <div class="opciones">
-                            <img src="/assets/icon-max-normal.svg" alt="" class= "expandir">
-                            <img src="/assets/icon-download.svg" alt=""  class="descargar">
-                            <img src="/assets/icon-fav.svg" alt="" class="meGusta">
-                        </div>
-                    </div>
+                    <img src="/assets/Button-Slider-right.svg" alt="icon" id="rightslider">
                 </div>
-                <img src="/assets/Button-Slider-right.svg" alt="icon" id="rightslider">
-            </div>
-        </section>
+            </section>
         <footer>
             <div class="compartir">
                 <h3>Compartir en:</h3>
