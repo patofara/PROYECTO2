@@ -93,22 +93,28 @@
     }
     
     // MAIN!!
-    #cuadrilla{
+
+    .cuadrilla{
         padding: 4% 10% 0 10%;
     }
-    #cuadrilla div{
-        width: calc((100% - 13%) / 4);
-        height: 30vh;
+    .divCuadrilla {
+        width: 22.5vw;
+        height: 35vh;
     }
-    #cuadrilla div img{
-        height: 30vh;
+    .divCuadrilla div{
+        margin-top: -36vh;
+    }
+    .divCuadrilla img{
+       width: 100%;
+       height: 100%;
     }
 
 
     // BOTON!!
 
     .boton{
-        width: 16vw;
+        width: 12vw;
+        margin-top: 7vh;
     }
 
 
@@ -125,12 +131,19 @@
         font-size: 1.1rem;
         display: contents;
     }
+    #leftslider{
+        display: block;
+    }
+    #rightslider{
+        padding-left: 0px;
+    }
     .container-carrusel{
     display: flex;
     justify-content: space-between;
     width: 90%;
     padding-left: 5%;
     padding-top: 5%;
+    overflow: unset;
     }
     .container-carrusel > img{
         display: block;
@@ -157,32 +170,20 @@
         height: 100%;
     }
 
-    
-    .opciones{
-        z-index: 1;
-        margin-top: -35vh;
-        position: absolute;
-        width: 22.5vw;
-        height: 35vh;
-        opacity: 0;
+    // EXPANSION
+    .container-expansion{
+        width: 70%;
+    }
+    .closeImg {
+        width: 2%;
+    }
+    .container1{
+        width: 60%;
+        padding-top: 2%;
         display: block;
     }
-    .opciones:hover{
-        transition: .2s ease all;
-        opacity: 0.7;
-        background: #572EE5;
-        cursor: pointer;
-    }
-
-    .opciones img{
-        width: 13%;
-        float: right;
-        height: 14%;
-        padding: 1vh 0 0 0;
-        z-index: 2;
-    }
-    .opciones img:hover{
-        cursor:pointer
+    .container2{
+        width: 17%;
     }
     // FOOTER!!!
     footer {
@@ -201,5 +202,37 @@
     footer p{
         padding-top: 0;
         width: 50%;
+    }
+    .opciones{
+        z-index: 1;
+        margin-top: -35vh;
+        position: absolute;
+        width: 22.5vw;
+        height: 35vh;
+        opacity: 0;
+        display: block;
+    }
+    .opciones:hover{
+        transition: .2s ease all;
+        opacity: 0.7;
+        background: #572EE5;
+        cursor: pointer;
+    }
+    .opciones a{
+        width: 13%;
+        height: 14%;
+        padding: 1vh 0 0 0;
+        z-index: 2;
+    }
+
+    .opciones  img{
+        width: 13%;
+        float: right;
+        height: 14%;
+        padding: 1vh 0 0 0;
+        z-index: 2;
+    }
+    .opciones img:hover{
+        cursor:pointer
     }
 }

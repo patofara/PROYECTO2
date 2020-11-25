@@ -25,10 +25,22 @@
 .container-carrusel{
     display: flex;
     padding-top: 8%;
+    overflow: scroll;
 }
-.container-carrusel > img{
+#leftslider{
     display: none;
 }
-.container-imgSlider img{
-    display: none;
+#rightslider{
+    display: block;
+    padding-left: 10px;
+}
+.container-imgSlider{
+    display: flex;
+}
+.container-imgSlider > div{
+    height: 40vh;
+    padding-left: 10px;
+}
+.container-imgSlider > div > img{
+    height: 100%;
 }

@@ -127,6 +127,7 @@ function record(stream){
         if (contador == 1 ){
         mediaRecorder.stop()
         contador = 1
+        boton.innerHTML = "VOLVER A GRABAR"
     }})
     
 }

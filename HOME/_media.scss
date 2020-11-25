@@ -132,6 +132,21 @@
         width: 1.3%;
         margin-top: 9px;
     }
+    // EXPANSION
+    .container-expansion{
+        width: 70%;
+    }
+    .closeImg {
+        width: 2%;
+    }
+    .container1{
+        width: 60%;
+        padding-top: 2%;
+        display: block;
+    }
+    .container2{
+        width: 17%;
+    }
     // BUSCADOS
     .divBuscados{
         height: 34vh;
@@ -143,6 +158,7 @@
     .sectionBusqueda button{
         width: 16%;
         height: 7vh;
+        font-size: 0.8rem;
     }
 
 
@@ -158,7 +174,7 @@
     // SIN RESULTADOS
 
     #noResult img{
-        width: 25%;
+        width: 20%;
         height: 25%;
         padding: 8% 0 2% 0;
     }

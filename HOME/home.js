@@ -59,7 +59,7 @@ function busqueda(valor, param1, num) {
         noResult.removeAttribute("hidden")
         return
       }
-      noResult.innerHTML = ""
+      noResult.setAttribute("hidden", "")
       for (let i = 0; i < array0.length; i++) {
         let element = array0[i]
         arrayBuscados.push(element)
@@ -176,6 +176,7 @@ function crearDiv(param1) {
     let elementurl = arrayBuscados[i].images.downsized.url;
     let elementDownload = arrayBuscados[i].embed_url
     let elementtitle = arrayBuscados[i].title
+    cambiarSrc(meGusta, "/assets/icon-fav-hover.svg", "/assets/icon-fav.svg")
     meGusta.addEventListener("click", () => {
       if (arrayFav.includes(elementurl)) {
         meGusta.src = "/assets/icon-fav.svg"
@@ -194,32 +195,26 @@ function crearDiv(param1) {
     })
     cambiarSrc(expandir, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
-        tituloTrending.setAttribute("hidden", "")
-        expansion.removeAttribute("hidden")
-        imagenExpandida.src = elementurl
+      tituloTrending.setAttribute("hidden", "")
+      expansion.removeAttribute("hidden")
+      imagenExpandida.src = elementurl
     })
     hrefneW.setAttribute("alt", elementDownload)
     hrefneW.addEventListener("click", () => {
-        hrefneW.setAttribute("href","")
-        hrefneW.setAttribute("download",elementDownload)
+      hrefneW.setAttribute("href", "")
+      hrefneW.setAttribute("download", elementDownload)
     })
-    cambiarSrc(descargar,"", "/assets/icon-download.svg")
-    descargar.addEventListener("mouseover", ()=>{
+    cambiarSrc(descargar, "", "/assets/icon-download.svg")
+    descargar.addEventListener("mouseover", () => {
       descargar.src = "/assets/icon-download-hover.svg"
       hrefneW.setAttribute("title", "Download " + elementtitle)
     })
     expandir.src = "/assets/icon-max-normal.svg"
     descargar.src = "/assets/icon-download.svg"
     meGusta.src = "/assets/icon-fav.svg"
-    meGusta.addEventListener("mouseover", () => { meGusta.src = "/assets/icon-fav-hover.svg"; })
-    meGusta.addEventListener("mouseleave", () => { meGusta.src = "/assets/icon-fav.svg"; })
-    expandir.classList.add("expandir")
     divOpciones.appendChild(expandir)
-    descargar.classList.add("descargar")
     hrefneW.appendChild(descargar)
-    hrefneW.classList.add("href")
     divOpciones.appendChild(hrefneW)
-    meGusta.classList.add("meGusta")
     divOpciones.appendChild(meGusta)
     divOpciones.classList.add("opciones")
     divBuscados.classList.add("divBuscados")

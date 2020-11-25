@@ -41,8 +41,8 @@ nav div:nth-child(2) {
   float: right;
   padding-right: 5%;
   width: 17vw;
-  height: 8vh;
-  padding-top: 3vw;
+  height: 7vh;
+  padding-top: 4vw;
 }
 
 .noListHamb {
@@ -158,7 +158,7 @@ body.dark {
   border-color: black;
 }
 
-#cuadrilla {
+.cuadrilla {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -168,38 +168,46 @@ body.dark {
       flex-wrap: wrap;
 }
 
-#cuadrilla div {
+.divCuadrilla {
   width: 44%;
   margin-bottom: 3vh;
   height: 25vh;
 }
 
-#cuadrilla div img {
+.divCuadrilla img {
   -o-object-fit: fill;
      object-fit: fill;
   width: 100%;
   height: 100%;
 }
 
+.opciones {
+  display: none;
+}
+
 .boton {
   width: 35vw;
   height: 8vh;
-  padding: 7vh 0 0 0;
   margin: auto;
-}
-
-.boton button {
-  width: 100%;
-  height: 100%;
   border: 1px solid #572EE5;
   border-radius: 25px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 0.7rem;
   color: #572EE5;
   letter-spacing: 0;
   cursor: pointer;
   background-color: white;
+  font-size: 0.8rem;
+}
+
+.boton:hover {
+  background-color: #572EE5;
+  color: white;
+}
+
+.dark .boton:hover {
+  background-color: white;
+  color: #572EE5;
 }
 
 .centro {
@@ -261,14 +269,31 @@ body.dark {
   display: -ms-flexbox;
   display: flex;
   padding-top: 8%;
+  overflow: scroll;
 }
 
-.container-carrusel > img {
+#leftslider {
   display: none;
 }
 
-.container-imgSlider img {
-  display: none;
+#rightslider {
+  display: block;
+  padding-left: 10px;
+}
+
+.container-imgSlider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container-imgSlider > div {
+  height: 40vh;
+  padding-left: 10px;
+}
+
+.container-imgSlider > div > img {
+  height: 100%;
 }
 
 footer {
@@ -299,7 +324,7 @@ footer p {
 
 .container-expansion {
   height: 70vh;
-  width: 70%;
+  width: 90%;
   margin: auto;
   margin-top: 16%;
 }
@@ -307,6 +332,44 @@ footer p {
 .container-expansion img {
   width: 100%;
   height: 100%;
+  padding-top: 5%;
+}
+
+.closeImg {
+  width: 8%;
+  float: right;
+  cursor: pointer;
+}
+
+.pieImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+}
+
+.container1 {
+  width: 40%;
+  padding-top: 2%;
+  display: none;
+}
+
+.container2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 59%;
+}
+
+.container2 img, .container2 a {
+  width: 100%;
+  padding-top: 2%;
+  padding-left: 20%;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 767px) {
@@ -408,18 +471,23 @@ footer p {
   .centro p {
     font-size: 1rem;
   }
-  #cuadrilla {
+  .cuadrilla {
     padding: 4% 10% 0 10%;
   }
-  #cuadrilla div {
-    width: calc((100% - 13%) / 4);
-    height: 30vh;
+  .divCuadrilla {
+    width: 22.5vw;
+    height: 35vh;
   }
-  #cuadrilla div img {
-    height: 30vh;
+  .divCuadrilla div {
+    margin-top: -36vh;
+  }
+  .divCuadrilla img {
+    width: 100%;
+    height: 100%;
   }
   .boton {
-    width: 16vw;
+    width: 12vw;
+    margin-top: 7vh;
   }
   .trending {
     margin-top: 25vh;
@@ -433,6 +501,12 @@ footer p {
     font-size: 1.1rem;
     display: contents;
   }
+  #leftslider {
+    display: block;
+  }
+  #rightslider {
+    padding-left: 0px;
+  }
   .container-carrusel {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -443,6 +517,7 @@ footer p {
     width: 90%;
     padding-left: 5%;
     padding-top: 5%;
+    overflow: unset;
   }
   .container-carrusel > img {
     display: block;
@@ -473,31 +548,19 @@ footer p {
     display: block;
     height: 100%;
   }
-  .opciones {
-    z-index: 1;
-    margin-top: -35vh;
-    position: absolute;
-    width: 22.5vw;
-    height: 35vh;
-    opacity: 0;
+  .container-expansion {
+    width: 70%;
+  }
+  .closeImg {
+    width: 2%;
+  }
+  .container1 {
+    width: 60%;
+    padding-top: 2%;
     display: block;
   }
-  .opciones:hover {
-    -webkit-transition: .2s ease all;
-    transition: .2s ease all;
-    opacity: 0.7;
-    background: #572EE5;
-    cursor: pointer;
-  }
-  .opciones img {
-    width: 13%;
-    float: right;
-    height: 14%;
-    padding: 1vh 0 0 0;
-    z-index: 2;
-  }
-  .opciones img:hover {
-    cursor: pointer;
+  .container2 {
+    width: 17%;
   }
   footer {
     display: -webkit-box;
@@ -518,6 +581,38 @@ footer p {
   footer p {
     padding-top: 0;
     width: 50%;
+  }
+  .opciones {
+    z-index: 1;
+    margin-top: -35vh;
+    position: absolute;
+    width: 22.5vw;
+    height: 35vh;
+    opacity: 0;
+    display: block;
+  }
+  .opciones:hover {
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
+    opacity: 0.7;
+    background: #572EE5;
+    cursor: pointer;
+  }
+  .opciones a {
+    width: 13%;
+    height: 14%;
+    padding: 1vh 0 0 0;
+    z-index: 2;
+  }
+  .opciones img {
+    width: 13%;
+    float: right;
+    height: 14%;
+    padding: 1vh 0 0 0;
+    z-index: 2;
+  }
+  .opciones img:hover {
+    cursor: pointer;
   }
 }
 

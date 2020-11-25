@@ -113,12 +113,19 @@
         font-size: 1.1rem;
         display: contents;
     }
+    #leftslider{
+        display: block;
+    }
+    #rightslider{
+        padding-left: 0px;
+    }
     .container-carrusel{
     display: flex;
     justify-content: space-between;
     width: 90%;
     padding-left: 5%;
     padding-top: 5%;
+    overflow: unset;
     }
     .container-carrusel > img{
         display: block;
@@ -144,8 +151,6 @@
         display: block;
         height: 100%;
     }
-
-    
     .opciones{
         z-index: 1;
         margin-top: -35vh;
@@ -171,6 +176,21 @@
     }
     .opciones img:hover{
         cursor:pointer
+    }
+    // EXPANSION
+    .container-expansion{
+        width: 70%;
+    }
+    .closeImg {
+        width: 2%;
+    }
+    .container1{
+        width: 60%;
+        padding-top: 2%;
+        display: block;
+    }
+    .container2{
+        width: 17%;
     }
     // FOOTER!!!
     footer {

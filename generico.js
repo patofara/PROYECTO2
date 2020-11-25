@@ -3,7 +3,12 @@
 let modoNocturno = document.getElementById("modoNocturno");
 let logo = document.getElementById("logo")
 
-
+if (localStorage.getItem('favoritos')) {
+    arrayFav = JSON.parse(localStorage.getItem('favoritos'))
+}
+else {
+    var arrayFav = [];
+}
 function oscurecer() {
     let storageNoc = sessionStorage.getItem('dark-mode')
     if (storageNoc === "false") {
@@ -35,7 +40,7 @@ function storageDark() {
         logo.src = "/assets/logo-mobile-modo-noct.svg"
         leftslider.src = "/assets/button-slider-left-md-noct.svg"
         rightslider.src = "/assets/button-slider-right-md-noct.svg"
-         rightslider.addEventListener("mouseleave", () => rightslider.src = "/assets/button-slider-right-md-noct.svg")
+        rightslider.addEventListener("mouseleave", () => rightslider.src = "/assets/button-slider-right-md-noct.svg")
         leftslider.addEventListener("mouseleave", () => leftslider.src = "/assets/button-slider-left-md-noct.svg")
     }
     else {
@@ -51,10 +56,21 @@ let hamburguesa = document.getElementById("hamburguesa");
 let listaHamb = document.getElementById("menuNav");
 function burger() {
     listaHamb.classList.toggle('listHamb')
-    if (hamburguesa.classList.contains('hamburguesa')) {
+    //  
+    if (hamburguesa.classList.contains('hamburguesa') && document.body.classList.contains('dark')) {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
         hamburguesa.src = "/assets/Button-close-modo-noc.svg"
+    }
+    else if (hamburguesa.classList.contains('hamburguesa')) {
+        hamburguesa.classList.remove('hamburguesa')
+        hamburguesa.classList.add('burgerOn')
+        hamburguesa.src = "/assets/close.svg"
+    }
+    else if (hamburguesa.classList.contains('burgerOn') && document.body.classList.contains('dark')) {
+        hamburguesa.classList.remove('burgerOn')
+        hamburguesa.classList.add('hamburguesa')
+        hamburguesa.src = "/assets/burger-modo-noct.svg"
     }
     else {
         hamburguesa.classList.remove('burgerOn')
@@ -139,15 +155,20 @@ rightslider.addEventListener("click", function () {
 
 // AGREGAR A FAV
 
-var arrayFav = [];
-if (localStorage.getItem('favoritos')) {
-    arrayFav = JSON.parse(localStorage.getItem('favoritos'))
-}
 
+let tituloExpansion = document.getElementById("tituloExpansion")
+let favExpansion = document.getElementById("favExpansion")
+let closeExpansion = document.getElementById("closeExpansion")
+let hrefExpansion = document.getElementById("hrefExpansion")
 let meGusta = document.getElementsByClassName("meGusta")
 let expandir = document.getElementsByClassName("expandir")
 let descargar = document.getElementsByClassName("descargar")
 let href = document.getElementsByClassName("href")
+let main = document.getElementById("main")
+let tituloTrending = document.getElementById("tituloTrending")
+let expansion = document.getElementById("expansion")
+let imagenExpandida = document.getElementById("imagenExpandida")
+let imgTrending = document.getElementsByClassName("imgTrending")
 function accionMeGusta() {
     for (let i = 0; i < meGusta.length; i++) {
         // AGREGAR IMG A FAVORITOS
@@ -184,14 +205,26 @@ function accionMeGusta() {
             element2.setAttribute("id", "expandir" + i)
             expansion.removeAttribute("hidden")
             imagenExpandida.src = indexElement
-
-
-
+            imgMAX()
         })
+        // CLICK PARA EXPANDIR EN MOBILE
+        let imgMaxMob = imgTrending[i]
+        imgMaxMob.addEventListener("click", () => {
+            let indexElement = window["imagenslider" + (i + 1)].src
+            main.setAttribute("hidden", "")
+            tituloTrending.setAttribute("hidden", "")
+            element2.setAttribute("id", "expandir" + i)
+            expansion.removeAttribute("hidden")
+            imagenExpandida.src = indexElement
+            imgMAX()
+        })
+
+        // DESCARGAR IMAGENES
+
         let element3 = descargar[i]
         let element3url = href[i]
-          element3url.setAttribute("title", "Descargar Gif")
-            element3url.addEventListener("click", () => {
+        element3url.setAttribute("title", "Descargar Gif")
+        element3url.addEventListener("click", () => {
             element3url.setAttribute("href", "")
             element3url.setAttribute("download", window["imagenslider" + (i + 1)].src)
         })
@@ -201,40 +234,29 @@ function accionMeGusta() {
 
 accionMeGusta()
 
-
-
-let main = document.getElementById("main")
-let tituloTrending = document.getElementById("tituloTrending")
-let expansion = document.getElementById("expansion")
-let imagenExpandida = document.getElementById("imagenExpandida")
-function accionExpandir() {
-
-    // for (let i = 0; i < expandir.length; i++) {
-    //     let element2 = expandir[i]
-    //     cambiarSrc(element2, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
-    //     element2.addEventListener("click", () => {
-    //         main.setAttribute("hidden", "")
-    //         tituloTrending.setAttribute("hidden", "")
-    //         element2.setAttribute("id", "expandir" + i)
-    //         expansion.removeAttribute("hidden")
-    //         imagenExpandida.src = 
-
-
-
-    //     })
-
+function imgMAX() {
+    favExpansion.src = "/assets/icon-fav.svg"
+    tituloExpansion.innerHTML = ""
+    let indexElement = imagenExpandida.src
+    hrefExpansion.setAttribute("download", indexElement)
+    closeExpansion.addEventListener("click", () => {
+        main.removeAttribute("hidden")
+        expansion.setAttribute("hidden", "")
+    })
+    favExpansion.addEventListener("click", () => {
+        console.log(indexElement);
+        if (arrayFav.includes(indexElement)) {
+            let indice = arrayFav.indexOf(indexElement)
+            arrayFav.splice(indice, 1)
+            favExpansion.src = "/assets/icon-fav.svg"
+        }
+        else {
+            arrayFav.push(indexElement)
+            favExpansion.src = "/assets/iconFavActivo.svg"
+        }
+        localStorage.setItem('favoritos', JSON.stringify(arrayFav))
+    })
 }
-
-accionExpandir()
-
-
-
-
-
-
-
-
-
 
 
 
