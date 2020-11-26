@@ -255,6 +255,7 @@ async function descargarGifo(url, titulo) {
 }
 
 accionMeGusta() 
+
 function imgMAX() {
     favExpansion.src = "./assets/icon-fav.svg"
     let indexElement = imagenExpandida.src
@@ -263,6 +264,7 @@ function imgMAX() {
     closeExpansion.addEventListener("click", () => {
         main.removeAttribute("hidden")
         expansion.setAttribute("hidden", "")
+        sectionBuscados.style = "display: flex;"
     })
     favExpansion.addEventListener("click", () => {
         if (arrayFav.includes(indexElement)) {

@@ -196,6 +196,7 @@ function crearDiv(param1) {
     cambiarSrc(expandir, "../assets/icon-max-hover.svg", "../assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
+      
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
       tituloExpansion.innerHTML = elementtitle
@@ -204,6 +205,7 @@ function crearDiv(param1) {
     img.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
+      sectionBuscados.style = "display: none;"
       imagenExpandida.src = elementurl
       tituloExpansion.innerHTML = elementtitle
       imgMAX()
