@@ -1,26 +1,26 @@
 // MODO NOCTURNO
 modoNocturno.addEventListener("click", oscurecer)
 modoNocturno.addEventListener("click", oscurecerHome)
-let lupa = document.getElementsByClassName("lupa")
-let lupa2 = document.getElementsByClassName("lupa2")
+let lupa = document.getElementsByC.lassName("lupa")
+let lupa2 = document.getElementsByC.lassName("lupa2")
 let storageNoc = sessionStorage.getItem('dark-mode')
-let lupaExtra = document.getElementsByClassName("lupaExtra")
+let lupaExtra = document.getElementsByC.lassName("lupaExtra")
 storageDark();
 oscurecerHome();
 
 function oscurecerHome() {
-  if (document.body.classList.contains('dark')) {
-    lupa[0].src = "./assets/icon-search-mod-noc.svg"
-    lupa2[0].src = "./assets/icon-search-mod-noc.svg"
+  if (document.body.c.lassList.contains('dark')) {
+    lupa[0].src = "../assets/icon-search-mod-noc.svg"
+    lupa2[0].src = "../assets/icon-search-mod-noc.svg"
     for (let i = 0; i < lupaExtra.length; i++) {
-      lupaExtra[i].src = "./assets/icon-search-mod-noc.svg"
+      lupaExtra[i].src = "../assets/icon-search-mod-noc.svg"
     }
   }
   else {
-    lupa[0].src = "./assets/icon-search.svg"
-    lupa2[0].src = "./assets/icon-search.svg"
+    lupa[0].src = "../assets/icon-search.svg"
+    lupa2[0].src = "../assets/icon-search.svg"
     for (let i = 0; i < lupaExtra.length; i++) {
-      lupaExtra[i].src = "./assets/icon-search.svg"
+      lupaExtra[i].src = "../assets/icon-search.svg"
     }
   }
 }
@@ -55,7 +55,7 @@ function busqueda(valor, param1, num) {
       let array0 = resp.data
       cantGifs = resp.pagination.total_count
       if (array0.length == 0) {
-        cajaSug.classList.remove("appear")
+        cajaSug.c.lassList.remove("appear")
         noResult.removeAttribute("hidden")
         return
       }
@@ -68,7 +68,7 @@ function busqueda(valor, param1, num) {
     })
 
     .catch(() => {
-      cajaSug.classList.remove("appear")
+      cajaSug.c.lassList.remove("appear")
       noResult.removeAttribute("hidden")
     })
 
@@ -84,16 +84,16 @@ let cajaSug = document.getElementById("cajaSugerencias")
 function buscador(e) {
   if (search.value != "" && e.keyCode !== 13) {
     search.style.border = "none"
-    cajaSug.classList.add("appear")
-    lupa2[0].classList.add("aparece")
-    lupa[0].src = "./assets/close.svg"
+    cajaSug.c.lassList.add("appear")
+    lupa2[0].c.lassList.add("aparece")
+    lupa[0].src = "../assets/close.svg"
     cajaSugerencias(search.value)
   }
-  if (search.value != "" && e.keyCode !== 13 && document.body.classList.contains('dark')) {
+  if (search.value != "" && e.keyCode !== 13 && document.body.c.lassList.contains('dark')) {
     search.style.border = "none"
-    cajaSug.classList.add("appear")
-    lupa2[0].classList.add("aparece")
-    lupa[0].src = "./assets/close-modo-noct.svg"
+    cajaSug.c.lassList.add("appear")
+    lupa2[0].c.lassList.add("aparece")
+    lupa[0].src = "../assets/close-modo-noct.svg"
     cajaSugerencias(search.value)
     sectionBuscados.innerHTML = ""
   }
@@ -101,21 +101,21 @@ function buscador(e) {
     sectionBuscados.innerHTML = ""
     busqueda(search.value, search.value, 0)
     search.style.border = "1px solid #572EE5"
-    cajaSug.classList.remove("appear")
+    cajaSug.c.lassList.remove("appear")
   }
   if (e.keyCode === 27 || search.value == "") {
     search.style.border = "1px solid #572EE5"
-    lupa[0].src = "./assets/icon-search.svg"
+    lupa[0].src = "../assets/icon-search.svg"
     search.value = ""
-    cajaSug.classList.remove("appear")
-    lupa2[0].classList.remove("aparece")
+    cajaSug.c.lassList.remove("appear")
+    lupa2[0].c.lassList.remove("aparece")
   }
-  if (e.keyCode === 27 || search.value == "" && document.body.classList.contains('dark')) {
+  if (e.keyCode === 27 || search.value == "" && document.body.c.lassList.contains('dark')) {
     search.style.border = "1px solid white"
-    lupa[0].src = "./assets/icon-search-mod-noc.svg"
+    lupa[0].src = "../assets/icon-search-mod-noc.svg"
     search.value = ""
-    cajaSug.classList.remove("appear")
-    lupa2[0].classList.remove("aparece")
+    cajaSug.c.lassList.remove("appear")
+    lupa2[0].c.lassList.remove("aparece")
 
   }
 }
@@ -124,21 +124,21 @@ function buscador(e) {
 
 
 lupa[0].addEventListener("click", () => {
-  cajaSug.classList.remove("appear")
-  lupa2[0].classList.remove("aparece")
+  cajaSug.c.lassList.remove("appear")
+  lupa2[0].c.lassList.remove("aparece")
   search.style.border = "1px solid #572EE5"
-  lupa[0].src = "./assets/icon-search.svg"
+  lupa[0].src = "../assets/icon-search.svg"
   search.value = ""
 })
 
 //  EVENTO LI DE SUGERENCIAS
 
-let textLiSug = document.getElementsByClassName("listaSug")
+let textLiSug = document.getElementsByC.lassName("listaSug")
 for (let i = 0; i < textLiSug.length; i++) {
   textLiSug[i].addEventListener("click", () => {
     sectionBuscados.innerHTML = ""
     busqueda(search.value, textLiSug[i].innerHTML, 0)
-    cajaSug.classList.remove("appear")
+    cajaSug.c.lassList.remove("appear")
     search.value = textLiSug[i].innerHTML
     search.style.border = "1px solid #572EE5"
   })
@@ -176,24 +176,24 @@ function crearDiv(param1) {
     let elementurl = arrayBuscados[i].images.downsized.url;
     let elementDownload = arrayBuscados[i].embed_url
     let elementtitle = arrayBuscados[i].title
-    cambiarSrc(meGusta, "./assets/icon-fav-hover.svg", "./assets/icon-fav.svg")
+    cambiarSrc(meGusta, "../assets/icon-fav-hover.svg", "../assets/icon-fav.svg")
     meGusta.addEventListener("click", () => {
       if (arrayFav.includes(elementurl)) {
-        meGusta.src = "./assets/icon-fav.svg"
+        meGusta.src = "../assets/icon-fav.svg"
         let indice = arrayFav.indexOf(elementurl)
         arrayFav.splice(indice, 1)
-        meGusta.addEventListener("mouseover", () => { meGusta.src = "./assets/icon-fav-hover.svg"; })
-        meGusta.addEventListener("mouseleave", () => { meGusta.src = "./assets/icon-fav.svg"; })
+        meGusta.addEventListener("mouseover", () => { meGusta.src = "../assets/icon-fav-hover.svg"; })
+        meGusta.addEventListener("mouseleave", () => { meGusta.src = "../assets/icon-fav.svg"; })
       }
       else {
         arrayFav.push(elementurl)
-        meGusta.src = "./assets/icon-fav-active.svg"
-        meGusta.addEventListener("mouseover", () => { meGusta.src = "./assets/icon-fav-active.svg"; })
-        meGusta.addEventListener("mouseleave", () => { meGusta.src = "./assets/icon-fav-active.svg"; })
+        meGusta.src = "../assets/icon-fav-active.svg"
+        meGusta.addEventListener("mouseover", () => { meGusta.src = "../assets/icon-fav-active.svg"; })
+        meGusta.addEventListener("mouseleave", () => { meGusta.src = "../assets/icon-fav-active.svg"; })
       }
       localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
-    cambiarSrc(expandir, "./assets/icon-max-hover.svg", "./assets/icon-max-normal.svg")
+    cambiarSrc(expandir, "../assets/icon-max-hover.svg", "../assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
@@ -212,21 +212,21 @@ function crearDiv(param1) {
     hrefneW.addEventListener("click", () => {
       descargarGifo(elementurl, elementtitle)
     })
-    cambiarSrc(descargar, "", "./assets/icon-download.svg")
+    cambiarSrc(descargar, "", "../assets/icon-download.svg")
     descargar.addEventListener("mouseover", () => {
-      descargar.src = "./assets/icon-download-hover.svg"
+      descargar.src = "../assets/icon-download-hover.svg"
       hrefneW.setAttribute("title", "Download " + elementtitle)
     })
-    expandir.src = "./assets/icon-max-normal.svg"
-    descargar.src = "./assets/icon-download.svg"
-    meGusta.src = "./assets/icon-fav.svg"
+    expandir.src = "../assets/icon-max-normal.svg"
+    descargar.src = "../assets/icon-download.svg"
+    meGusta.src = "../assets/icon-fav.svg"
     divOpciones.appendChild(expandir)
     hrefneW.appendChild(descargar)
     divOpciones.appendChild(hrefneW)
     divOpciones.appendChild(meGusta)
-    divOpciones.classList.add("opciones")
-    divBuscados.classList.add("divBuscados")
-    img.classList.add("imgBuscadas")
+    divOpciones.c.lassList.add("opciones")
+    divBuscados.c.lassList.add("divBuscados")
+    img.c.lassList.add("imgBuscadas")
     img.src = elementurl;
     divBuscados.appendChild(img)
     divBuscados.appendChild(divOpciones)
