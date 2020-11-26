@@ -98,7 +98,7 @@ function cambiarSrc(elemento, src1, src2) {
 
 arrayTrending = [];
 arrayTrendingObj = [];
-let trending = fetch("http://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&limit=12")
+let trending = fetch("https://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&limit=12")
     .then(resp => resp.json())
     .then(resp => {
         for (let i = 0; i < 12; i++) {

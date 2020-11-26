@@ -49,7 +49,7 @@ let noResult = document.getElementById("noResult")
 let cantGifs = 0
 function busqueda(valor, param1, num) {
   arrayBuscados = []
-  fetch(`http://api.giphy.com/v1/gifs/search?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&q=${valor}&limit=12&offset=${num}`)
+  fetch(`https://api.giphy.com/v1/gifs/search?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&q=${valor}&limit=12&offset=${num}`)
     .then(resp => resp.json())
     .then(resp => {
       let array0 = resp.data
@@ -145,7 +145,7 @@ for (let i = 0; i < textLiSug.length; i++) {
 }
 
 function cajaSugerencias(valor) {
-  fetch(`http://api.giphy.com/v1/gifs/search?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&q=${valor}&limit=4`)
+  fetch(`https://api.giphy.com/v1/gifs/search?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&q=${valor}&limit=4`)
     .then(resp => resp.json())
     .then(resp => {
       arraySugerencias = [];
