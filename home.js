@@ -199,6 +199,14 @@ function crearDiv(param1) {
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
       tituloExpansion.innerHTML = elementtitle
+      imgMAX()
+    })
+    img.addEventListener("click", () => {
+      tituloTrending.setAttribute("hidden", "")
+      expansion.removeAttribute("hidden")
+      imagenExpandida.src = elementurl
+      tituloExpansion.innerHTML = elementtitle
+      imgMAX()
     })
     hrefneW.setAttribute("alt", elementDownload)
     hrefneW.addEventListener("click", () => {
