@@ -10,17 +10,17 @@ oscurecerHome();
 
 function oscurecerHome() {
   if (document.body.classList.contains('dark')) {
-    lupa[0].src = "/assets/icon-search-mod-noc.svg"
-    lupa2[0].src = "/assets/icon-search-mod-noc.svg"
+    lupa[0].src = "./assets/icon-search-mod-noc.svg"
+    lupa2[0].src = "./assets/icon-search-mod-noc.svg"
     for (let i = 0; i < lupaExtra.length; i++) {
-      lupaExtra[i].src = "/assets/icon-search-mod-noc.svg"
+      lupaExtra[i].src = "./assets/icon-search-mod-noc.svg"
     }
   }
   else {
-    lupa[0].src = "/assets/icon-search.svg"
-    lupa2[0].src = "/assets/icon-search.svg"
+    lupa[0].src = "./assets/icon-search.svg"
+    lupa2[0].src = "./assets/icon-search.svg"
     for (let i = 0; i < lupaExtra.length; i++) {
-      lupaExtra[i].src = "/assets/icon-search.svg"
+      lupaExtra[i].src = "./assets/icon-search.svg"
     }
   }
 }
@@ -86,14 +86,14 @@ function buscador(e) {
     search.style.border = "none"
     cajaSug.classList.add("appear")
     lupa2[0].classList.add("aparece")
-    lupa[0].src = "/assets/close.svg"
+    lupa[0].src = "./assets/close.svg"
     cajaSugerencias(search.value)
   }
   if (search.value != "" && e.keyCode !== 13 && document.body.classList.contains('dark')) {
     search.style.border = "none"
     cajaSug.classList.add("appear")
     lupa2[0].classList.add("aparece")
-    lupa[0].src = "/assets/close-modo-noct.svg"
+    lupa[0].src = "./assets/close-modo-noct.svg"
     cajaSugerencias(search.value)
     sectionBuscados.innerHTML = ""
   }
@@ -105,14 +105,14 @@ function buscador(e) {
   }
   if (e.keyCode === 27 || search.value == "") {
     search.style.border = "1px solid #572EE5"
-    lupa[0].src = "/assets/icon-search.svg"
+    lupa[0].src = "./assets/icon-search.svg"
     search.value = ""
     cajaSug.classList.remove("appear")
     lupa2[0].classList.remove("aparece")
   }
   if (e.keyCode === 27 || search.value == "" && document.body.classList.contains('dark')) {
     search.style.border = "1px solid white"
-    lupa[0].src = "/assets/icon-search-mod-noc.svg"
+    lupa[0].src = "./assets/icon-search-mod-noc.svg"
     search.value = ""
     cajaSug.classList.remove("appear")
     lupa2[0].classList.remove("aparece")
@@ -127,7 +127,7 @@ lupa[0].addEventListener("click", () => {
   cajaSug.classList.remove("appear")
   lupa2[0].classList.remove("aparece")
   search.style.border = "1px solid #572EE5"
-  lupa[0].src = "/assets/icon-search.svg"
+  lupa[0].src = "./assets/icon-search.svg"
   search.value = ""
 })
 
@@ -176,24 +176,24 @@ function crearDiv(param1) {
     let elementurl = arrayBuscados[i].images.downsized.url;
     let elementDownload = arrayBuscados[i].embed_url
     let elementtitle = arrayBuscados[i].title
-    cambiarSrc(meGusta, "/assets/icon-fav-hover.svg", "/assets/icon-fav.svg")
+    cambiarSrc(meGusta, "./assets/icon-fav-hover.svg", "./assets/icon-fav.svg")
     meGusta.addEventListener("click", () => {
       if (arrayFav.includes(elementurl)) {
-        meGusta.src = "/assets/icon-fav.svg"
+        meGusta.src = "./assets/icon-fav.svg"
         let indice = arrayFav.indexOf(elementurl)
         arrayFav.splice(indice, 1)
-        meGusta.addEventListener("mouseover", () => { meGusta.src = "/assets/icon-fav-hover.svg"; })
-        meGusta.addEventListener("mouseleave", () => { meGusta.src = "/assets/icon-fav.svg"; })
+        meGusta.addEventListener("mouseover", () => { meGusta.src = "./assets/icon-fav-hover.svg"; })
+        meGusta.addEventListener("mouseleave", () => { meGusta.src = "./assets/icon-fav.svg"; })
       }
       else {
         arrayFav.push(elementurl)
-        meGusta.src = "/assets/icon-fav-active.svg"
-        meGusta.addEventListener("mouseover", () => { meGusta.src = "/assets/icon-fav-active.svg"; })
-        meGusta.addEventListener("mouseleave", () => { meGusta.src = "/assets/icon-fav-active.svg"; })
+        meGusta.src = "./assets/icon-fav-active.svg"
+        meGusta.addEventListener("mouseover", () => { meGusta.src = "./assets/icon-fav-active.svg"; })
+        meGusta.addEventListener("mouseleave", () => { meGusta.src = "./assets/icon-fav-active.svg"; })
       }
       localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
-    cambiarSrc(expandir, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
+    cambiarSrc(expandir, "./assets/icon-max-hover.svg", "./assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
@@ -204,14 +204,14 @@ function crearDiv(param1) {
     hrefneW.addEventListener("click", () => {
       descargarGifo(elementurl, elementtitle)
     })
-    cambiarSrc(descargar, "", "/assets/icon-download.svg")
+    cambiarSrc(descargar, "", "./assets/icon-download.svg")
     descargar.addEventListener("mouseover", () => {
-      descargar.src = "/assets/icon-download-hover.svg"
+      descargar.src = "./assets/icon-download-hover.svg"
       hrefneW.setAttribute("title", "Download " + elementtitle)
     })
-    expandir.src = "/assets/icon-max-normal.svg"
-    descargar.src = "/assets/icon-download.svg"
-    meGusta.src = "/assets/icon-fav.svg"
+    expandir.src = "./assets/icon-max-normal.svg"
+    descargar.src = "./assets/icon-download.svg"
+    meGusta.src = "./assets/icon-fav.svg"
     divOpciones.appendChild(expandir)
     hrefneW.appendChild(descargar)
     divOpciones.appendChild(hrefneW)
