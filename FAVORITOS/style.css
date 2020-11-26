@@ -356,6 +356,10 @@ footer p {
   width: 40%;
   padding-top: 2%;
   display: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #000000;
+  font-weight: 600;
 }
 
 .container2 {
@@ -425,24 +429,23 @@ footer p {
   }
   .noListHamb li {
     display: inline-block;
-    width: 13vw;
+    width: 25%;
   }
   .masNav {
     display: block;
     width: 4vw;
   }
-  .masNav:hover {
-    opacity: 0.5;
-    width: 4.1vw;
-  }
   .noListHamb li a {
     color: #572ee5;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+    font-size: 1rem;
   }
   .dark .noListHamb li a {
     color: white;
   }
   .noListHamb li:nth-child(1) {
-    text-align: left;
+    text-align: center;
   }
   .noListHamb span {
     display: none;
@@ -450,19 +453,22 @@ footer p {
   .noListHamb p {
     color: #572ee5;
     cursor: pointer;
-    padding-top: 3vh;
+    font-size: 1rem;
+    padding-top: 3.5vh;
     -webkit-margin-before: 0px;
             margin-block-start: 0px;
     -webkit-margin-after: 0px;
             margin-block-end: 0px;
   }
   .noListHamb p:hover {
-    font-size: 1.1rem;
-    opacity: 0.5;
+    opacity: 0.4;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
   }
   .noListHamb li a:hover {
-    opacity: 0.5;
-    font-size: 1.2rem;
+    opacity: 0.4;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
   }
   .titulo {
     padding-top: 6%;

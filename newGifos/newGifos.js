@@ -1,4 +1,7 @@
-        // MODO NOCTURNO
+let masNav = document.getElementById("masNav")
+
+masNav.src = "/assets/CTA-crear-gifo-active.svg"     
+      // MODO NOCTURNO
 
 let modoNocturno = document.getElementById("modoNocturno");
 let logo = document.getElementById("logo")
@@ -108,15 +111,34 @@ boton.addEventListener("click", () => {
 })
 
 newGifos= []
-
-
+// function record(stream){
+//     video.srcObject = stream
+//     video.onplay()
+// }
+// recorder = RecordRTC(stream, {
+//   type: 'gif',
+//   frameRate: 1,
+//   quality: 10,
+//   width: 360,
+//   hidden: 240,
+//   onGifRecordingStarted: function() {
+//    console.log('started')
+//  },
+// });
 function record(stream){
     video.srcObject = stream
-    let mediaRecorder = new MediaRecorder (stream, {
-        mimeType: 'video/webm;codecs=h264'
+     recorder = RecordRTC(stream, {
+        type: 'gif',
+        frameRate: 1,
+        quality: 10,
+        width: 360,
+        hidden: 240,
+        onGifRecordingStarted: function() {
+        console.log('started')
+        }
     });
-    mediaRecorder.start();
-    mediaRecorder.onstop = () =>{
+    // recorder.onstart();
+    recorder.stop = () =>{
         alert("termino")
         let blob = new Blob(newGifos,{type:"video/webm"}); 
         let url = window.URL.createObjectURL(blob)
@@ -125,7 +147,7 @@ function record(stream){
     }
     boton.addEventListener("click", () => {
         if (contador == 1 ){
-        mediaRecorder.stop()
+        recorder.stop()
         contador = 1
         boton.innerHTML = "VOLVER A GRABAR"
     }})

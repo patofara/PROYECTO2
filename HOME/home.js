@@ -198,11 +198,11 @@ function crearDiv(param1) {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
+      tituloExpansion.innerHTML = elementtitle
     })
     hrefneW.setAttribute("alt", elementDownload)
     hrefneW.addEventListener("click", () => {
-      hrefneW.setAttribute("href", "")
-      hrefneW.setAttribute("download", elementDownload)
+      descargarGifo(elementurl, elementtitle)
     })
     cambiarSrc(descargar, "", "/assets/icon-download.svg")
     descargar.addEventListener("mouseover", () => {

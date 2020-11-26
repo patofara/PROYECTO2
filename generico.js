@@ -2,6 +2,8 @@
 
 let modoNocturno = document.getElementById("modoNocturno");
 let logo = document.getElementById("logo")
+let masNav = document.getElementById("masNav")
+cambiarSrc(masNav, "/assets/CTA-crear-gifo-hover.svg", "/assets/button-crear-gifo.svg")
 
 if (localStorage.getItem('favoritos')) {
     arrayFav = JSON.parse(localStorage.getItem('favoritos'))
@@ -61,21 +63,25 @@ function burger() {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
         hamburguesa.src = "/assets/Button-close-modo-noc.svg"
+        document.body.style = "overflow-y: hidden"
     }
     else if (hamburguesa.classList.contains('hamburguesa')) {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
         hamburguesa.src = "/assets/close.svg"
+        document.body.style = "overflow-y: hidden"
     }
     else if (hamburguesa.classList.contains('burgerOn') && document.body.classList.contains('dark')) {
         hamburguesa.classList.remove('burgerOn')
         hamburguesa.classList.add('hamburguesa')
         hamburguesa.src = "/assets/burger-modo-noct.svg"
+        document.body.style = "overflow-y: auto"
     }
     else {
         hamburguesa.classList.remove('burgerOn')
         hamburguesa.classList.add('hamburguesa')
         hamburguesa.src = "/assets/burger.svg"
+        document.body.style = "overflow-y: auto"
     }
 };
 
@@ -91,19 +97,22 @@ function cambiarSrc(elemento, src1, src2) {
 
 
 arrayTrending = [];
+arrayTrendingObj = [];
 let trending = fetch("http://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&limit=12")
     .then(resp => resp.json())
     .then(resp => {
         for (let i = 0; i < 12; i++) {
+            let objetos = resp.data[i]
+            arrayTrendingObj.push(objetos)
             let element = resp.data[i].images.downsized.url;
             arrayTrending.push(element)
         }
         imagenslider1.src = arrayTrending[0];
         imagenslider2.src = arrayTrending[1];
         imagenslider3.src = arrayTrending[2];
-
+        
     });
-
+    
 
 var imagenslider1 = document.getElementById("imagenslider1")
 var imagenslider2 = document.getElementById("imagenslider2")
@@ -206,6 +215,7 @@ function accionMeGusta() {
             expansion.removeAttribute("hidden")
             imagenExpandida.src = indexElement
             imgMAX()
+            tituloExpansion.innerHTML = arrayTrendingObj[i].title
         })
         // CLICK PARA EXPANDIR EN MOBILE
         let imgMaxMob = imgTrending[i]
@@ -225,26 +235,36 @@ function accionMeGusta() {
         let element3url = href[i]
         element3url.setAttribute("title", "Descargar Gif")
         element3url.addEventListener("click", () => {
-            element3url.setAttribute("href", "")
-            element3url.setAttribute("download", window["imagenslider" + (i + 1)].src)
+            descargarGifo(window["imagenslider" + (i + 1)].src, "Trending Gif")
         })
         cambiarSrc(element3, "/assets/icon-download-hover.svg", "/assets/icon-download.svg")
     }
 }
+async function descargarGifo(url, titulo) {
 
-accionMeGusta()
+    //create new a element
+    let a = document.createElement('a');
+    let response = await fetch(url);
+    let file = await response.blob();
+    a.download = titulo;
+    a.href = window.URL.createObjectURL(file);
 
+    a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+
+    a.click();
+}
+
+accionMeGusta() 
 function imgMAX() {
     favExpansion.src = "/assets/icon-fav.svg"
-    tituloExpansion.innerHTML = ""
     let indexElement = imagenExpandida.src
-    hrefExpansion.setAttribute("download", indexElement)
+    
+
     closeExpansion.addEventListener("click", () => {
         main.removeAttribute("hidden")
         expansion.setAttribute("hidden", "")
     })
     favExpansion.addEventListener("click", () => {
-        console.log(indexElement);
         if (arrayFav.includes(indexElement)) {
             let indice = arrayFav.indexOf(indexElement)
             arrayFav.splice(indice, 1)
@@ -256,6 +276,9 @@ function imgMAX() {
         }
         localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
+    hrefExpansion.addEventListener("click", ()=>{
+        descargarGifo(indexElement, "Trending Gif")
+     })
 }
 
 
