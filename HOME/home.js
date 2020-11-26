@@ -1,15 +1,15 @@
 // MODO NOCTURNO
 modoNocturno.addEventListener("click", oscurecer)
 modoNocturno.addEventListener("click", oscurecerHome)
-let lupa = document.getElementsByC.lassName("lupa")
-let lupa2 = document.getElementsByC.lassName("lupa2")
+let lupa = document.getElementsByClassName("lupa")
+let lupa2 = document.getElementsByClassName("lupa2")
 let storageNoc = sessionStorage.getItem('dark-mode')
-let lupaExtra = document.getElementsByC.lassName("lupaExtra")
+let lupaExtra = document.getElementsByClassName("lupaExtra")
 storageDark();
 oscurecerHome();
 
 function oscurecerHome() {
-  if (document.body.c.lassList.contains('dark')) {
+  if (document.body.classList.contains('dark')) {
     lupa[0].src = "../assets/icon-search-mod-noc.svg"
     lupa2[0].src = "../assets/icon-search-mod-noc.svg"
     for (let i = 0; i < lupaExtra.length; i++) {
@@ -55,7 +55,7 @@ function busqueda(valor, param1, num) {
       let array0 = resp.data
       cantGifs = resp.pagination.total_count
       if (array0.length == 0) {
-        cajaSug.c.lassList.remove("appear")
+        cajaSug.classList.remove("appear")
         noResult.removeAttribute("hidden")
         return
       }
@@ -68,7 +68,7 @@ function busqueda(valor, param1, num) {
     })
 
     .catch(() => {
-      cajaSug.c.lassList.remove("appear")
+      cajaSug.classList.remove("appear")
       noResult.removeAttribute("hidden")
     })
 
@@ -84,15 +84,15 @@ let cajaSug = document.getElementById("cajaSugerencias")
 function buscador(e) {
   if (search.value != "" && e.keyCode !== 13) {
     search.style.border = "none"
-    cajaSug.c.lassList.add("appear")
-    lupa2[0].c.lassList.add("aparece")
+    cajaSug.classList.add("appear")
+    lupa2[0].classList.add("aparece")
     lupa[0].src = "../assets/close.svg"
     cajaSugerencias(search.value)
   }
-  if (search.value != "" && e.keyCode !== 13 && document.body.c.lassList.contains('dark')) {
+  if (search.value != "" && e.keyCode !== 13 && document.body.classList.contains('dark')) {
     search.style.border = "none"
-    cajaSug.c.lassList.add("appear")
-    lupa2[0].c.lassList.add("aparece")
+    cajaSug.classList.add("appear")
+    lupa2[0].classList.add("aparece")
     lupa[0].src = "../assets/close-modo-noct.svg"
     cajaSugerencias(search.value)
     sectionBuscados.innerHTML = ""
@@ -101,21 +101,21 @@ function buscador(e) {
     sectionBuscados.innerHTML = ""
     busqueda(search.value, search.value, 0)
     search.style.border = "1px solid #572EE5"
-    cajaSug.c.lassList.remove("appear")
+    cajaSug.classList.remove("appear")
   }
   if (e.keyCode === 27 || search.value == "") {
     search.style.border = "1px solid #572EE5"
     lupa[0].src = "../assets/icon-search.svg"
     search.value = ""
-    cajaSug.c.lassList.remove("appear")
-    lupa2[0].c.lassList.remove("aparece")
+    cajaSug.classList.remove("appear")
+    lupa2[0].classList.remove("aparece")
   }
-  if (e.keyCode === 27 || search.value == "" && document.body.c.lassList.contains('dark')) {
+  if (e.keyCode === 27 || search.value == "" && document.body.classList.contains('dark')) {
     search.style.border = "1px solid white"
     lupa[0].src = "../assets/icon-search-mod-noc.svg"
     search.value = ""
-    cajaSug.c.lassList.remove("appear")
-    lupa2[0].c.lassList.remove("aparece")
+    cajaSug.classList.remove("appear")
+    lupa2[0].classList.remove("aparece")
 
   }
 }
@@ -124,8 +124,8 @@ function buscador(e) {
 
 
 lupa[0].addEventListener("click", () => {
-  cajaSug.c.lassList.remove("appear")
-  lupa2[0].c.lassList.remove("aparece")
+  cajaSug.classList.remove("appear")
+  lupa2[0].classList.remove("aparece")
   search.style.border = "1px solid #572EE5"
   lupa[0].src = "../assets/icon-search.svg"
   search.value = ""
@@ -133,12 +133,12 @@ lupa[0].addEventListener("click", () => {
 
 //  EVENTO LI DE SUGERENCIAS
 
-let textLiSug = document.getElementsByC.lassName("listaSug")
+let textLiSug = document.getElementsByClassName("listaSug")
 for (let i = 0; i < textLiSug.length; i++) {
   textLiSug[i].addEventListener("click", () => {
     sectionBuscados.innerHTML = ""
     busqueda(search.value, textLiSug[i].innerHTML, 0)
-    cajaSug.c.lassList.remove("appear")
+    cajaSug.classList.remove("appear")
     search.value = textLiSug[i].innerHTML
     search.style.border = "1px solid #572EE5"
   })
@@ -224,9 +224,9 @@ function crearDiv(param1) {
     hrefneW.appendChild(descargar)
     divOpciones.appendChild(hrefneW)
     divOpciones.appendChild(meGusta)
-    divOpciones.c.lassList.add("opciones")
-    divBuscados.c.lassList.add("divBuscados")
-    img.c.lassList.add("imgBuscadas")
+    divOpciones.classList.add("opciones")
+    divBuscados.classList.add("divBuscados")
+    img.classList.add("imgBuscadas")
     img.src = elementurl;
     divBuscados.appendChild(img)
     divBuscados.appendChild(divOpciones)
