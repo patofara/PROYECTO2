@@ -28,10 +28,10 @@ function crearDiv(start, fin) {
     let elementurl = arrayFav[i]
     let elementDownload = arrayFav[i].embed_url
     let elementtitle = arrayFav[i].title
-    expandir.src = "/assets/icon-max-normal.svg"
-    descargar.src = "/assets/icon-download.svg"
-    eliminar.src = "/assets/icon-trash-normal.svg"
-    cambiarSrc(eliminar, "/assets/icon-trash-hover.svg", "/assets/icon-trash-normal.svg")
+    expandir.src = "./assets/icon-max-normal.svg"
+    descargar.src = "./assets/icon-download.svg"
+    eliminar.src = "./assets/icon-trash-normal.svg"
+    cambiarSrc(eliminar, "./assets/icon-trash-hover.svg", "./assets/icon-trash-normal.svg")
     eliminar.addEventListener("click", () => {
       if (arrayFav.includes(elementurl)) {
         let indice = arrayFav.indexOf(elementurl)
@@ -40,15 +40,15 @@ function crearDiv(start, fin) {
       }
       localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
-    cambiarSrc(expandir, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
+    cambiarSrc(expandir, "./assets/icon-max-hover.svg", "./assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
     })
-    cambiarSrc(descargar, "", "/assets/icon-download.svg")
+    cambiarSrc(descargar, "", "./assets/icon-download.svg")
     descargar.addEventListener("mouseover", () => {
-      descargar.src = "/assets/icon-download-hover.svg"
+      descargar.src = "./assets/icon-download-hover.svg"
       hrefneW.setAttribute("title", "Download " + elementtitle)
     })
 

@@ -28,10 +28,10 @@ function crearDiv(start, fin) {
     let elementurl = myGif[i]
     let elementDownload = myGif[i].embed_url
     let elementtitle = myGif[i].title
-    expandir.src = "/assets/icon-max-normal.svg"
-    descargar.src = "/assets/icon-download.svg"
-    eliminar.src = "/assets/icon-trash-normal.svg"
-    cambiarSrc(eliminar, "/assets/icon-trash-hover.svg", "/assets/icon-trash-normal.svg")
+    expandir.src = "./assets/icon-max-normal.svg"
+    descargar.src = "./assets/icon-download.svg"
+    eliminar.src = "./assets/icon-trash-normal.svg"
+    cambiarSrc(eliminar, "./assets/icon-trash-hover.svg", "./assets/icon-trash-normal.svg")
     eliminar.addEventListener("click", () => {
       if (myGif.includes(elementurl)) {
         let indice = myGif.indexOf(elementurl)
@@ -40,15 +40,15 @@ function crearDiv(start, fin) {
       }
       localStorage.setItem('favoritos', JSON.stringify(myGif))
     })
-    cambiarSrc(expandir, "/assets/icon-max-hover.svg", "/assets/icon-max-normal.svg")
+    cambiarSrc(expandir, "./assets/icon-max-hover.svg", "./assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
     })
-    cambiarSrc(descargar, "", "/assets/icon-download.svg")
+    cambiarSrc(descargar, "", "./assets/icon-download.svg")
     descargar.addEventListener("mouseover", () => {
-      descargar.src = "/assets/icon-download-hover.svg"
+      descargar.src = "./assets/icon-download-hover.svg"
       hrefneW.setAttribute("title", "Download " + elementtitle)
     })
 
@@ -61,10 +61,10 @@ function crearDiv(start, fin) {
     divOpciones.appendChild(expandir)
     divOpciones.appendChild(hrefneW)
     divOpciones.appendChild(eliminar)
-    divOpciones.classList.add("opciones")
+    divOpciones.c.lassList.add("opciones")
     img.src = myGif[i]
     div.appendChild(img)
-    div.classList.add("divCuadrilla")
+    div.c.lassList.add("divCuadrilla")
     div.appendChild(divOpciones)
     cuadrilla.appendChild(div)
 
@@ -79,7 +79,7 @@ function renderizarImg() {
 
     crearDiv(0, 12)
     let verMas = document.createElement("button")
-    verMas.classList.add("boton")
+    verMas.c.lassList.add("boton")
     verMas.innerHTML = "Ver Todos"
     cuadrilla.appendChild(verMas)
     verMas.addEventListener("click", () => {
