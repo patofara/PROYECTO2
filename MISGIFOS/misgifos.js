@@ -24,7 +24,6 @@ await fetch("https://api.giphy.com/v1/gifs?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0
 }
 }).then(()=>{
   nocontent();
-  debugger
   renderizarImg()
   crearDiv();
 })
@@ -66,6 +65,27 @@ function crearDiv(start, fin) {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
+    })
+    expandir.addEventListener("click", () => {
+      tituloTrending.setAttribute("hidden", "")
+      sectionBuscados.style = "display : none"
+      main.style = "display : none"
+      expansion.removeAttribute("hidden")
+      imagenExpandida.src = elementurl
+      tituloExpansion.innerHTML = elementtitle
+      imgMAX()
+    })
+    img.addEventListener("click", () => {
+      tituloTrending.setAttribute("hidden", "")
+      expansion.removeAttribute("hidden")
+      main.setAttribute("hidden" , "")
+      imagenExpandida.src = elementurl
+      tituloExpansion.innerHTML = elementtitle
+      imgMAX()
+    })
+    hrefneW.setAttribute("alt", elementDownload)
+    hrefneW.addEventListener("click", () => {
+      descargarGifo(elementurl, elementtitle)
     })
     cambiarSrc(descargar, "", "../assets/icon-download.svg")
     descargar.addEventListener("mouseover", () => {

@@ -22,17 +22,20 @@
 
 }
 .container1{
-    width: 40%;
-    padding-top: 2%;
-    display: none;
+    width: 50%;
+    padding-top: 5%;
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+    font-size: 0.7rem;
     color: #000000;
     font-weight: 600;
+    .dark &{
+        color: white;
+    }
 }
 .container2{
     display: flex;
     width: 59%;
+    padding-left: 21%;
 }
 .container2 img, .container2 a{
     width: 100%;

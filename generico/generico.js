@@ -43,6 +43,7 @@ function storageDark() {
     if (storageNoc === "false") {
         document.body.classList.add('dark');
         modoNocturno.innerHTML = "Modo Diurno";
+        closeExpansion.src = "../assets/close-modo-noct.svg"
         logo.src = "../assets/logo-mobile-modo-noct.svg"
         hamburguesa.src = "../assets/burger-modo-noct.svg"
         leftslider.src = "../assets/button-slider-left-md-noct.svg"
@@ -219,9 +220,7 @@ function accionMeGusta() {
             element2.setAttribute("id", "expandir" + i)
             expansion.removeAttribute("hidden")
             imagenExpandida.src = indexElement
-            sectionBuscados.style = "display : none"
             imgMAX()
-            tituloExpansion.innerHTML = arrayTrendingObj[i].title
         })
         // CLICK PARA EXPANDIR EN MOBILE
         let imgMaxMob = imgTrending[i]
@@ -273,7 +272,6 @@ function imgMAX() {
     closeExpansion.addEventListener("click", () => {
         main.removeAttribute("hidden")
         expansion.setAttribute("hidden", "")
-        sectionBuscados.style = "display: flex;"
         main.style= "display: block;"
         slider.style = "display block;"
     })
@@ -290,7 +288,7 @@ function imgMAX() {
         localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
     hrefExpansion.addEventListener("click", ()=>{
-        descargarGifo(indexElement, "Trending Gif")
+        descargarGifo(indexElement, "Gif")
      })
 }
 

@@ -43,6 +43,7 @@ function storageDark() {
     if (storageNoc === "false") {
         document.body.classList.add('dark');
         modoNocturno.innerHTML = "Modo Diurno";
+        closeExpansion.src = "./assets/close-modo-noct.svg"
         logo.src = "./assets/logo-mobile-modo-noct.svg"
         hamburguesa.src = "./assets/burger-modo-noct.svg"
         leftslider.src = "./assets/button-slider-left-md-noct.svg"

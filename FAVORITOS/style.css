@@ -241,7 +241,7 @@ body.dark {
   padding-top: 10%;
   background: #F3F5F8;
   height: 75vh;
-  margin-top: 8vh;
+  margin-top: 24vh;
 }
 
 .dark .trending {
@@ -353,13 +353,16 @@ footer p {
 }
 
 .container1 {
-  width: 40%;
-  padding-top: 2%;
-  display: none;
+  width: 50%;
+  padding-top: 5%;
   font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-size: 0.7rem;
   color: #000000;
   font-weight: 600;
+}
+
+.dark .container1 {
+  color: white;
 }
 
 .container2 {
@@ -367,6 +370,7 @@ footer p {
   display: -ms-flexbox;
   display: flex;
   width: 59%;
+  padding-left: 21%;
 }
 
 .container2 img, .container2 a {
@@ -572,10 +576,11 @@ footer p {
   .container1 {
     width: 60%;
     padding-top: 2%;
-    display: block;
+    font-size: 1rem;
   }
   .container2 {
     width: 17%;
+    padding-left: 0%;
   }
   footer {
     display: -webkit-box;

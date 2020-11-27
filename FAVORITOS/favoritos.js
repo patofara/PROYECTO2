@@ -46,17 +46,27 @@ function crearDiv(start, fin) {
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
     })
-    cambiarSrc(descargar, "", "../assets/icon-download.svg")
-    descargar.addEventListener("mouseover", () => {
-      descargar.src = "../assets/icon-download-hover.svg"
-      hrefneW.setAttribute("title", "Download " + elementtitle)
+    expandir.addEventListener("click", () => {
+      tituloTrending.setAttribute("hidden", "")
+      expansion.removeAttribute("hidden")
+      imagenExpandida.src = elementurl
+      main.style = "display : none"
+      tituloExpansion.innerHTML = ""
+      imgMAX()
     })
-
+    img.addEventListener("click", () => {
+      tituloTrending.setAttribute("hidden", "")
+      expansion.removeAttribute("hidden")
+      main.setAttribute("hidden" , "")
+      imagenExpandida.src = elementurl
+      tituloExpansion.innerHTML = ""
+      imgMAX()
+    })
     hrefneW.setAttribute("alt", elementDownload)
     hrefneW.addEventListener("click", () => {
-      hrefneW.setAttribute("href", "")
-      hrefneW.setAttribute("download", elementDownload)
+      descargarGifo(elementurl, "Gif")
     })
+    cambiarSrc(descargar, "../assets/icon-download-hover.svg", "../assets/icon-download.svg")
     hrefneW.appendChild(descargar)
     divOpciones.appendChild(expandir)
     divOpciones.appendChild(hrefneW)
