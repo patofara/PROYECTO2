@@ -1,26 +1,26 @@
 // MODO NOCTURNO
 modoNocturno.addEventListener("click", oscurecer)
 modoNocturno.addEventListener("click", oscurecerHome)
-let lupa = document.getElementsByClassName("lupa")
-let lupa2 = document.getElementsByClassName("lupa2")
+let lupax = document.getElementsByClassName("lupa")
+let lupax2 = document.getElementsByClassName("lupa2")
 let storageNoc = sessionStorage.getItem('dark-mode')
-let lupaExtra = document.getElementsByClassName("lupaExtra")
+let lupaxExtra = document.getElementsByClassName("lupaxExtra")
 storageDark();
 oscurecerHome();
 
 function oscurecerHome() {
   if (document.body.classList.contains('dark')) {
-    lupa[0].src = "../assets/icon-search-mod-noc.svg"
-    lupa2[0].src = "../assets/icon-search-mod-noc.svg"
-    for (let i = 0; i < lupaExtra.length; i++) {
-      lupaExtra[i].src = "../assets/icon-search-mod-noc.svg"
+    lupax[0].src = "../assets/icon-search-mod-noc.svg"
+    lupax2[0].src = "../assets/icon-search-mod-noc.svg"
+    for (let i = 0; i < lupaxExtra.length; i++) {
+      lupaxExtra[i].src = "../assets/icon-search-mod-noc.svg"
     }
   }
   else {
-    lupa[0].src = "../assets/icon-search.svg"
-    lupa2[0].src = "../assets/icon-search.svg"
-    for (let i = 0; i < lupaExtra.length; i++) {
-      lupaExtra[i].src = "../assets/icon-search.svg"
+    lupax[0].src = "../assets/icon-search.svg"
+    lupax2[0].src = "../assets/icon-search.svg"
+    for (let i = 0; i < lupaxExtra.length; i++) {
+      lupaxExtra[i].src = "../assets/icon-search.svg"
     }
   }
 }
@@ -85,15 +85,15 @@ function buscador(e) {
   if (search.value != "" && e.keyCode !== 13) {
     search.style.border = "none"
     cajaSug.classList.add("appear")
-    lupa2[0].classList.add("aparece")
-    lupa[0].src = "../assets/close.svg"
+    lupax2[0].classList.add("aparece")
+    lupax[0].src = "../assets/close.svg"
     cajaSugerencias(search.value)
   }
   if (search.value != "" && e.keyCode !== 13 && document.body.classList.contains('dark')) {
     search.style.border = "none"
     cajaSug.classList.add("appear")
-    lupa2[0].classList.add("aparece")
-    lupa[0].src = "../assets/close-modo-noct.svg"
+    lupax2[0].classList.add("aparece")
+    lupax[0].src = "../assets/close-modo-noct.svg"
     cajaSugerencias(search.value)
     sectionBuscados.innerHTML = ""
   }
@@ -105,29 +105,29 @@ function buscador(e) {
   }
   if (e.keyCode === 27 || search.value == "") {
     search.style.border = "1px solid #572EE5"
-    lupa[0].src = "../assets/icon-search.svg"
+    lupax[0].src = "../assets/icon-search.svg"
     search.value = ""
     cajaSug.classList.remove("appear")
-    lupa2[0].classList.remove("aparece")
+    lupax2[0].classList.remove("aparece")
   }
   if (e.keyCode === 27 || search.value == "" && document.body.classList.contains('dark')) {
     search.style.border = "1px solid white"
-    lupa[0].src = "../assets/icon-search-mod-noc.svg"
+    lupax[0].src = "../assets/icon-search-mod-noc.svg"
     search.value = ""
     cajaSug.classList.remove("appear")
-    lupa2[0].classList.remove("aparece")
+    lupax2[0].classList.remove("aparece")
 
   }
 }
 
-// Funcion LUPA
+// Funcion LUPAx
 
 
-lupa[0].addEventListener("click", () => {
+lupax[0].addEventListener("click", () => {
   cajaSug.classList.remove("appear")
-  lupa2[0].classList.remove("aparece")
+  lupax2[0].classList.remove("aparece")
   search.style.border = "1px solid #572EE5"
-  lupa[0].src = "../assets/icon-search.svg"
+  lupax[0].src = "../assets/icon-search.svg"
   search.value = ""
 })
 
