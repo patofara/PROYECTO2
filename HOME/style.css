@@ -505,13 +505,16 @@ body.dark {
 }
 
 .container1 {
-  width: 40%;
-  padding-top: 2%;
-  display: none;
+  width: 50%;
+  padding-top: 5%;
   font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
+  font-size: 0.7rem;
   color: #000000;
   font-weight: 600;
+}
+
+.dark .container1 {
+  color: white;
 }
 
 .container2 {
@@ -519,6 +522,7 @@ body.dark {
   display: -ms-flexbox;
   display: flex;
   width: 59%;
+  padding-left: 21%;
 }
 
 .container2 img, .container2 a {
@@ -677,10 +681,11 @@ body.dark {
   .container1 {
     width: 60%;
     padding-top: 2%;
-    display: block;
+    font-size: 1rem;
   }
   .container2 {
     width: 17%;
+    padding-left: 0%;
   }
   .divBuscados {
     height: 34vh;

@@ -16,7 +16,9 @@ function oscurecer() {
     if (storageNoc === "false") {
         document.body.classList.remove('dark');
         sessionStorage.setItem('dark-mode', true)
+        closeExpansion.src = "./assets/close.svg"
         modoNocturno.innerHTML = "Modo Nocturno"
+        hamburguesa.src = "./assets/close.svg"
         logo.src = "./assets/logo-mobile.svg"
         leftslider.src = "./assets/button-slider-left.svg"
         rightslider.src = "./assets/Button-Slider-right.svg"
@@ -26,7 +28,9 @@ function oscurecer() {
 
     else {
         document.body.classList.add('dark');
+        closeExpansion.src = "./assets/close-modo-noct.svg"
         sessionStorage.setItem('dark-mode', false)
+        hamburguesa.src = "./assets/Button-close-modo-noc.svg"
         modoNocturno.innerHTML = "Modo Diurno";
         logo.src = "./assets/logo-mobile-modo-noct.svg"
         leftslider.src = "./assets/button-slider-left-md-noct.svg"
@@ -164,7 +168,7 @@ rightslider.addEventListener("click", function () {
 
 // AGREGAR A FAV
 
-
+let slider = document.getElementById("slider")
 let tituloExpansion = document.getElementById("tituloExpansion")
 let favExpansion = document.getElementById("favExpansion")
 let closeExpansion = document.getElementById("closeExpansion")
@@ -214,6 +218,7 @@ function accionMeGusta() {
             element2.setAttribute("id", "expandir" + i)
             expansion.removeAttribute("hidden")
             imagenExpandida.src = indexElement
+            sectionBuscados.style = "display : none"
             imgMAX()
             tituloExpansion.innerHTML = arrayTrendingObj[i].title
         })
@@ -257,6 +262,9 @@ async function descargarGifo(url, titulo) {
 accionMeGusta() 
 
 function imgMAX() {
+    if (document.body.classList.contains('dark')){
+        closeExpansion.src = "./assets/close-modo-noct.svg"
+    }
     favExpansion.src = "./assets/icon-fav.svg"
     let indexElement = imagenExpandida.src
     
@@ -265,6 +273,8 @@ function imgMAX() {
         main.removeAttribute("hidden")
         expansion.setAttribute("hidden", "")
         sectionBuscados.style = "display: flex;"
+        main.style= "display: block;"
+        slider.style = "display block;"
     })
     favExpansion.addEventListener("click", () => {
         if (arrayFav.includes(indexElement)) {

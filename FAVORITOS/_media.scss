@@ -51,7 +51,7 @@
         display: block;
         width: 4vw;
     }
-    .noListHamb li a{
+    .noListHamb li:nth-child(5) a{
         color: rgba(87,46,229,1);
         transition: .3s ease all;
         font-size: 1rem;
@@ -59,7 +59,14 @@
             color: white;
         }
     }
-    
+    .noListHamb li:nth-child(3) a{
+        color: #9CAFC3;
+        transition: .3s ease all;
+        font-size: 1rem;
+        .dark &{
+            color: #737d86;
+        }
+    }
     .noListHamb li:nth-child(1){
         text-align: center;
     }

@@ -3,6 +3,7 @@ nav{
     justify-content: space-between;
     z-index: 9;
 }
+
 nav div:nth-child(1){
     flex: 1 1 50%;
 }
@@ -84,3 +85,4 @@ nav div:nth-child(2){
     padding-top: 3vh;
     font-weight: 700;
 }
+

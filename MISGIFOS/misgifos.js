@@ -4,17 +4,38 @@ let cuadrilla = document.getElementById("cuadrilla")
 let sincontenido = document.getElementById("sinContenido")
 storageDark()
 modoNocturno.addEventListener("click", oscurecer)
-
-
   // // HAMBURGUESA 
-hamburguesa.addEventListener("click", burger)
+  hamburguesa.addEventListener("click", burger)
 
+
+  
+  myGif=[]
+async function inicio(){
+
+await fetch("https://api.giphy.com/v1/gifs?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&ids=zgVqgmSOXLZGCmrSyd")
+.then(resp => resp.json())
+.then(resp => {
+  console.log(resp);
+  let array0 = resp.length
+  for (let i = 0; i < array0; i++) {
+    let element = resp.data[i].images.downsized.url;
+    myGif.push(element)
+    console.log(myGif);
+}
+}).then(()=>{
+  nocontent();
+  debugger
+  renderizarImg()
+  crearDiv();
+})
+
+}
+inicio();
 function nocontent() {
   if (myGif != "") {
     sincontenido.setAttribute("hidden", "")
   }
 }
-nocontent();
 
 function crearDiv(start, fin) {
   for (let i = start; i < fin; i++) {
