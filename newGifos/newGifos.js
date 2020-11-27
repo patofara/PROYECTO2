@@ -124,6 +124,7 @@ boton.addEventListener("click", () => {
                     console.log('grabacion iniciada')
                 },
             });
+            recorder.camera = camera;
         });
         paso1.src = "../assets/paso-a-paso.svg"
         paso2.src = "../assets/pasoApasoHover2.svg"
@@ -139,11 +140,12 @@ boton.addEventListener("click", () => {
     else if(contador == 3){
         boton.innerHTML = "Subir Gif"
         recorder.stopRecording(stopRecordingCallback);
+
         
     }
     else if(contador == 4){
         video.play();
-        contador=-1
+        contador=0
         boton.innerHTML = "Volver a grabar"
         fetch("https://upload.giphy.com/v1/gifs?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ", 
         {
@@ -164,8 +166,6 @@ boton.addEventListener("click", () => {
     contador++
 })
 
-newGifos= []
-
 let form;
 var recorder;
 function captureCamera(callback) {
@@ -184,8 +184,6 @@ function captureCamera(callback) {
 
 function stopRecordingCallback() {
     
-    
-    // video.src = video.srcObject
     video.muted = false;
     video.volume = 1;
     let blob = recorder.getBlob();
@@ -195,7 +193,7 @@ function stopRecordingCallback() {
     form = new FormData();
     form.append('file', blob, 'myGif.gif');
     console.log("ESTE ES EL FILE!!!!", form.get('file'));
-    
+    recorder.camera.stop()
     recorder.destroy();
     recorder = null;
 }
