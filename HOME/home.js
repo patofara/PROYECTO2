@@ -1,26 +1,26 @@
 // MODO NOCTURNO
 modoNocturno.addEventListener("click", oscurecer)
 modoNocturno.addEventListener("click", oscurecerHome)
-let lupax = document.getElementsByClassName("lupa")
-let lupax2 = document.getElementsByClassName("lupa2")
+let lupa = document.getElementsByClassName("lupa")
+let lupa2 = document.getElementsByClassName("lupa2")
 let storageNoc = sessionStorage.getItem('dark-mode')
-let lupaxExtra = document.getElementsByClassName("lupaxExtra")
+let lupaExtra = document.getElementsByClassName("lupaExtra")
 storageDark();
 oscurecerHome();
 
 function oscurecerHome() {
   if (document.body.classList.contains('dark')) {
-    lupax[0].src = "../assets/icon-search-mod-noc.svg"
-    lupax2[0].src = "../assets/icon-search-mod-noc.svg"
-    for (let i = 0; i < lupaxExtra.length; i++) {
-      lupaxExtra[i].src = "../assets/icon-search-mod-noc.svg"
+    lupa[0].src = "../assets/icono-search-mod-noc.svg"
+    lupa2[0].src = "../assets/icono-search-mod-noc.svg"
+    for (let i = 0; i < lupaExtra.length; i++) {
+      lupaExtra[i].src = "../assets/icono-search-mod-noc.svg"
     }
   }
   else {
-    lupax[0].src = "../assets/icon-search.svg"
-    lupax2[0].src = "../assets/icon-search.svg"
-    for (let i = 0; i < lupaxExtra.length; i++) {
-      lupaxExtra[i].src = "../assets/icon-search.svg"
+    lupa[0].src = "../assets/icono-search.svg"
+    lupa2[0].src = "../assets/icono-search.svg"
+    for (let i = 0; i < lupaExtra.length; i++) {
+      lupaExtra[i].src = "../assets/icono-search.svg"
     }
   }
 }
@@ -85,15 +85,15 @@ function buscador(e) {
   if (search.value != "" && e.keyCode !== 13) {
     search.style.border = "none"
     cajaSug.classList.add("appear")
-    lupax2[0].classList.add("aparece")
-    lupax[0].src = "../assets/close.svg"
+    lupa2[0].classList.add("aparece")
+    lupa[0].src = "../assets/close.svg"
     cajaSugerencias(search.value)
   }
   if (search.value != "" && e.keyCode !== 13 && document.body.classList.contains('dark')) {
     search.style.border = "none"
     cajaSug.classList.add("appear")
-    lupax2[0].classList.add("aparece")
-    lupax[0].src = "../assets/close-modo-noct.svg"
+    lupa2[0].classList.add("aparece")
+    lupa[0].src = "../assets/close-modo-noct.svg"
     cajaSugerencias(search.value)
     sectionBuscados.innerHTML = ""
   }
@@ -105,29 +105,29 @@ function buscador(e) {
   }
   if (e.keyCode === 27 || search.value == "") {
     search.style.border = "1px solid #572EE5"
-    lupax[0].src = "../assets/icon-search.svg"
+    lupa[0].src = "../assets/icono-search.svg"
     search.value = ""
     cajaSug.classList.remove("appear")
-    lupax2[0].classList.remove("aparece")
+    lupa2[0].classList.remove("aparece")
   }
   if (e.keyCode === 27 || search.value == "" && document.body.classList.contains('dark')) {
     search.style.border = "1px solid white"
-    lupax[0].src = "../assets/icon-search-mod-noc.svg"
+    lupa[0].src = "../assets/icono-search-mod-noc.svg"
     search.value = ""
     cajaSug.classList.remove("appear")
-    lupax2[0].classList.remove("aparece")
+    lupa2[0].classList.remove("aparece")
 
   }
 }
 
-// Funcion LUPAx
+// Funcion LUPA
 
 
-lupax[0].addEventListener("click", () => {
+lupa[0].addEventListener("click", () => {
   cajaSug.classList.remove("appear")
-  lupax2[0].classList.remove("aparece")
+  lupa2[0].classList.remove("aparece")
   search.style.border = "1px solid #572EE5"
-  lupax[0].src = "../assets/icon-search.svg"
+  lupa[0].src = "../assets/icono-search.svg"
   search.value = ""
 })
 
@@ -176,24 +176,24 @@ function crearDiv(param1) {
     let elementurl = arrayBuscados[i].images.downsized.url;
     let elementDownload = arrayBuscados[i].embed_url
     let elementtitle = arrayBuscados[i].title
-    cambiarSrc(meGusta, "../assets/icon-fav-hover.svg", "../assets/icon-fav.svg")
+    cambiarSrc(meGusta, "../assets/icono-fav-hover.svg", "../assets/icono-fav.svg")
     meGusta.addEventListener("click", () => {
       if (arrayFav.includes(elementurl)) {
-        meGusta.src = "../assets/icon-fav.svg"
+        meGusta.src = "../assets/icono-fav.svg"
         let indice = arrayFav.indexOf(elementurl)
         arrayFav.splice(indice, 1)
-        meGusta.addEventListener("mouseover", () => { meGusta.src = "../assets/icon-fav-hover.svg"; })
-        meGusta.addEventListener("mouseleave", () => { meGusta.src = "../assets/icon-fav.svg"; })
+        meGusta.addEventListener("mouseover", () => { meGusta.src = "../assets/icono-fav-hover.svg"; })
+        meGusta.addEventListener("mouseleave", () => { meGusta.src = "../assets/icono-fav.svg"; })
       }
       else {
         arrayFav.push(elementurl)
-        meGusta.src = "../assets/icon-fav-active.svg"
-        meGusta.addEventListener("mouseover", () => { meGusta.src = "../assets/icon-fav-active.svg"; })
-        meGusta.addEventListener("mouseleave", () => { meGusta.src = "../assets/icon-fav-active.svg"; })
+        meGusta.src = "../assets/icono-fav-active.svg"
+        meGusta.addEventListener("mouseover", () => { meGusta.src = "../assets/icono-fav-active.svg"; })
+        meGusta.addEventListener("mouseleave", () => { meGusta.src = "../assets/icono-fav-active.svg"; })
       }
       localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
-    cambiarSrc(expandir, "../assets/icon-max-hover.svg", "../assets/icon-max-normal.svg")
+    cambiarSrc(expandir, "../assets/icono-max-hover.svg", "../assets/icono-max-normal.svg")
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
       sectionBuscados.style = "display : none"
@@ -216,14 +216,14 @@ function crearDiv(param1) {
     hrefneW.addEventListener("click", () => {
       descargarGifo(elementurl, elementtitle)
     })
-    cambiarSrc(descargar, "", "../assets/icon-download.svg")
+    cambiarSrc(descargar, "", "../assets/icono-download.svg")
     descargar.addEventListener("mouseover", () => {
-      descargar.src = "../assets/icon-download-hover.svg"
+      descargar.src = "../assets/icono-download-hover.svg"
       hrefneW.setAttribute("title", "Download " + elementtitle)
     })
-    expandir.src = "../assets/icon-max-normal.svg"
-    descargar.src = "../assets/icon-download.svg"
-    meGusta.src = "../assets/icon-fav.svg"
+    expandir.src = "../assets/icono-max-normal.svg"
+    descargar.src = "../assets/icono-download.svg"
+    meGusta.src = "../assets/icono-fav.svg"
     divOpciones.appendChild(expandir)
     hrefneW.appendChild(descargar)
     divOpciones.appendChild(hrefneW)
