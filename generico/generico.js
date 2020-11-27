@@ -30,7 +30,7 @@ function oscurecer() {
         document.body.classList.add('dark');
         closeExpansion.src = "../assets/close-modo-noct.svg"
         sessionStorage.setItem('dark-mode', false)
-        hamburguesa.src = "../assets/Button-close-modo-noc.svg"
+        hamburguesa.src = "../assets/close-modo-noct.svg"
         modoNocturno.innerHTML = "Modo Diurno";
         logo.src = "../assets/logo-mobile-modo-noct.svg"
         leftslider.src = "../assets/button-slider-left-md-noct.svg"
@@ -44,6 +44,7 @@ function storageDark() {
         document.body.classList.add('dark');
         modoNocturno.innerHTML = "Modo Diurno";
         logo.src = "../assets/logo-mobile-modo-noct.svg"
+        hamburguesa.src = "../assets/burger-modo-noct.svg"
         leftslider.src = "../assets/button-slider-left-md-noct.svg"
         rightslider.src = "../assets/button-slider-right-md-noct.svg"
         rightslider.addEventListener("mouseleave", () => rightslider.src = "../assets/button-slider-right-md-noct.svg")
@@ -66,7 +67,7 @@ function burger() {
     if (hamburguesa.classList.contains('hamburguesa') && document.body.classList.contains('dark')) {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
-        hamburguesa.src = "../assets/Button-close-modo-noc.svg"
+        hamburguesa.src = "../assets/close-modo-noct.svg"
         document.body.style = "overflow-y: hidden"
     }
     else if (hamburguesa.classList.contains('hamburguesa')) {

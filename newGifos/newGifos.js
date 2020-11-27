@@ -59,18 +59,32 @@ let listaHamb = document.getElementById("menuNav");
 hamburguesa.addEventListener("click", burger)
 function burger() {
     listaHamb.classList.toggle('listHamb')
-        if(hamburguesa.classList.contains('hamburguesa')){
-            hamburguesa.classList.remove('hamburguesa')
-            hamburguesa.classList.add('burgerOn')
-            hamburguesa.src = "../assets/Button-close-modo-noc.svg"
-        }
-        else{
-            hamburguesa.classList.remove('burgerOn')
-            hamburguesa.classList.add('hamburguesa')
-            hamburguesa.src = "../assets/burger.svg"
-        }
+    //  
+    if (hamburguesa.classList.contains('hamburguesa') && document.body.classList.contains('dark')) {
+        hamburguesa.classList.remove('hamburguesa')
+        hamburguesa.classList.add('burgerOn')
+        hamburguesa.src = "../assets/close-modo-noct.svg"
+        document.body.style = "overflow-y: hidden"
+    }
+    else if (hamburguesa.classList.contains('hamburguesa')) {
+        hamburguesa.classList.remove('hamburguesa')
+        hamburguesa.classList.add('burgerOn')
+        hamburguesa.src = "../assets/close.svg"
+        document.body.style = "overflow-y: hidden"
+    }
+    else if (hamburguesa.classList.contains('burgerOn') && document.body.classList.contains('dark')) {
+        hamburguesa.classList.remove('burgerOn')
+        hamburguesa.classList.add('hamburguesa')
+        hamburguesa.src = "../assets/burger-modo-noct.svg"
+        document.body.style = "overflow-y: auto"
+    }
+    else {
+        hamburguesa.classList.remove('burgerOn')
+        hamburguesa.classList.add('hamburguesa')
+        hamburguesa.src = "../assets/burger.svg"
+        document.body.style = "overflow-y: auto"
+    }
 };
-
 function cambiarSrc(elemento, src1, src2) {
     elemento.addEventListener("mouseover", () => { elemento.src = src1 })
     elemento.addEventListener("mouseleave", () => { elemento.src = src2 })
