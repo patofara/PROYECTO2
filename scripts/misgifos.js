@@ -59,10 +59,10 @@ function crearDiv(start, fin) {
     let elementurl = arrayImg[i]
     let elementDownload = arrayObj[i].embed_url
     let elementtitle = arrayObj[i].title
-    expandir.src = "./assets/icon-max-normal.svg"
-    descargar.src = "./assets/icon-download.svg"
-    eliminar.src = "./assets/icon-trash-normal.svg"
-    cambiarSrc(eliminar, "./assets/icon-trash-hover.svg", "./assets/icon-trash-normal.svg")
+    expandir.src = "../assets/icon-max-normal.svg"
+    descargar.src = "../assets/icon-download.svg"
+    eliminar.src = "../assets/icon-trash-normal.svg"
+    cambiarSrc(eliminar, "../assets/icon-trash-hover.svg", "../assets/icon-trash-normal.svg")
     eliminar.addEventListener("click", () => {
       if (arrayImg.includes(elementurl)) {
         let indice = arrayImg.indexOf(elementurl)
@@ -72,7 +72,7 @@ function crearDiv(start, fin) {
       }
       localStorage.setItem('myGif', JSON.stringify(myGif))
     })
-    cambiarSrc(expandir, "./assets/icon-max-hover.svg", "./assets/icon-max-normal.svg")
+    cambiarSrc(expandir, "../assets/icon-max-hover.svg", "../assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
       expansion.removeAttribute("hidden")
@@ -98,7 +98,7 @@ function crearDiv(start, fin) {
     hrefneW.addEventListener("click", () => {
       descargarGifo(elementurl, elementtitle)
     })
-    cambiarSrc(descargar, "./assets/icon-download-hover.svg", "./assets/icon-download.svg")
+    cambiarSrc(descargar, "../assets/icon-download-hover.svg", "../assets/icon-download.svg")
 
     hrefneW.setAttribute("alt", elementDownload)
     hrefneW.appendChild(descargar)
