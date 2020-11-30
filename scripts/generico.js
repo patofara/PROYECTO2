@@ -34,7 +34,7 @@ function cambiarSrc(elemento, src1, src2) {
 
 
         // CAMBIA SRC DEL NEW GIFOS
-cambiarSrc(masNav, "../assets/CTA-crear-gifo-hover.svg", "../assets/button-crear-gifo.svg")
+cambiarSrc(masNav, "./assets/CTA-crear-gifo-hover.svg", "./assets/button-crear-gifo.svg")
 
 
         // OBTENER ARRAY DE LOCALSTORAGE
@@ -52,27 +52,27 @@ function oscurecer() {
     if (storageNoc === "false") {
         document.body.classList.remove('dark');
         sessionStorage.setItem('dark-mode', true)
-        closeExpansion.src = "../assets/close.svg"
+        closeExpansion.src = "./assets/close.svg"
         modoNocturno.innerHTML = "Modo Nocturno"
-        hamburguesa.src = "../assets/close.svg"
-        logo.src = "../assets/logo-mobile.svg"
-        leftslider.src = "../assets/button-slider-left.svg"
-        rightslider.src = "../assets/Button-Slider-right.svg"
-        leftslider.addEventListener("mouseleave", () => leftslider.src = "../assets/button-slider-left.svg")
-        rightslider.addEventListener("mouseleave", () => rightslider.src = "../assets/Button-Slider-right.svg")
+        hamburguesa.src = "./assets/close.svg"
+        logo.src = "./assets/logo-mobile.svg"
+        leftslider.src = "./assets/button-slider-left.svg"
+        rightslider.src = "./assets/Button-Slider-right.svg"
+        leftslider.addEventListener("mouseleave", () => leftslider.src = "./assets/button-slider-left.svg")
+        rightslider.addEventListener("mouseleave", () => rightslider.src = "./assets/Button-Slider-right.svg")
     }
 
     else {
         document.body.classList.add('dark');
-        closeExpansion.src = "../assets/close-modo-noct.svg"
+        closeExpansion.src = "./assets/close-modo-noct.svg"
         sessionStorage.setItem('dark-mode', false)
-        hamburguesa.src = "../assets/close-modo-noct.svg"
+        hamburguesa.src = "./assets/close-modo-noct.svg"
         modoNocturno.innerHTML = "Modo Diurno";
-        logo.src = "../assets/logo-mobile-modo-noct.svg"
-        leftslider.src = "../assets/button-slider-left-md-noct.svg"
-        rightslider.src = "../assets/button-slider-right-md-noct.svg"
-        rightslider.addEventListener("mouseleave", () => rightslider.src = "../assets/button-slider-right-md-noct.svg")
-        leftslider.addEventListener("mouseleave", () => leftslider.src = "../assets/button-slider-left-md-noct.svg")
+        logo.src = "./assets/logo-mobile-modo-noct.svg"
+        leftslider.src = "./assets/button-slider-left-md-noct.svg"
+        rightslider.src = "./assets/button-slider-right-md-noct.svg"
+        rightslider.addEventListener("mouseleave", () => rightslider.src = "./assets/button-slider-right-md-noct.svg")
+        leftslider.addEventListener("mouseleave", () => leftslider.src = "./assets/button-slider-left-md-noct.svg")
     }
 };
 
@@ -82,13 +82,13 @@ function storageDark() {
     if (storageNoc === "false") {
         document.body.classList.add('dark');
         modoNocturno.innerHTML = "Modo Diurno";
-        closeExpansion.src = "../assets/close-modo-noct.svg"
-        logo.src = "../assets/logo-mobile-modo-noct.svg"
-        hamburguesa.src = "../assets/burger-modo-noct.svg"
-        leftslider.src = "../assets/button-slider-left-md-noct.svg"
-        rightslider.src = "../assets/button-slider-right-md-noct.svg"
-        rightslider.addEventListener("mouseleave", () => rightslider.src = "../assets/button-slider-right-md-noct.svg")
-        leftslider.addEventListener("mouseleave", () => leftslider.src = "../assets/button-slider-left-md-noct.svg")
+        closeExpansion.src = "./assets/close-modo-noct.svg"
+        logo.src = "./assets/logo-mobile-modo-noct.svg"
+        hamburguesa.src = "./assets/burger-modo-noct.svg"
+        leftslider.src = "./assets/button-slider-left-md-noct.svg"
+        rightslider.src = "./assets/button-slider-right-md-noct.svg"
+        rightslider.addEventListener("mouseleave", () => rightslider.src = "./assets/button-slider-right-md-noct.svg")
+        leftslider.addEventListener("mouseleave", () => leftslider.src = "./assets/button-slider-left-md-noct.svg")
     }
     else {
         document.body.classList.remove('dark');
@@ -107,25 +107,25 @@ function burger() {
     if (hamburguesa.classList.contains('hamburguesa') && document.body.classList.contains('dark')) {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
-        hamburguesa.src = "../assets/close-modo-noct.svg"
+        hamburguesa.src = "./assets/close-modo-noct.svg"
         document.body.style = "overflow-y: hidden"
     }
     else if (hamburguesa.classList.contains('hamburguesa')) {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
-        hamburguesa.src = "../assets/close.svg"
+        hamburguesa.src = "./assets/close.svg"
         document.body.style = "overflow-y: hidden"
     }
     else if (hamburguesa.classList.contains('burgerOn') && document.body.classList.contains('dark')) {
         hamburguesa.classList.remove('burgerOn')
         hamburguesa.classList.add('hamburguesa')
-        hamburguesa.src = "../assets/burger-modo-noct.svg"
+        hamburguesa.src = "./assets/burger-modo-noct.svg"
         document.body.style = "overflow-y: auto"
     }
     else {
         hamburguesa.classList.remove('burgerOn')
         hamburguesa.classList.add('hamburguesa')
-        hamburguesa.src = "../assets/burger.svg"
+        hamburguesa.src = "./assets/burger.svg"
         document.body.style = "overflow-y: auto"
     }
 };
@@ -151,7 +151,7 @@ let trending = fetch("https://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8
             // contador para el array del carrusel
 
 var contImagenes = 0;
-cambiarSrc(leftslider, "../assets/button-slider-left-hover.svg", "../assets/button-slider-left.svg")
+cambiarSrc(leftslider, "./assets/button-slider-left-hover.svg", "./assets/button-slider-left.svg")
 leftslider.addEventListener("click", function () {
 
     if (contImagenes > 0) {
@@ -161,16 +161,16 @@ leftslider.addEventListener("click", function () {
         imagenslider3.src = arrayTrending[contImagenes + 2]
         for (let i = 0; i < meGusta.length; i++) {
             let element1 = meGusta[i];
-            element1.src = "../assets/icon-fav.svg"
-            element1.addEventListener("mouseover", () => { element1.src = "../assets/icon-fav-hover.svg"; })
-            element1.addEventListener("mouseleave", () => { element1.src = "../assets/icon-fav.svg"; })
+            element1.src = "./assets/icon-fav.svg"
+            element1.addEventListener("mouseover", () => { element1.src = "./assets/icon-fav-hover.svg"; })
+            element1.addEventListener("mouseleave", () => { element1.src = "./assets/icon-fav.svg"; })
         }
     }
 
 });
 
 
-cambiarSrc(rightslider, "../assets/Button-Slider-right-hover.svg", "../assets/Button-Slider-right.svg")
+cambiarSrc(rightslider, "./assets/Button-Slider-right-hover.svg", "./assets/Button-Slider-right.svg")
 rightslider.addEventListener("click", function () {
     if (contImagenes < (arrayTrending.length - 3)) {
         imagenslider1.src = arrayTrending[contImagenes + 1]
@@ -179,9 +179,9 @@ rightslider.addEventListener("click", function () {
         contImagenes++;
         for (let i = 0; i < meGusta.length; i++) {
             let element1 = meGusta[i];
-            element1.src = "../assets/icon-fav.svg"
-            element1.addEventListener("mouseover", () => { element1.src = "../assets/icon-fav-hover.svg"; })
-            element1.addEventListener("mouseleave", () => { element1.src = "../assets/icon-fav.svg"; })
+            element1.src = "./assets/icon-fav.svg"
+            element1.addEventListener("mouseover", () => { element1.src = "./assets/icon-fav-hover.svg"; })
+            element1.addEventListener("mouseleave", () => { element1.src = "./assets/icon-fav.svg"; })
         }
     }
 });
@@ -193,22 +193,22 @@ function accionMeGusta() {
         // AGREGAR IMG A FAVORITOS
 
         let element1 = meGusta[i]
-        element1.addEventListener("mouseover", () => { element1.src = "../assets/icon-fav-hover.svg"; })
-        element1.addEventListener("mouseleave", () => { element1.src = "../assets/icon-fav.svg"; })
+        element1.addEventListener("mouseover", () => { element1.src = "./assets/icon-fav-hover.svg"; })
+        element1.addEventListener("mouseleave", () => { element1.src = "./assets/icon-fav.svg"; })
         element1.addEventListener("click", () => {
             let indexElement = window["imagenslider" + (i + 1)].src
             if (arrayFav.includes(indexElement)) {
-                element1.src = "../assets/icon-fav.svg"
+                element1.src = "./assets/icon-fav.svg"
                 let indice = arrayFav.indexOf(indexElement)
                 arrayFav.splice(indice, 1)
-                element1.addEventListener("mouseover", () => { element1.src = "../assets/icon-fav-hover.svg"; })
-                element1.addEventListener("mouseleave", () => { element1.src = "../assets/icon-fav.svg"; })
+                element1.addEventListener("mouseover", () => { element1.src = "./assets/icon-fav-hover.svg"; })
+                element1.addEventListener("mouseleave", () => { element1.src = "./assets/icon-fav.svg"; })
             }
             else {
                 arrayFav.push(indexElement)
-                element1.src = "../assets/icon-fav-active.svg"
-                element1.addEventListener("mouseover", () => { element1.src = "../assets/icon-fav-active.svg"; })
-                element1.addEventListener("mouseleave", () => { element1.src = "../assets/icon-fav-active.svg"; })
+                element1.src = "./assets/icon-fav-active.svg"
+                element1.addEventListener("mouseover", () => { element1.src = "./assets/icon-fav-active.svg"; })
+                element1.addEventListener("mouseleave", () => { element1.src = "./assets/icon-fav-active.svg"; })
             }
             localStorage.setItem('favoritos', JSON.stringify(arrayFav))
         })
@@ -216,7 +216,7 @@ function accionMeGusta() {
         // CLICK PARA EXPANDIR IMAGENES 
 
         let element2 = expandir[i]
-        cambiarSrc(element2, "../assets/icon-max-hover.svg", "../assets/icon-max-normal.svg")
+        cambiarSrc(element2, "./assets/icon-max-hover.svg", "./assets/icon-max-normal.svg")
         element2.addEventListener("click", () => {
             let indexElement = window["imagenslider" + (i + 1)].src
             main.setAttribute("hidden", "")
@@ -247,7 +247,7 @@ function accionMeGusta() {
         element3url.addEventListener("click", () => {
             descargarGifo(window["imagenslider" + (i + 1)].src, "Trending Gif")
         })
-        cambiarSrc(element3, "../assets/icon-download-hover.svg", "../assets/icon-download.svg")
+        cambiarSrc(element3, "./assets/icon-download-hover.svg", "./assets/icon-download.svg")
     }
 }
 accionMeGusta()
@@ -268,9 +268,9 @@ async function descargarGifo(url, titulo) {
 
 function imgMAX() {
     if (document.body.classList.contains('dark')) {
-        closeExpansion.src = "../assets/close-modo-noct.svg"
+        closeExpansion.src = "./assets/close-modo-noct.svg"
     }
-    favExpansion.src = "../assets/icon-fav.svg"
+    favExpansion.src = "./assets/icon-fav.svg"
     let indexElement = imagenExpandida.src
 
 
@@ -285,11 +285,11 @@ function imgMAX() {
         if (arrayFav.includes(indexElement)) {
             let indice = arrayFav.indexOf(indexElement)
             arrayFav.splice(indice, 1)
-            favExpansion.src = "../assets/icon-fav.svg"
+            favExpansion.src = "./assets/icon-fav.svg"
         }
         else {
             arrayFav.push(indexElement)
-            favExpansion.src = "../assets/iconFavActivo.svg"
+            favExpansion.src = "./assets/iconFavActivo.svg"
         }
         localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
@@ -304,11 +304,11 @@ function imgMAX() {
 
 
 let facebook = document.getElementById("facebook")
-cambiarSrc(facebook, "../assets/icon_facebook_hover.svg", "../assets/icon_facebook.svg")
+cambiarSrc(facebook, "./assets/icon_facebook_hover.svg", "./assets/icon_facebook.svg")
 let twitter = document.getElementById("twitter")
-cambiarSrc(twitter, "../assets/icon-twitter-hover.svg", "../assets/icon-tw-normal.svg")
+cambiarSrc(twitter, "./assets/icon-twitter-hover.svg", "./assets/icon-tw-normal.svg")
 let instagram = document.getElementById("instagram")
-cambiarSrc(instagram, "../assets/icon_instagram-hover.svg", "../assets/icon_instagram.svg")
+cambiarSrc(instagram, "./assets/icon_instagram-hover.svg", "./assets/icon_instagram.svg")
 
 
 
