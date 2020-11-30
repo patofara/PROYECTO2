@@ -1,16 +1,52 @@
-// MODO NOCTURNO
 
+var imagenslider1 = document.getElementById("imagenslider1")
+var imagenslider2 = document.getElementById("imagenslider2")
+var imagenslider3 = document.getElementById("imagenslider3")
+let slider = document.getElementById("slider")
+let tituloExpansion = document.getElementById("tituloExpansion")
+let favExpansion = document.getElementById("favExpansion")
+let closeExpansion = document.getElementById("closeExpansion")
+let hrefExpansion = document.getElementById("hrefExpansion")
+let meGusta = document.getElementsByClassName("meGusta")
+let expandir = document.getElementsByClassName("expandir")
+let descargar = document.getElementsByClassName("descargar")
+let href = document.getElementsByClassName("href")
+let main = document.getElementById("main")
+let tituloTrending = document.getElementById("tituloTrending")
+let expansion = document.getElementById("expansion")
+let imagenExpandida = document.getElementById("imagenExpandida")
+let imgTrending = document.getElementsByClassName("imgTrending")
 let modoNocturno = document.getElementById("modoNocturno");
 let logo = document.getElementById("logo")
 let masNav = document.getElementById("masNav")
+let rightslider = document.getElementById("rightslider")
+let leftslider = document.getElementById("leftslider")
+
+
+// cambia de src con un mouseover y mouseleave
+
+
+function cambiarSrc(elemento, src1, src2) {
+    elemento.addEventListener("mouseover", () => { elemento.src = src1 })
+    elemento.addEventListener("mouseleave", () => { elemento.src = src2 })
+}
+
+
+
+        // CAMBIA SRC DEL NEW GIFOS
 cambiarSrc(masNav, "../assets/CTA-crear-gifo-hover.svg", "../assets/button-crear-gifo.svg")
 
+
+        // OBTENER ARRAY DE LOCALSTORAGE
 if (localStorage.getItem('favoritos')) {
     arrayFav = JSON.parse(localStorage.getItem('favoritos'))
 }
 else {
     var arrayFav = [];
 }
+
+
+    // MODO NOCTURNO
 function oscurecer() {
     let storageNoc = sessionStorage.getItem('dark-mode')
     if (storageNoc === "false") {
@@ -39,6 +75,9 @@ function oscurecer() {
         leftslider.addEventListener("mouseleave", () => leftslider.src = "../assets/button-slider-left-md-noct.svg")
     }
 };
+
+// SETEAR MODO NOC EN LOCALSTORAGE
+
 function storageDark() {
     if (storageNoc === "false") {
         document.body.classList.add('dark');
@@ -91,17 +130,6 @@ function burger() {
     }
 };
 
-
-
-// cambia de src con un mouseover y mouseleave
-
-
-function cambiarSrc(elemento, src1, src2) {
-    elemento.addEventListener("mouseover", () => { elemento.src = src1 })
-    elemento.addEventListener("mouseleave", () => { elemento.src = src2 })
-}
-
-
 arrayTrending = [];
 arrayTrendingObj = [];
 let trending = fetch("https://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&limit=12")
@@ -120,19 +148,10 @@ let trending = fetch("https://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8
     });
 
 
-var imagenslider1 = document.getElementById("imagenslider1")
-var imagenslider2 = document.getElementById("imagenslider2")
-var imagenslider3 = document.getElementById("imagenslider3")
-
-
-
-// contador para el array del carrusel
+            // contador para el array del carrusel
 
 var contImagenes = 0;
-
-let leftslider = document.getElementById("leftslider")
 cambiarSrc(leftslider, "../assets/button-slider-left-hover.svg", "../assets/button-slider-left.svg")
-
 leftslider.addEventListener("click", function () {
 
     if (contImagenes > 0) {
@@ -150,9 +169,8 @@ leftslider.addEventListener("click", function () {
 
 });
 
-let rightslider = document.getElementById("rightslider")
-cambiarSrc(rightslider, "../assets/Button-Slider-right-hover.svg", "../assets/Button-Slider-right.svg")
 
+cambiarSrc(rightslider, "../assets/Button-Slider-right-hover.svg", "../assets/Button-Slider-right.svg")
 rightslider.addEventListener("click", function () {
     if (contImagenes < (arrayTrending.length - 3)) {
         imagenslider1.src = arrayTrending[contImagenes + 1]
@@ -170,20 +188,6 @@ rightslider.addEventListener("click", function () {
 
 // AGREGAR A FAV
 
-let slider = document.getElementById("slider")
-let tituloExpansion = document.getElementById("tituloExpansion")
-let favExpansion = document.getElementById("favExpansion")
-let closeExpansion = document.getElementById("closeExpansion")
-let hrefExpansion = document.getElementById("hrefExpansion")
-let meGusta = document.getElementsByClassName("meGusta")
-let expandir = document.getElementsByClassName("expandir")
-let descargar = document.getElementsByClassName("descargar")
-let href = document.getElementsByClassName("href")
-let main = document.getElementById("main")
-let tituloTrending = document.getElementById("tituloTrending")
-let expansion = document.getElementById("expansion")
-let imagenExpandida = document.getElementById("imagenExpandida")
-let imgTrending = document.getElementsByClassName("imgTrending")
 function accionMeGusta() {
     for (let i = 0; i < meGusta.length; i++) {
         // AGREGAR IMG A FAVORITOS
@@ -209,7 +213,7 @@ function accionMeGusta() {
             localStorage.setItem('favoritos', JSON.stringify(arrayFav))
         })
 
-        // EXPANDIR IMAGENES 
+        // CLICK PARA EXPANDIR IMAGENES 
 
         let element2 = expandir[i]
         cambiarSrc(element2, "../assets/icon-max-hover.svg", "../assets/icon-max-normal.svg")
@@ -246,21 +250,21 @@ function accionMeGusta() {
         cambiarSrc(element3, "../assets/icon-download-hover.svg", "../assets/icon-download.svg")
     }
 }
-async function descargarGifo(url, titulo) {
+accionMeGusta()
 
-    //create new a element
+
+async function descargarGifo(url, titulo) {
+    // Crear nuevo elemento
     let a = document.createElement('a');
     let response = await fetch(url);
     let file = await response.blob();
     a.download = titulo;
     a.href = window.URL.createObjectURL(file);
-
     a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-
     a.click();
 }
 
-accionMeGusta()
+      // EXPANDIR IMAGENES 
 
 function imgMAX() {
     if (document.body.classList.contains('dark')) {
@@ -296,7 +300,7 @@ function imgMAX() {
 
 
 
-// Hover de las redes sociales
+// Hover redes sociales
 
 
 let facebook = document.getElementById("facebook")

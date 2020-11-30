@@ -1,24 +1,35 @@
 let masNav = document.getElementById("masNav")
 let newgifo = document.getElementById("newgifo")
-masNav.src = "../assets/CTA-crear-gifo-active.svg"
-
-if (localStorage.getItem('myGif')) {
-    myGif = JSON.parse(localStorage.getItem('myGif'))
-}
-else {
-    var myGif = [];
-}
-// MODO NOCTURNO
-
-let modoNocturno = document.getElementById("modoNocturno");
-let logo = document.getElementById("logo")
-modoNocturno.addEventListener("click", oscurecer)
+let video = document.getElementById("video")
 let boton = document.getElementById("boton")
 let paso1 = document.getElementById("paso1")
 let paso2 = document.getElementById("paso2")
 let paso3 = document.getElementById("paso3")
 let titulo = document.getElementById("titulo")
 let parrafo = document.getElementById("parrafo")
+let form;
+var recorder;
+
+function cambiarSrc(elemento, src1, src2) {
+    elemento.addEventListener("mouseover", () => { elemento.src = src1 })
+    elemento.addEventListener("mouseleave", () => { elemento.src = src2 })
+}
+
+masNav.src = "../assets/CTA-crear-gifo-active.svg"
+
+    // OBTENER ARRAY DE LOCALSTG
+if (localStorage.getItem('myGif')) {
+    myGif = JSON.parse(localStorage.getItem('myGif'))
+}
+else {
+    var myGif = [];
+}
+
+    // MODO NOCTURNO
+
+let modoNocturno = document.getElementById("modoNocturno");
+let logo = document.getElementById("logo")
+modoNocturno.addEventListener("click", oscurecer)
 
 function oscurecer() {
     let storageNoc = sessionStorage.getItem('dark-mode')
@@ -41,6 +52,8 @@ function oscurecer() {
         paso3.src = "../assets/paso-a-paso-mod-noc3.svg"
     }
 };
+
+
 function storageDark() {
     let storageNoc = sessionStorage.getItem('dark-mode')
     if (storageNoc === "false") {
@@ -58,8 +71,7 @@ function storageDark() {
 storageDark()
 
 
-// // HAMBURGUESA 
-
+        // HAMBURGUESA 
 
 let hamburguesa = document.getElementById("hamburguesa");
 let listaHamb = document.getElementById("menuNav");
@@ -92,10 +104,9 @@ function burger() {
         document.body.style = "overflow-y: auto"
     }
 };
-function cambiarSrc(elemento, src1, src2) {
-    elemento.addEventListener("mouseover", () => { elemento.src = src1 })
-    elemento.addEventListener("mouseleave", () => { elemento.src = src2 })
-}
+
+
+    // HOVER DE REDES SOCIALES
 
 let facebook = document.getElementById("facebook")
 cambiarSrc(facebook, "../assets/icon_facebook_hover.svg", "../assets/icon_facebook.svg")
@@ -105,15 +116,19 @@ let instagram = document.getElementById("instagram")
 cambiarSrc(instagram, "../assets/icon_instagram-hover.svg", "../assets/icon_instagram.svg")
 
 
-let video = document.getElementById("video")
+        // CREAR GIF
+
 var contador = 0
+        
 boton.addEventListener("click", () => {
+    // PEDIR ACCESO A LA CAMARA
     if (contador == 0) {
         paso1.src = "../assets/paso-a-paso-hover.svg"
         paso3.src = "../assets/pasoApaso3.svg"
         titulo.innerHTML = "¿Nos das acceso a tu cámara?"
         parrafo.innerHTML = "El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO."
     }
+    // APARECE VIDEO
     else if (contador == 1) {
         captureCamera((camera) => {
             video.removeAttribute("hidden")
@@ -140,6 +155,7 @@ boton.addEventListener("click", () => {
         paso3.src = "../assets/pasoApaso3.svg"
         boton.innerHTML = "GRABAR"
     }
+    // EMPIEZA GRABACION
     else if (contador == 2) {
         recorder.startRecording();
         boton.innerHTML = "FINALIZAR"
@@ -147,6 +163,7 @@ boton.addEventListener("click", () => {
         paso3.src = "../assets/pasoApasoHover3.svg"
 
     }
+    // TERMINA GRABACION
     else if (contador == 3) {
         boton.innerHTML = "Subir Gif"
         recorder.stopRecording(stopRecordingCallback);
@@ -154,6 +171,7 @@ boton.addEventListener("click", () => {
         video.setAttribute("hidden", "")
         newgifo.removeAttribute("hidden")
     }
+    // SUBE GIF
     else if (contador == 4) {
         paso3.src = "../assets/pasoApaso3.svg"
         video.play();
@@ -182,8 +200,7 @@ boton.addEventListener("click", () => {
     contador++
 })
 
-let form;
-var recorder;
+    // CAPTURA LA CAMARA
 function captureCamera(callback) {
     navigator.mediaDevices.getUserMedia({
         audio: false,
@@ -198,6 +215,7 @@ function captureCamera(callback) {
     });
 }
 
+    // PARAR GRABACION Y SUBIR GIF
 function stopRecordingCallback() {
 
     video.muted = false;

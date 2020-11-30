@@ -1,14 +1,16 @@
-// MODO NOCTURNO
 let storageNoc = sessionStorage.getItem('dark-mode')
 let cuadrilla = document.getElementById("cuadrilla")
 let sincontenido = document.getElementById("sinContenido")
 storageDark()
+  
+  // MODO NOCTURNO
 modoNocturno.addEventListener("click", oscurecer)
 
 
-// // HAMBURGUESA 
+   // HAMBURGUESA 
 hamburguesa.addEventListener("click", burger)
 
+  // SI NO EXISTE EL ARRAY MUESTRA UNA IMAGEN
 function nocontent() {
   if (arrayFav != "") {
     sincontenido.setAttribute("hidden", "")
@@ -16,6 +18,7 @@ function nocontent() {
 }
 nocontent();
 
+  // CREAR DIVS
 function crearDiv(start, fin) {
   for (let i = start; i < fin; i++) {
     let img = document.createElement("img")
@@ -80,6 +83,8 @@ function crearDiv(start, fin) {
 
   }
 }
+
+    // RENDERIZA IMAGENES AL ABRIR SECCION
 let u = 12
 function renderizarImg() {
   if (arrayFav.length <= 12) {

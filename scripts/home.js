@@ -1,13 +1,18 @@
-// MODO NOCTURNO
 modoNocturno.addEventListener("click", oscurecer)
 modoNocturno.addEventListener("click", oscurecerHome)
 let lupa = document.getElementsByClassName("lupa")
 let lupa2 = document.getElementsByClassName("lupa2")
+let search = document.getElementById("search")
+let cajaSug = document.getElementById("cajaSugerencias")
+let noResult = document.getElementById("noResult")
 let storageNoc = sessionStorage.getItem('dark-mode')
 let lupaExtra = document.getElementsByClassName("lupaExtra")
+let textLiSug = document.getElementsByClassName("listaSug")
+let sectionBuscados = document.getElementById("buscados")
 storageDark();
 oscurecerHome();
 
+    // MODO NOCTURNO
 function oscurecerHome() {
   if (document.body.classList.contains('dark')) {
     lupa[0].src = "../assets/icon-search-mod-noc.svg"
@@ -25,27 +30,12 @@ function oscurecerHome() {
   }
 }
 
-
-
-
-
-
-// // HAMBURGUESA 
+   // HAMBURGUESA 
 
 hamburguesa.addEventListener("click", burger)
 
 
-// BUSQUEDA
-
-
-let search = document.getElementById("search")
-let noResult = document.getElementById("noResult")
-
-
-
-
-
-// PUSHEAR ARRAY DE IMAGENES BUSCADAS
+  // PETICION Y PUSHEAR ARRAY DE IMAGENES BUSCADAS
 let cantGifs = 0
 function busqueda(valor, param1, num) {
   arrayBuscados = []
@@ -75,11 +65,8 @@ function busqueda(valor, param1, num) {
 }
 
 
-// FUNCION DEL
-
+  // FUNCION BUSCADOR
 search.addEventListener("keyup", buscador)
-let cajaSug = document.getElementById("cajaSugerencias")
-
 
 function buscador(e) {
   if (search.value != "" && e.keyCode !== 13) {
@@ -120,9 +107,7 @@ function buscador(e) {
   }
 }
 
-// Funcion LUPA
-
-
+  // Funcion LUPA
 lupa[0].addEventListener("click", () => {
   cajaSug.classList.remove("appear")
   lupa2[0].classList.remove("aparece")
@@ -132,8 +117,6 @@ lupa[0].addEventListener("click", () => {
 })
 
 //  EVENTO LI DE SUGERENCIAS
-
-let textLiSug = document.getElementsByClassName("listaSug")
 for (let i = 0; i < textLiSug.length; i++) {
   textLiSug[i].addEventListener("click", () => {
     sectionBuscados.innerHTML = ""
@@ -144,6 +127,7 @@ for (let i = 0; i < textLiSug.length; i++) {
   })
 }
 
+  // PETICION PARA LAS SUGEENCIAS
 function cajaSugerencias(valor) {
   fetch(`https://api.giphy.com/v1/gifs/search?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&q=${valor}&limit=4`)
     .then(resp => resp.json())
@@ -157,10 +141,9 @@ function cajaSugerencias(valor) {
     })
 };
 
-// CREAR DIV IMAGENES BUSCADAS 
+// CREAR SECCION BUSCADOS
 
 let contBoton = 12
-let sectionBuscados = document.getElementById("buscados")
 function crearDiv(param1) {
   let headBuscados = document.createElement("h3")
   headBuscados.innerHTML = param1.toUpperCase();

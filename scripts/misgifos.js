@@ -7,6 +7,7 @@ modoNocturno.addEventListener("click", oscurecer)
 // // HAMBURGUESA 
 hamburguesa.addEventListener("click", burger)
 
+    // OBTENER ARRAY DE LOCALSTG
 
 if (localStorage.getItem('myGif')) {
   myGif = JSON.parse(localStorage.getItem('myGif'))
@@ -14,6 +15,8 @@ if (localStorage.getItem('myGif')) {
 else {
   var myGif = [];
 }
+
+
 function inicio() {
   arrayImg = []
   arrayObj = []
@@ -36,6 +39,8 @@ function inicio() {
 
 }
 inicio();
+
+    // NO MOSTRAR NADA SI NO HAY ARRAY EN LOCALSTG
 function nocontent() {
   if (myGif != "") {
     sincontenido.setAttribute("hidden", "")
