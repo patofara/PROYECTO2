@@ -1,6 +1,13 @@
 let masNav = document.getElementById("masNav")
+let newgifo = document.getElementById("newgifo")
+masNav.src = "../assets/CTA-crear-gifo-active.svg"  
 
-masNav.src = "../assets/CTA-crear-gifo-active.svg"     
+if (localStorage.getItem('myGif')) {
+    myGif = JSON.parse(localStorage.getItem('myGif'))
+}
+else {
+    var myGif = [];
+}
       // MODO NOCTURNO
 
 let modoNocturno = document.getElementById("modoNocturno");
@@ -109,6 +116,8 @@ boton.addEventListener("click", () => {
     }
     else if (contador == 1) {
         captureCamera((camera) => {
+            video.removeAttribute("hidden")
+            newgifo.setAttribute("hidden", "")
             video.srcObject = camera;
     
             video.play();
@@ -128,6 +137,7 @@ boton.addEventListener("click", () => {
         });
         paso1.src = "../assets/paso-a-paso.svg"
         paso2.src = "../assets/pasoApasoHover2.svg"
+        paso3.src = "../assets/pasoApaso3.svg"
         boton.innerHTML = "GRABAR"
     }
     else if (contador == 2 ) {
@@ -140,13 +150,15 @@ boton.addEventListener("click", () => {
     else if(contador == 3){
         boton.innerHTML = "Subir Gif"
         recorder.stopRecording(stopRecordingCallback);
-
-        
+        paso3.src = "../assets/pasoApaso3.svg"
+        video.setAttribute("hidden", "")
+        newgifo.removeAttribute("hidden")  
     }
     else if(contador == 4){
+        paso3.src = "../assets/pasoApaso3.svg"
         video.play();
         contador=0
-        boton.innerHTML = "Volver a grabar"
+        
         fetch("https://upload.giphy.com/v1/gifs?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ", 
         {
             method: 'POST',
@@ -154,12 +166,16 @@ boton.addEventListener("click", () => {
         })
         .then(res => res.json())
         .then(res => {
-    
-    
+            boton.innerHTML = "Estamos Subiendo tu Gif..."
+            setTimeout(()=>{boton.innerHTML = "Subido con Exito"}, 2000);
+            setTimeout(()=>{boton.innerHTML = "Volver a Grabar"}, 3100);
             console.log("fin del envio!!", res);
+            myGif.push(res.data.id)
+            localStorage.setItem('myGif', JSON.stringify(myGif))    
         })
         .catch(err => {
-            console.log("error.!!!", err);
+            boton.innerHTML = "Error al Subir..."
+            setTimeout(()=>{boton.innerHTML = "Volver a Grabar"}, 2000);
         })
     
     }
@@ -187,90 +203,15 @@ function stopRecordingCallback() {
     video.muted = false;
     video.volume = 1;
     let blob = recorder.getBlob();
-    video.src = URL.createObjectURL(blob);
-    
     
     form = new FormData();
     form.append('file', blob, 'myGif.gif');
+    newgifo.src = URL.createObjectURL(blob)
     console.log("ESTE ES EL FILE!!!!", form.get('file'));
     recorder.camera.stop()
     recorder.destroy();
     recorder = null;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function record(stream){
-//     video.srcObject = stream
-//     video.onplay()
-// }
-// recorder = RecordRTC(stream, {
-//   type: 'gif',
-//   frameRate: 1,
-//   quality: 10,
-//   width: 360,
-//   hidden: 240,
-//   onGifRecordingStarted: function() {
-//    console.log('started')
-//  },
-// });
-function record(stream){
-    video.srcObject = stream
-     recorder = RecordRTC(stream, {
-        type: 'gif',
-        frameRate: 1,
-        quality: 10,
-        width: 360,
-        hidden: 240,
-        onGifRecordingStarted: function() {
-        console.log('started')
-        }
-    });
-    // recorder.onstart();
-    recorder.stop = () =>{
-        alert("termino")
-        let blob = new Blob(newGifos,{type:"video/webm"}); 
-        let url = window.URL.createObjectURL(blob)
-        newGifos.push(url)
-        console.log(video_recorder.webm);
-    }
-    boton.addEventListener("click", () => {
-        if (contador == 1 ){
-        recorder.stop()
-        contador = 1
-        boton.innerHTML = "VOLVER A GRABAR"
-    }})
-    
-}
 
 

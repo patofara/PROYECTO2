@@ -8,25 +8,31 @@ modoNocturno.addEventListener("click", oscurecer)
   hamburguesa.addEventListener("click", burger)
 
 
-  
-  myGif=[]
-async function inicio(){
-
-await fetch("https://api.giphy.com/v1/gifs?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&ids=zgVqgmSOXLZGCmrSyd")
+if (localStorage.getItem('myGif')) {
+    myGif = JSON.parse(localStorage.getItem('myGif'))
+}
+else {
+    var myGif = [];
+}
+function inicio(){
+arrayImg=[]
+arrayObj = []
+for (let i = 0; i < myGif.length; i++) {
+let id = myGif[i]
+fetch(`https://api.giphy.com/v1/gifs?api_key=2Yn9FN3BmE8DqIq2KEG6rApYylEX0ZdQ&ids=${id}`)
 .then(resp => resp.json())
 .then(resp => {
-  console.log(resp);
-  let array0 = resp.length
-  for (let i = 0; i < array0; i++) {
-    let element = resp.data[i].images.downsized.url;
-    myGif.push(element)
-    console.log(myGif);
-}
-}).then(()=>{
+  let elementObj = resp.data[0]
+  let elementImg = resp.data[0].images.downsized.url;
+  arrayImg.push(elementImg)
+  arrayObj.push(elementObj)
+})
+.then(()=>{
   nocontent();
   renderizarImg()
-  crearDiv();
 })
+
+}
 
 }
 inicio();
@@ -45,20 +51,21 @@ function crearDiv(start, fin) {
     let descargar = document.createElement("img")
     let expandir = document.createElement("img")
     let hrefneW = document.createElement("a")
-    let elementurl = myGif[i]
-    let elementDownload = myGif[i].embed_url
-    let elementtitle = myGif[i].title
+    let elementurl = arrayImg[i]
+    let elementDownload = arrayObj[i].embed_url
+    let elementtitle = arrayObj[i].title
     expandir.src = "../assets/icon-max-normal.svg"
     descargar.src = "../assets/icon-download.svg"
     eliminar.src = "../assets/icon-trash-normal.svg"
     cambiarSrc(eliminar, "../assets/icon-trash-hover.svg", "../assets/icon-trash-normal.svg")
     eliminar.addEventListener("click", () => {
-      if (myGif.includes(elementurl)) {
-        let indice = myGif.indexOf(elementurl)
+      if (arrayImg.includes(elementurl)) {
+        let indice = arrayImg.indexOf(elementurl)
+        console.log(elementurl);
         myGif.splice(indice, 1)
         location.reload()
       }
-      localStorage.setItem('favoritos', JSON.stringify(myGif))
+      localStorage.setItem('myGif', JSON.stringify(myGif))
     })
     cambiarSrc(expandir, "../assets/icon-max-hover.svg", "../assets/icon-max-normal.svg")
     expandir.addEventListener("click", () => {
@@ -68,7 +75,6 @@ function crearDiv(start, fin) {
     })
     expandir.addEventListener("click", () => {
       tituloTrending.setAttribute("hidden", "")
-      sectionBuscados.style = "display : none"
       main.style = "display : none"
       expansion.removeAttribute("hidden")
       imagenExpandida.src = elementurl
@@ -87,25 +93,17 @@ function crearDiv(start, fin) {
     hrefneW.addEventListener("click", () => {
       descargarGifo(elementurl, elementtitle)
     })
-    cambiarSrc(descargar, "", "../assets/icon-download.svg")
-    descargar.addEventListener("mouseover", () => {
-      descargar.src = "../assets/icon-download-hover.svg"
-      hrefneW.setAttribute("title", "Download " + elementtitle)
-    })
+    cambiarSrc(descargar, "../assets/icon-download-hover.svg", "../assets/icon-download.svg")
 
     hrefneW.setAttribute("alt", elementDownload)
-    hrefneW.addEventListener("click", () => {
-      hrefneW.setAttribute("href", "")
-      hrefneW.setAttribute("download", elementDownload)
-    })
     hrefneW.appendChild(descargar)
     divOpciones.appendChild(expandir)
     divOpciones.appendChild(hrefneW)
     divOpciones.appendChild(eliminar)
-    divOpciones.c.lassList.add("opciones")
-    img.src = myGif[i]
+    divOpciones.classList.add("opciones")
+    img.src = arrayImg[i]
     div.appendChild(img)
-    div.c.lassList.add("divCuadrilla")
+    div.classList.add("divCuadrilla")
     div.appendChild(divOpciones)
     cuadrilla.appendChild(div)
 
@@ -113,10 +111,10 @@ function crearDiv(start, fin) {
 }
 let u = 12
 function renderizarImg() {
-  if (myGif.length <= 12) {
-    crearDiv(0, myGif.length)
+  if (arrayImg.length <= 12) {
+    crearDiv(0, arrayImg.length)
   }
-  else if (myGif.length > u) {
+  else if (arrayImg.length > u) {
 
     crearDiv(0, 12)
     let verMas = document.createElement("button")
@@ -125,10 +123,10 @@ function renderizarImg() {
     cuadrilla.appendChild(verMas)
     verMas.addEventListener("click", () => {
       cuadrilla.removeChild(verMas)
-      crearDiv(u, myGif.length)
+      crearDiv(u, arrayImg.length)
       u = u + 12
     })
   }
 }
-renderizarImg()
+// renderizarImg()
 
