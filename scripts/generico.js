@@ -116,9 +116,9 @@ let trending = fetch("https://api.giphy.com/v1/gifs/trending?api_key=2Yn9FN3BmE8
         imagenslider1.src = arrayTrending[0];
         imagenslider2.src = arrayTrending[1];
         imagenslider3.src = arrayTrending[2];
-        
+
     });
-    
+
 
 var imagenslider1 = document.getElementById("imagenslider1")
 var imagenslider2 = document.getElementById("imagenslider2")
@@ -217,6 +217,7 @@ function accionMeGusta() {
             let indexElement = window["imagenslider" + (i + 1)].src
             main.setAttribute("hidden", "")
             tituloTrending.setAttribute("hidden", "")
+            sectionBuscados.style = "display : none"
             element2.setAttribute("id", "expandir" + i)
             expansion.removeAttribute("hidden")
             imagenExpandida.src = indexElement
@@ -259,20 +260,21 @@ async function descargarGifo(url, titulo) {
     a.click();
 }
 
-accionMeGusta() 
+accionMeGusta()
 
 function imgMAX() {
-    if (document.body.classList.contains('dark')){
+    if (document.body.classList.contains('dark')) {
         closeExpansion.src = "../assets/close-modo-noct.svg"
     }
     favExpansion.src = "../assets/icon-fav.svg"
     let indexElement = imagenExpandida.src
-    
+
 
     closeExpansion.addEventListener("click", () => {
         main.removeAttribute("hidden")
         expansion.setAttribute("hidden", "")
-        main.style= "display: block;"
+        main.style = "display: block;"
+        sectionBuscados.style = "display: flex;"
         slider.style = "display block;"
     })
     favExpansion.addEventListener("click", () => {
@@ -287,9 +289,9 @@ function imgMAX() {
         }
         localStorage.setItem('favoritos', JSON.stringify(arrayFav))
     })
-    hrefExpansion.addEventListener("click", ()=>{
+    hrefExpansion.addEventListener("click", () => {
         descargarGifo(indexElement, "Gif")
-     })
+    })
 }
 
 
