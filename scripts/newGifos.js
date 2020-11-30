@@ -15,7 +15,7 @@ function cambiarSrc(elemento, src1, src2) {
     elemento.addEventListener("mouseleave", () => { elemento.src = src2 })
 }
 
-masNav.src = "../assets/CTA-crear-gifo-active.svg"
+masNav.src = "./assets/CTA-crear-gifo-active.svg"
 
     // OBTENER ARRAY DE LOCALSTG
 if (localStorage.getItem('myGif')) {
@@ -37,19 +37,19 @@ function oscurecer() {
     if (storageNoc === "false") {
         sessionStorage.setItem('dark-mode', true)
         modoNocturno.innerHTML = "Modo Nocturno"
-        logo.src = "../assets/logo-mobile.svg"
-        paso1.src = "../assets/paso-a-paso.svg"
-        paso2.src = "../assets/pasoApaso2.svg"
-        paso3.src = "../assets/pasoApaso3.svg"
+        logo.src = "./assets/logo-mobile.svg"
+        paso1.src = "./assets/paso-a-paso.svg"
+        paso2.src = "./assets/pasoApaso2.svg"
+        paso3.src = "./assets/pasoApaso3.svg"
     }
 
     else {
         sessionStorage.setItem('dark-mode', false)
         modoNocturno.innerHTML = "Modo Diurno";
-        logo.src = "../assets/logo-mobile-modo-noct.svg"
-        paso1.src = "../assets/paso-a-paso-mod-noc.svg"
-        paso2.src = "../assets/paso-a-paso-mod-noc2.svg"
-        paso3.src = "../assets/paso-a-paso-mod-noc3.svg"
+        logo.src = "./assets/logo-mobile-modo-noct.svg"
+        paso1.src = "./assets/paso-a-paso-mod-noc.svg"
+        paso2.src = "./assets/paso-a-paso-mod-noc2.svg"
+        paso3.src = "./assets/paso-a-paso-mod-noc3.svg"
     }
 };
 
@@ -59,10 +59,10 @@ function storageDark() {
     if (storageNoc === "false") {
         document.body.classList.toggle('dark');
         modoNocturno.innerHTML = "Modo Diurno";
-        logo.src = "../assets/logo-mobile-modo-noct.svg"
-        paso1.src = "../assets/paso-a-paso-mod-noc.svg"
-        paso2.src = "../assets/paso-a-paso-mod-noc2.svg"
-        paso3.src = "../assets/paso-a-paso-mod-noc3.svg"
+        logo.src = "./assets/logo-mobile-modo-noct.svg"
+        paso1.src = "./assets/paso-a-paso-mod-noc.svg"
+        paso2.src = "./assets/paso-a-paso-mod-noc2.svg"
+        paso3.src = "./assets/paso-a-paso-mod-noc3.svg"
     }
     else {
         document.body.classList.remove('dark');
@@ -82,25 +82,25 @@ function burger() {
     if (hamburguesa.classList.contains('hamburguesa') && document.body.classList.contains('dark')) {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
-        hamburguesa.src = "../assets/close-modo-noct.svg"
+        hamburguesa.src = "./assets/close-modo-noct.svg"
         document.body.style = "overflow-y: hidden"
     }
     else if (hamburguesa.classList.contains('hamburguesa')) {
         hamburguesa.classList.remove('hamburguesa')
         hamburguesa.classList.add('burgerOn')
-        hamburguesa.src = "../assets/close.svg"
+        hamburguesa.src = "./assets/close.svg"
         document.body.style = "overflow-y: hidden"
     }
     else if (hamburguesa.classList.contains('burgerOn') && document.body.classList.contains('dark')) {
         hamburguesa.classList.remove('burgerOn')
         hamburguesa.classList.add('hamburguesa')
-        hamburguesa.src = "../assets/burger-modo-noct.svg"
+        hamburguesa.src = "./assets/burger-modo-noct.svg"
         document.body.style = "overflow-y: auto"
     }
     else {
         hamburguesa.classList.remove('burgerOn')
         hamburguesa.classList.add('hamburguesa')
-        hamburguesa.src = "../assets/burger.svg"
+        hamburguesa.src = "./assets/burger.svg"
         document.body.style = "overflow-y: auto"
     }
 };
@@ -109,11 +109,11 @@ function burger() {
     // HOVER DE REDES SOCIALES
 
 let facebook = document.getElementById("facebook")
-cambiarSrc(facebook, "../assets/icon_facebook_hover.svg", "../assets/icon_facebook.svg")
+cambiarSrc(facebook, "./assets/icon_facebook_hover.svg", "./assets/icon_facebook.svg")
 let twitter = document.getElementById("twitter")
-cambiarSrc(twitter, "../assets/icon-twitter-hover.svg", "../assets/icon-tw-normal.svg")
+cambiarSrc(twitter, "./assets/icon-twitter-hover.svg", "./assets/icon-tw-normal.svg")
 let instagram = document.getElementById("instagram")
-cambiarSrc(instagram, "../assets/icon_instagram-hover.svg", "../assets/icon_instagram.svg")
+cambiarSrc(instagram, "./assets/icon_instagram-hover.svg", "./assets/icon_instagram.svg")
 
 
         // CREAR GIF
@@ -123,8 +123,8 @@ var contador = 0
 boton.addEventListener("click", () => {
     // PEDIR ACCESO A LA CAMARA
     if (contador == 0) {
-        paso1.src = "../assets/paso-a-paso-hover.svg"
-        paso3.src = "../assets/pasoApaso3.svg"
+        paso1.src = "./assets/paso-a-paso-hover.svg"
+        paso3.src = "./assets/pasoApaso3.svg"
         titulo.innerHTML = "¿Nos das acceso a tu cámara?"
         parrafo.innerHTML = "El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO."
     }
@@ -150,30 +150,30 @@ boton.addEventListener("click", () => {
             });
             recorder.camera = camera;
         });
-        paso1.src = "../assets/paso-a-paso.svg"
-        paso2.src = "../assets/pasoApasoHover2.svg"
-        paso3.src = "../assets/pasoApaso3.svg"
+        paso1.src = "./assets/paso-a-paso.svg"
+        paso2.src = "./assets/pasoApasoHover2.svg"
+        paso3.src = "./assets/pasoApaso3.svg"
         boton.innerHTML = "GRABAR"
     }
     // EMPIEZA GRABACION
     else if (contador == 2) {
         recorder.startRecording();
         boton.innerHTML = "FINALIZAR"
-        paso2.src = "../assets/pasoApaso2.svg"
-        paso3.src = "../assets/pasoApasoHover3.svg"
+        paso2.src = "./assets/pasoApaso2.svg"
+        paso3.src = "./assets/pasoApasoHover3.svg"
 
     }
     // TERMINA GRABACION
     else if (contador == 3) {
         boton.innerHTML = "Subir Gif"
         recorder.stopRecording(stopRecordingCallback);
-        paso3.src = "../assets/pasoApaso3.svg"
+        paso3.src = "./assets/pasoApaso3.svg"
         video.setAttribute("hidden", "")
         newgifo.removeAttribute("hidden")
     }
     // SUBE GIF
     else if (contador == 4) {
-        paso3.src = "../assets/pasoApaso3.svg"
+        paso3.src = "./assets/pasoApaso3.svg"
         video.play();
         contador = 0
 
