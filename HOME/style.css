@@ -1,3 +1,6 @@
+:root{
+  font-size: 16px;
+}
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -850,10 +853,6 @@ body.dark {
   :root {
     font-size: 30px;
   }
-}
-
-:root {
-  font-size: 16px;
 }
 
 .displayblock {
