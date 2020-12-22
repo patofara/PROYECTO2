@@ -837,6 +837,21 @@ body.dark {
   }
 }
 
+@media screen and (min-width: 1030px) {
+  .noListHamb p {
+    padding-top: 3.2vh;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .noListHamb p {
+    padding-top: 3.2vh;
+  }
+  :root {
+    font-size: 30px;
+  }
+}
+
 :root {
   font-size: 16px;
 }
